@@ -1,0 +1,109 @@
+---
+import Logo from './Logo.astro';
+
+const links = [
+  { href: '/productos', label: 'Componentes' },
+  // Builds, Comunidad y Asesorías se agregan cuando estén sus páginas
+];
+const path = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-40 border-b border-ink-800 bg-ink-950/95 backdrop-blur">
+  <div class="mx-auto flex h-14 max-w-7xl items-center gap-6 px-4 sm:px-6">
+    <Logo />
+
+    <nav class="hidden items-center gap-5 md:flex" aria-label="Principal">
+      {links.map((l) => (
+        <a
+          href={l.href}
+          class:list={[
+            'text-sm transition-colors hover:text-ink-100',
+            path.startsWith(l.href) ? 'text-ink-100' : 'text-ink-400',
+          ]}
+        >
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <form action="/productos" class="ml-auto hidden max-w-xs flex-1 sm:block" role="search">
+      <label class="sr-only" for="header-search">Buscar componentes</label>
+      <input id="header-search" name="search" type="search" placeholder="Buscar: RTX 4070, Ryzen 7…" class="field py-1.5" />
+    </form>
+
+    <!-- Se completa con la sesión del usuario -->
+    <div id="session-slot" class="ml-auto flex items-center gap-2 sm:ml-0">
+      <a href="/login" class="text-sm text-ink-400 hover:text-ink-100">Ingresar</a>
+    </div>
+
+    <button id="menu-toggle" class="-mr-2 p-2 text-ink-200 md:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <path d="M3 6h14M3 10h14M3 14h14" />
+      </svg>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="hidden border-t border-ink-800 px-4 pb-4 md:hidden">
+    <form action="/productos" class="pt-3" role="search">
+      <label class="sr-only" for="mobile-search">Buscar componentes</label>
+      <input id="mobile-search" name="search" type="search" placeholder="Buscar componentes" class="field" />
+    </form>
+    <nav class="mt-2 flex flex-col" aria-label="Principal móvil">
+      {links.map((l) => (
+        <a href={l.href} class="border-b border-ink-800 py-3 text-sm text-ink-200">{l.label}</a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  import { onUserChange, logout } from '../lib/session';
+  import { mediaUrl } from '../lib/api';
+  import { escapeHtml } from '../lib/format';
+
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  toggle.addEventListener('click', () => {
+    const open = menu.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+
+  const slot = document.getElementById('session-slot')!;
+
+  onUserChange((user) => {
+    if (!user) {
+      slot.innerHTML = `
+        <a href="/login" class="text-sm text-ink-400 hover:text-ink-100">Ingresar</a>
+        <a href="/registro" class="btn-primary hidden px-3 py-1.5 sm:inline-flex">Crear cuenta</a>`;
+      return;
+    }
+    const avatar = mediaUrl(user.avatar_url);
+    const initial = escapeHtml(user.username.charAt(0).toUpperCase());
+    slot.innerHTML = `
+      <div class="relative">
+        <button id="user-btn" class="flex items-center gap-2 rounded-sm py-1 pl-1 pr-2 hover:bg-ink-850" aria-haspopup="menu" aria-expanded="false">
+          ${avatar
+            ? `<img src="${escapeHtml(avatar)}" alt="" class="size-7 rounded-sm object-cover" />`
+            : `<span class="flex size-7 items-center justify-center rounded-sm bg-violet-950 font-mono text-xs text-violet-300">${initial}</span>`}
+          <span class="hidden max-w-32 truncate text-sm text-ink-200 sm:inline">${escapeHtml(user.username)}</span>
+        </button>
+        <div id="user-menu" role="menu" class="panel absolute right-0 mt-1 hidden w-48 py-1 shadow-xl shadow-black/40">
+          <a href="/perfil" role="menuitem" class="block px-3 py-2 text-sm text-ink-200 hover:bg-ink-850">Mi perfil</a>
+          <button id="logout-btn" role="menuitem" class="block w-full px-3 py-2 text-left text-sm text-ink-400 hover:bg-ink-850 hover:text-ink-100">Cerrar sesión</button>
+        </div>
+      </div>`;
+
+    const btn = document.getElementById('user-btn')!;
+    const dropdown = document.getElementById('user-menu')!;
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = dropdown.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    document.addEventListener('click', () => dropdown.classList.add('hidden'));
+    document.getElementById('logout-btn')!.addEventListener('click', async () => {
+      await logout();
+      location.href = '/';
+    });
+  });
+</script>

@@ -1,0 +1,14 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className = '' } = Astro.props;
+---
+
+<a href="/" class:list={['inline-flex items-center gap-2 font-mono text-[15px] font-medium tracking-[0.18em] text-ink-100', className]} aria-label="TechZone, inicio">
+  <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+    <rect x="0.5" y="0.5" width="17" height="17" fill="none" stroke="currentColor" class="text-ink-500" />
+    <rect x="5" y="5" width="8" height="8" class="fill-violet-500" />
+  </svg>
+  TECHZONE
+</a>
