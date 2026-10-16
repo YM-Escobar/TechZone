@@ -18,13 +18,8 @@ dist/
 .vscode/
 .idea/
 
-# build output
-dist/
 # generated types
 .astro/
-
-# dependencies
-node_modules/
 
 # logs
 npm-debug.log*
