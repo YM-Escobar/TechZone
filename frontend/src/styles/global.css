@@ -1,0 +1,105 @@
+@import "tailwindcss";
+@import "@fontsource-variable/archivo";
+@import "@fontsource/ibm-plex-mono/400.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/*
+  Paleta de TechZone. Para cambiar los colores del sitio basta con editar estos valores:
+  ink-* son los negros/grises de fondo y texto, violet-* el morado de acento.
+*/
+@theme {
+  --font-sans: "Archivo Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --color-ink-950: #0a090c;
+  --color-ink-900: #121116;
+  --color-ink-850: #18161d;
+  --color-ink-800: #201e27;
+  --color-ink-700: #2e2b37;
+  --color-ink-500: #6b6676;
+  --color-ink-400: #908a9c;
+  --color-ink-200: #cfcad8;
+  --color-ink-100: #eeebf3;
+
+  --color-violet-300: #c9a8ff;
+  --color-violet-400: #ad7bff;
+  --color-violet-500: #9250fa;
+  --color-violet-600: #7a35e6;
+  --color-violet-700: #5f22bd;
+  --color-violet-950: #1d0f36;
+
+  --color-ok: #6fd39b;
+  --color-warn: #f0b85a;
+  --color-danger: #ff6b7d;
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+}
+
+@layer base {
+  html {
+    background: var(--color-ink-950);
+    color: var(--color-ink-100);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    color-scheme: dark;
+  }
+
+  ::selection {
+    background: var(--color-violet-600);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-violet-400);
+    outline-offset: 2px;
+  }
+}
+
+/* Etiqueta pequeña en mayúsculas, usada en encabezados de sección y datos técnicos */
+@utility label {
+  @apply font-mono text-[11px] font-medium uppercase tracking-[0.12em] text-ink-400;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-sm px-4 py-2.5 text-sm font-semibold transition-colors disabled:cursor-not-allowed disabled:opacity-50;
+}
+@utility btn-primary {
+  @apply btn bg-violet-500 text-white hover:bg-violet-400;
+}
+@utility btn-ghost {
+  @apply btn border border-ink-700 text-ink-100 hover:border-ink-500 hover:bg-ink-850;
+}
+@utility btn-danger {
+  @apply btn border border-danger/40 text-danger hover:bg-danger/10;
+}
+
+@utility field {
+  @apply block w-full rounded-sm border border-ink-700 bg-ink-900 px-3 py-2.5 text-sm text-ink-100 placeholder:text-ink-500 transition-colors focus:border-violet-500 focus:outline-none;
+}
+@utility field-label {
+  @apply mb-1.5 block text-sm font-medium text-ink-200;
+}
+
+@utility panel {
+  @apply rounded-md border border-ink-800 bg-ink-900;
+}
+
+@utility alert {
+  @apply rounded-sm border px-3 py-2.5 text-sm;
+}
+@utility alert-error {
+  @apply alert border-danger/40 bg-danger/10 text-danger;
+}
+@utility alert-ok {
+  @apply alert border-ok/40 bg-ok/10 text-ok;
+}
+
+/* Fondo rayado para productos sin imagen */
+@utility hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    var(--color-ink-850) 0 1px,
+    transparent 1px 9px
+  );
+}

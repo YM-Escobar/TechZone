@@ -1,0 +1,40 @@
+---
+import AuthLayout from '../layouts/AuthLayout.astro';
+---
+
+<AuthLayout title="Ingresar" heading="Ingresar" intro="Usa tu correo o tu nombre de usuario.">
+  <form id="login-form" class="space-y-4" novalidate>
+    <div data-alert hidden></div>
+    <div>
+      <label for="identifier" class="field-label">Correo o usuario</label>
+      <input id="identifier" name="identifier" class="field" autocomplete="username" required />
+    </div>
+    <div>
+      <div class="flex items-baseline justify-between">
+        <label for="password" class="field-label">Contraseña</label>
+        <a href="/recuperar" class="text-xs text-violet-400 hover:text-violet-300">¿La olvidaste?</a>
+      </div>
+      <input id="password" name="password" type="password" class="field" autocomplete="current-password" required />
+    </div>
+    <button type="submit" class="btn-primary w-full">Ingresar</button>
+  </form>
+  <p class="mt-6 text-sm text-ink-400">
+    ¿No tienes cuenta? <a href="/registro" class="text-violet-400 hover:text-violet-300">Crea una</a>
+  </p>
+</AuthLayout>
+
+<script>
+  import { currentUser, login, nextUrl } from '../lib/session';
+  import { onSubmit, str } from '../lib/forms';
+
+  // Si ya tiene sesión no tiene sentido mostrar el login
+  currentUser().then((user) => user && location.replace(nextUrl()));
+
+  onSubmit(document.getElementById('login-form') as HTMLFormElement, async (data) => {
+    const identifier = str(data, 'identifier');
+    const password = String(data.get('password') ?? '');
+    if (!identifier || !password) throw new Error('Completa tu usuario y contraseña.');
+    await login(identifier, password);
+    location.href = nextUrl();
+  });
+</script>

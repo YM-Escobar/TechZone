@@ -1,0 +1,29 @@
+---
+import AuthLayout from '../layouts/AuthLayout.astro';
+---
+
+<AuthLayout title="Recuperar contraseña" heading="Recuperar contraseña" intro="Te enviaremos un enlace para crear una contraseña nueva.">
+  <form id="forgot-form" class="space-y-4">
+    <div data-alert hidden></div>
+    <div>
+      <label for="email" class="field-label">Correo de tu cuenta</label>
+      <input id="email" name="email" type="email" class="field" autocomplete="email" required />
+    </div>
+    <button type="submit" class="btn-primary w-full">Enviar enlace</button>
+  </form>
+  <p class="mt-6 text-sm text-ink-400"><a href="/login" class="text-violet-400 hover:text-violet-300">← Volver a ingresar</a></p>
+</AuthLayout>
+
+<script>
+  import { api } from '../lib/api';
+  import { onSubmit, str } from '../lib/forms';
+
+  onSubmit(document.getElementById('forgot-form') as HTMLFormElement, async (data) => {
+    const res = await api<{ detail: string }>('/auth/forgot-password', {
+      method: 'POST',
+      json: { email: str(data, 'email') },
+      auth: false,
+    });
+    return res.detail;
+  });
+</script>

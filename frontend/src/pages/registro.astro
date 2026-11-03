@@ -1,0 +1,50 @@
+---
+import AuthLayout from '../layouts/AuthLayout.astro';
+---
+
+<AuthLayout title="Crear cuenta" heading="Crear cuenta">
+  <form id="register-form" class="space-y-4">
+    <div data-alert hidden></div>
+    <div>
+      <label for="email" class="field-label">Correo</label>
+      <input id="email" name="email" type="email" class="field" autocomplete="email" required />
+    </div>
+    <div>
+      <label for="username" class="field-label">Nombre de usuario</label>
+      <input id="username" name="username" class="field" autocomplete="username" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_.\-]+" />
+      <p class="mt-1 text-xs text-ink-500">Letras, números, punto, guion o guion bajo.</p>
+    </div>
+    <div>
+      <label for="full_name" class="field-label">Nombre completo <span class="text-ink-500">(opcional)</span></label>
+      <input id="full_name" name="full_name" class="field" autocomplete="name" maxlength="120" />
+    </div>
+    <div>
+      <label for="password" class="field-label">Contraseña</label>
+      <input id="password" name="password" type="password" class="field" autocomplete="new-password" required minlength="8" />
+      <p class="mt-1 text-xs text-ink-500">Mínimo 8 caracteres.</p>
+    </div>
+    <button type="submit" class="btn-primary w-full">Crear cuenta</button>
+  </form>
+  <p class="mt-6 text-sm text-ink-400">
+    ¿Ya tienes cuenta? <a href="/login" class="text-violet-400 hover:text-violet-300">Ingresa</a>
+  </p>
+</AuthLayout>
+
+<script>
+  import { api } from '../lib/api';
+  import { login, nextUrl } from '../lib/session';
+  import { onSubmit, str } from '../lib/forms';
+
+  onSubmit(document.getElementById('register-form') as HTMLFormElement, async (data) => {
+    const password = String(data.get('password') ?? '');
+    const user = {
+      email: str(data, 'email'),
+      username: str(data, 'username'),
+      full_name: str(data, 'full_name') || null,
+      password,
+    };
+    await api('/auth/register', { method: 'POST', json: user, auth: false });
+    await login(user.email, password);
+    location.href = nextUrl('/perfil');
+  });
+</script>

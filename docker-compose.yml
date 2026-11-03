@@ -1,0 +1,27 @@
+# Uso: docker compose up --build
+# Requiere backend/.env (ver backend/.env.example)
+
+services:
+  backend:
+    build: ./backend
+    env_file: ./backend/.env
+    ports:
+      - "8000:8000"
+    volumes:
+      - uploads:/app/uploads
+    restart: unless-stopped
+
+  frontend:
+    image: node:22-alpine
+    working_dir: /app
+    command: sh -c "corepack enable && pnpm install --frozen-lockfile && pnpm dev --host 0.0.0.0"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "4321:4321"
+    depends_on:
+      - backend
+
+volumes:
+  uploads:

@@ -1,0 +1,25 @@
+---
+import AuthLayout from '../layouts/AuthLayout.astro';
+---
+
+<!-- El backend manda aquí el enlace del correo: /verificar-correo?token=... -->
+<AuthLayout title="Verificar correo" heading="Verificar correo">
+  <div id="status" class="alert border-ink-700 text-ink-400">Verificando…</div>
+  <a href="/perfil" class="btn-ghost mt-4">Ir a mi perfil</a>
+</AuthLayout>
+
+<script>
+  import { api, type User } from '../lib/api';
+  import { showAlert } from '../lib/forms';
+
+  const status = document.getElementById('status');
+  const token = new URLSearchParams(location.search).get('token');
+
+  if (!token) {
+    showAlert(status, 'El enlace no es válido.');
+  } else {
+    api<User>('/auth/verify-email', { method: 'POST', json: { token }, auth: false })
+      .then(() => showAlert(status, 'Tu correo quedó verificado.', 'ok'))
+      .catch((err) => showAlert(status, err.message));
+  }
+</script>

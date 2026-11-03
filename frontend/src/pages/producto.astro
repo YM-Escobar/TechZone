@@ -1,0 +1,118 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Producto">
+  <div class="mx-auto max-w-7xl px-4 pt-8 sm:px-6">
+    <nav id="crumbs" class="label" aria-label="Ruta">
+      <a href="/" class="hover:text-ink-100">Inicio</a> / <a href="/productos" class="hover:text-ink-100">Componentes</a>
+    </nav>
+
+    <div id="product" class="mt-6">
+      <div class="grid animate-pulse gap-8 md:grid-cols-2">
+        <div class="aspect-square bg-ink-900"></div>
+        <div class="space-y-4">
+          <div class="h-4 w-32 bg-ink-900"></div>
+          <div class="h-10 w-3/4 bg-ink-900"></div>
+          <div class="h-8 w-40 bg-ink-900"></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="related-wrap" class="mt-20 hidden">
+      <p class="label">Misma categoría</p>
+      <h2 class="mt-1 mb-5 text-xl font-semibold tracking-tight">También te puede interesar</h2>
+      <div id="related" class="grid grid-cols-2 border-l border-t border-ink-800 md:grid-cols-4"></div>
+    </section>
+  </div>
+</Base>
+
+<script>
+  import { api, ApiError, type Page, type Product } from '../lib/api';
+  import { category, escapeHtml, price, productCard, productImage, stockLabel } from '../lib/format';
+
+  const root = document.getElementById('product')!;
+  const crumbs = document.getElementById('crumbs')!;
+  const id = Number(new URLSearchParams(location.search).get('id'));
+
+  // "socket_type" -> "Socket type"
+  const specName = (key: string) => key.replace(/_/g, ' ').replace(/^./, (c) => c.toUpperCase());
+  const specValue = (v: unknown) =>
+    Array.isArray(v) ? v.join(', ') : typeof v === 'boolean' ? (v ? 'Sí' : 'No') : typeof v === 'object' && v ? JSON.stringify(v) : String(v);
+
+  function render(p: Product) {
+    const cat = category(p.category);
+    const stock = stockLabel(p.stock);
+    const specs = Object.entries(p.specs ?? {});
+    document.title = `${p.name} — TechZone`;
+
+    crumbs.insertAdjacentHTML(
+      'beforeend',
+      ` / <a href="/productos?category=${cat.value}" class="hover:text-ink-100">${escapeHtml(cat.label)}</a>`,
+    );
+
+    root.innerHTML = `
+      <div class="grid gap-8 md:grid-cols-2 lg:gap-14">
+        <div class="aspect-square border border-ink-800 bg-ink-900">${productImage(p, 'text-5xl')}</div>
+
+        <div>
+          <p class="label">${escapeHtml(p.brand)} · ${escapeHtml(cat.label)}</p>
+          <h1 class="mt-2 text-3xl font-semibold leading-tight tracking-tight text-balance sm:text-4xl">${escapeHtml(p.name)}</h1>
+          ${p.is_active ? '' : '<p class="mt-3 inline-block border border-warn/40 px-2 py-0.5 font-mono text-[11px] text-warn">Producto inactivo</p>'}
+
+          <div class="mt-6 flex items-baseline gap-4 border-y border-ink-800 py-5">
+            <span class="font-mono text-3xl font-medium">${price(p.price)}</span>
+            <span class="font-mono text-xs ${stock.tone}">${stock.text}</span>
+          </div>
+
+          ${p.description ? `<p class="mt-6 whitespace-pre-line leading-relaxed text-ink-200">${escapeHtml(p.description)}</p>` : ''}
+
+          <p class="mt-6 font-mono text-[11px] text-ink-500">SKU TZ-${String(p.id).padStart(5, '0')}</p>
+        </div>
+      </div>
+
+      ${
+        specs.length
+          ? `<section class="mt-14 max-w-3xl">
+              <h2 class="label mb-3">Especificaciones</h2>
+              <dl class="divide-y divide-ink-800 border-y border-ink-800 text-sm">
+                ${specs
+                  .map(
+                    ([k, v]) => `<div class="grid grid-cols-[minmax(0,2fr)_minmax(0,3fr)] gap-4 py-2.5">
+                      <dt class="text-ink-400">${escapeHtml(specName(k))}</dt>
+                      <dd class="font-mono text-ink-100">${escapeHtml(specValue(v))}</dd>
+                    </div>`,
+                  )
+                  .join('')}
+              </dl>
+            </section>`
+          : ''
+      }`;
+  }
+
+  async function loadRelated(p: Product) {
+    const page = await api<Page<Product>>('/products', { query: { category: p.category, limit: 5 } });
+    const items = page.items.filter((x) => x.id !== p.id).slice(0, 4);
+    if (!items.length) return;
+    document.getElementById('related')!.innerHTML = items.map(productCard).join('');
+    document.getElementById('related-wrap')!.classList.remove('hidden');
+  }
+
+  function notFound(message: string) {
+    root.innerHTML = `<div class="panel px-6 py-16 text-center">
+      <p class="font-medium">${escapeHtml(message)}</p>
+      <a href="/productos" class="mt-3 inline-block text-sm text-violet-400 hover:text-violet-300">Volver al catálogo</a>
+    </div>`;
+  }
+
+  if (!id) {
+    notFound('Producto no encontrado.');
+  } else {
+    api<Product>(`/products/${id}`)
+      .then((p) => {
+        render(p);
+        loadRelated(p).catch(() => {});
+      })
+      .catch((err) => notFound(err instanceof ApiError && err.status === 404 ? 'Producto no encontrado.' : err.message));
+  }
+</script>

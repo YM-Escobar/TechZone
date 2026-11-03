@@ -1,0 +1,156 @@
+---
+import Base from '../layouts/Base.astro';
+import { CATEGORIES } from '../lib/format';
+---
+
+<Base title="Componentes">
+  <div class="mx-auto max-w-7xl px-4 pt-8 sm:px-6">
+    <nav class="label" aria-label="Ruta"><a href="/" class="hover:text-ink-100">Inicio</a> / Componentes</nav>
+    <div class="mt-3 flex flex-wrap items-end justify-between gap-3">
+      <h1 id="title" class="text-3xl font-semibold tracking-tight">Componentes</h1>
+      <p id="count" class="font-mono text-xs text-ink-400" aria-live="polite"></p>
+    </div>
+
+    <div class="mt-6 grid gap-8 lg:grid-cols-[230px_1fr]">
+      <!-- Filtros: es un formulario GET normal, así la URL siempre refleja la búsqueda -->
+      <form id="filters" action="/productos" class="lg:sticky lg:top-20 lg:self-start">
+        <details id="filters-details">
+          <summary class="btn-ghost w-full cursor-pointer list-none lg:hidden">Filtros</summary>
+          <div class="mt-4 space-y-6 lg:mt-0">
+            <div>
+              <label for="f-search" class="label mb-2 block">Buscar</label>
+              <input id="f-search" name="search" type="search" class="field" placeholder="Nombre o modelo" />
+            </div>
+
+            <fieldset>
+              <legend class="label mb-2">Categoría</legend>
+              <div class="space-y-0.5 text-sm">
+                <label class="flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 text-ink-400 hover:bg-ink-900 has-checked:bg-ink-900 has-checked:text-ink-100">
+                  <input type="radio" name="category" value="" class="accent-violet-500" /> Todas
+                </label>
+                {CATEGORIES.map((c) => (
+                  <label class="flex cursor-pointer items-center gap-2.5 rounded-sm px-2 py-1.5 text-ink-400 hover:bg-ink-900 has-checked:bg-ink-900 has-checked:text-ink-100">
+                    <input type="radio" name="category" value={c.value} class="accent-violet-500" /> {c.label}
+                  </label>
+                ))}
+              </div>
+            </fieldset>
+
+            <div>
+              <label for="f-brand" class="label mb-2 block">Marca</label>
+              <input id="f-brand" name="brand" class="field" placeholder="AMD, Intel, NVIDIA…" />
+            </div>
+
+            <fieldset>
+              <legend class="label mb-2">Precio</legend>
+              <div class="flex items-center gap-2">
+                <input name="min_price" type="number" min="0" step="1" inputmode="numeric" class="field" placeholder="Mín." aria-label="Precio mínimo" />
+                <span class="text-ink-500">–</span>
+                <input name="max_price" type="number" min="0" step="1" inputmode="numeric" class="field" placeholder="Máx." aria-label="Precio máximo" />
+              </div>
+            </fieldset>
+
+            <div class="flex gap-2">
+              <button class="btn-primary flex-1">Aplicar</button>
+              <a href="/productos" class="btn-ghost">Limpiar</a>
+            </div>
+          </div>
+        </details>
+      </form>
+
+      <section aria-labelledby="title">
+        <div id="results" class="grid grid-cols-2 border-l border-t border-ink-800 md:grid-cols-3 xl:grid-cols-4">
+          {Array.from({ length: 8 }).map(() => <div class="aspect-[3/4] animate-pulse border-r border-b border-ink-800 bg-ink-950" />)}
+        </div>
+        <nav id="pager" class="mt-6 flex items-center justify-between gap-4" aria-label="Paginación"></nav>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { api, type Page, type Product } from '../lib/api';
+  import { category, escapeHtml, productCard } from '../lib/format';
+
+  const PAGE_SIZE = 24;
+  const params = new URLSearchParams(location.search);
+  const form = document.getElementById('filters') as HTMLFormElement;
+  const results = document.getElementById('results')!;
+  const pager = document.getElementById('pager')!;
+  const count = document.getElementById('count')!;
+  const title = document.getElementById('title')!;
+
+  // En escritorio los filtros siempre están abiertos
+  const details = document.getElementById('filters-details') as HTMLDetailsElement;
+  const desktop = matchMedia('(min-width: 1024px)');
+  const syncDetails = () => (details.open = desktop.matches);
+  syncDetails();
+  desktop.addEventListener('change', syncDetails);
+
+  // Rellenar el formulario con lo que viene en la URL
+  for (const name of ['search', 'brand', 'min_price', 'max_price']) {
+    (form.elements.namedItem(name) as HTMLInputElement).value = params.get(name) ?? '';
+  }
+  const selected = params.get('category') ?? '';
+  form.querySelectorAll<HTMLInputElement>('input[name=category]').forEach((r) => (r.checked = r.value === selected));
+  form.querySelectorAll<HTMLInputElement>('input[name=category]').forEach((r) =>
+    r.addEventListener('change', () => form.requestSubmit()),
+  );
+  // No mandar campos vacíos para que la URL quede limpia
+  form.addEventListener('formdata', (e) => {
+    for (const [key, value] of [...e.formData.entries()]) if (value === '') e.formData.delete(key);
+  });
+
+  if (selected) title.textContent = category(selected).label;
+  const search = params.get('search');
+  if (search) title.textContent = `Resultados para “${search}”`;
+
+  const page = Math.max(1, Number(params.get('page')) || 1);
+
+  function pageLink(n: number) {
+    const p = new URLSearchParams(params);
+    if (n === 1) p.delete('page');
+    else p.set('page', String(n));
+    return `/productos?${p}`;
+  }
+
+  async function load() {
+    try {
+      const data = await api<Page<Product>>('/products', {
+        query: {
+          search,
+          category: selected,
+          brand: params.get('brand'),
+          min_price: params.get('min_price'),
+          max_price: params.get('max_price'),
+          skip: (page - 1) * PAGE_SIZE,
+          limit: PAGE_SIZE,
+        },
+      });
+
+      count.textContent = `${data.total} ${data.total === 1 ? 'producto' : 'productos'}`;
+
+      if (!data.items.length) {
+        results.innerHTML = `<div class="col-span-full border-r border-b border-ink-800 bg-ink-950 px-6 py-16 text-center">
+          <p class="font-medium">No encontramos productos con esos filtros.</p>
+          <a href="/productos" class="mt-3 inline-block text-sm text-violet-400 hover:text-violet-300">Ver todo el catálogo</a>
+        </div>`;
+        pager.innerHTML = '';
+        return;
+      }
+      results.innerHTML = data.items.map(productCard).join('');
+
+      const pages = Math.ceil(data.total / PAGE_SIZE);
+      pager.innerHTML =
+        pages > 1
+          ? `${page > 1 ? `<a class="btn-ghost" href="${pageLink(page - 1)}">← Anterior</a>` : '<span></span>'}
+             <span class="font-mono text-xs text-ink-400">Página ${page} de ${pages}</span>
+             ${page < pages ? `<a class="btn-ghost" href="${pageLink(page + 1)}">Siguiente →</a>` : '<span></span>'}`
+          : '';
+    } catch (err) {
+      results.innerHTML = `<p class="col-span-full border-r border-b border-ink-800 bg-ink-950 p-10 text-center text-sm text-danger">${escapeHtml((err as Error).message)}</p>`;
+    }
+  }
+
+  load();
+</script>

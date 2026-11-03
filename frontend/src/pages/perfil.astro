@@ -1,0 +1,224 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base title="Mi perfil">
+  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6">
+    <div id="profile-head" class="flex items-center gap-5 border-b border-ink-800 pb-8">
+      <div class="size-16 animate-pulse rounded-sm bg-ink-900"></div>
+      <div class="space-y-2"><div class="h-6 w-40 bg-ink-900"></div><div class="h-4 w-56 bg-ink-900"></div></div>
+    </div>
+
+    <div id="verify-banner" hidden class="mt-6 flex flex-wrap items-center justify-between gap-3 border border-warn/40 bg-warn/5 px-4 py-3 text-sm">
+      <span class="text-warn">Tu correo todavía no está verificado.</span>
+      <button id="resend-btn" class="text-sm font-medium text-ink-100 underline underline-offset-4 hover:text-violet-300">Reenviar enlace</button>
+    </div>
+
+    <div class="divide-y divide-ink-800">
+      <!-- Datos -->
+      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
+        <div>
+          <h2 class="font-semibold">Datos del perfil</h2>
+          <p class="mt-1 text-sm text-ink-400">Lo que ven los demás en la comunidad.</p>
+        </div>
+        <form id="profile-form" class="space-y-4">
+          <div data-alert hidden></div>
+          <div class="grid gap-4 sm:grid-cols-2">
+            <div>
+              <label for="username" class="field-label">Nombre de usuario</label>
+              <input id="username" name="username" class="field" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_.\-]+" />
+            </div>
+            <div>
+              <label for="full_name" class="field-label">Nombre completo</label>
+              <input id="full_name" name="full_name" class="field" maxlength="120" />
+            </div>
+          </div>
+          <div>
+            <label for="bio" class="field-label">Sobre ti</label>
+            <textarea id="bio" name="bio" rows="4" maxlength="1000" class="field resize-y" placeholder="Qué usas tu PC, qué te interesa armar…"></textarea>
+          </div>
+          <button type="submit" class="btn-primary">Guardar cambios</button>
+        </form>
+      </section>
+
+      <!-- Foto -->
+      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
+        <div>
+          <h2 class="font-semibold">Foto de perfil</h2>
+          <p class="mt-1 text-sm text-ink-400">JPG, PNG, WEBP o GIF, hasta 5 MB.</p>
+        </div>
+        <div>
+          <div id="avatar-alert" hidden></div>
+          <div class="mt-0 flex flex-wrap items-center gap-4">
+            <div id="avatar-preview" class="size-20 overflow-hidden rounded-sm border border-ink-800 bg-ink-900"></div>
+            <label class="btn-ghost cursor-pointer">
+              Subir imagen
+              <input id="avatar-input" type="file" accept="image/jpeg,image/png,image/webp,image/gif" class="sr-only" />
+            </label>
+            <button id="avatar-remove" class="text-sm text-ink-400 hover:text-danger" hidden>Quitar foto</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contraseña -->
+      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
+        <div>
+          <h2 class="font-semibold">Contraseña</h2>
+        </div>
+        <form id="password-form" class="max-w-md space-y-4">
+          <div data-alert hidden></div>
+          <div>
+            <label for="current_password" class="field-label">Contraseña actual</label>
+            <input id="current_password" name="current_password" type="password" class="field" autocomplete="current-password" required />
+          </div>
+          <div>
+            <label for="new_password" class="field-label">Contraseña nueva</label>
+            <input id="new_password" name="new_password" type="password" class="field" autocomplete="new-password" required minlength="8" />
+          </div>
+          <button type="submit" class="btn-ghost">Cambiar contraseña</button>
+        </form>
+      </section>
+
+      <!-- Sesiones y cuenta -->
+      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
+        <div>
+          <h2 class="font-semibold">Cuenta</h2>
+        </div>
+        <div class="space-y-6">
+          <div id="account-alert" hidden></div>
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <p class="text-sm text-ink-400">Cerrar la sesión en todos tus dispositivos.</p>
+            <button id="logout-all" class="btn-ghost">Cerrar todas las sesiones</button>
+          </div>
+          <div class="flex flex-wrap items-center justify-between gap-3 border border-danger/30 p-4">
+            <p class="max-w-sm text-sm text-ink-400">Eliminar tu cuenta borra también tus builds, publicaciones y comentarios. No se puede deshacer.</p>
+            <button id="delete-account" class="btn-danger">Eliminar cuenta</button>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { api, mediaUrl, tokens, type User } from '../lib/api';
+  import { requireUser, setUser } from '../lib/session';
+  import { date, escapeHtml } from '../lib/format';
+  import { onSubmit, showAlert, str } from '../lib/forms';
+
+  const ROLE_LABELS: Record<string, string> = { usuario: 'Usuario', asesor: 'Asesor', admin: 'Administrador' };
+
+  const head = document.getElementById('profile-head')!;
+  const profileForm = document.getElementById('profile-form') as HTMLFormElement;
+  const avatarPreview = document.getElementById('avatar-preview')!;
+  const avatarInput = document.getElementById('avatar-input') as HTMLInputElement;
+  const avatarRemove = document.getElementById('avatar-remove')!;
+  const avatarAlert = document.getElementById('avatar-alert');
+  const accountAlert = document.getElementById('account-alert');
+
+  function avatarHtml(user: User, size: string) {
+    const src = mediaUrl(user.avatar_url);
+    return src
+      ? `<img src="${escapeHtml(src)}" alt="" class="${size} rounded-sm object-cover" />`
+      : `<span class="${size} flex items-center justify-center rounded-sm bg-violet-950 font-mono text-xl text-violet-300">${escapeHtml(user.username.charAt(0).toUpperCase())}</span>`;
+  }
+
+  function render(user: User) {
+    setUser(user);
+    head.innerHTML = `
+      ${avatarHtml(user, 'size-16')}
+      <div class="min-w-0">
+        <h1 class="truncate text-2xl font-semibold tracking-tight">${escapeHtml(user.full_name || user.username)}</h1>
+        <p class="mt-1 truncate font-mono text-xs text-ink-400">@${escapeHtml(user.username)} · ${escapeHtml(user.email)}</p>
+        <p class="mt-1 font-mono text-[11px] text-ink-500">${ROLE_LABELS[user.role] ?? user.role} · desde ${date(user.created_at)}</p>
+      </div>`;
+    avatarPreview.innerHTML = avatarHtml(user, 'size-full');
+    avatarRemove.hidden = !user.avatar_url;
+    document.getElementById('verify-banner')!.hidden = user.is_verified;
+  }
+
+  async function main() {
+    const user = await requireUser();
+    render(user);
+    (profileForm.elements.namedItem('username') as HTMLInputElement).value = user.username;
+    (profileForm.elements.namedItem('full_name') as HTMLInputElement).value = user.full_name ?? '';
+    (profileForm.elements.namedItem('bio') as HTMLTextAreaElement).value = user.bio ?? '';
+
+    onSubmit(profileForm, async (data) => {
+      const updated = await api<User>('/users/me', {
+        method: 'PATCH',
+        json: { username: str(data, 'username'), full_name: str(data, 'full_name') || null, bio: str(data, 'bio') || null },
+      });
+      render(updated);
+      return 'Cambios guardados.';
+    });
+
+    avatarInput.addEventListener('change', async () => {
+      const file = avatarInput.files?.[0];
+      if (!file) return;
+      const form = new FormData();
+      form.append('file', file);
+      showAlert(avatarAlert, null);
+      try {
+        render(await api<User>('/users/me/avatar', { method: 'PUT', form }));
+      } catch (err) {
+        showAlert(avatarAlert, (err as Error).message);
+      } finally {
+        avatarInput.value = '';
+      }
+    });
+
+    avatarRemove.addEventListener('click', async () => {
+      try {
+        render(await api<User>('/users/me/avatar', { method: 'DELETE' }));
+      } catch (err) {
+        showAlert(avatarAlert, (err as Error).message);
+      }
+    });
+
+    const passwordForm = document.getElementById('password-form') as HTMLFormElement;
+    onSubmit(passwordForm, async (data) => {
+      const res = await api<{ detail: string }>('/users/me/password', {
+        method: 'PUT',
+        json: { current_password: data.get('current_password'), new_password: data.get('new_password') },
+      });
+      passwordForm.reset();
+      return res.detail;
+    });
+
+    document.getElementById('resend-btn')!.addEventListener('click', async (e) => {
+      const btn = e.currentTarget as HTMLButtonElement;
+      btn.disabled = true;
+      try {
+        const res = await api<{ detail: string }>('/auth/resend-verification', { method: 'POST' });
+        btn.textContent = res.detail;
+      } catch (err) {
+        btn.textContent = (err as Error).message;
+      }
+    });
+
+    document.getElementById('logout-all')!.addEventListener('click', async () => {
+      try {
+        await api('/auth/logout-all', { method: 'POST' });
+        tokens.clear();
+        location.href = '/login';
+      } catch (err) {
+        showAlert(accountAlert, (err as Error).message);
+      }
+    });
+
+    document.getElementById('delete-account')!.addEventListener('click', async () => {
+      const answer = prompt(`Para confirmar, escribe tu nombre de usuario (${user.username}):`);
+      if (answer?.trim() !== user.username) return;
+      try {
+        await api('/users/me', { method: 'DELETE' });
+        tokens.clear();
+        location.href = '/';
+      } catch (err) {
+        showAlert(accountAlert, (err as Error).message);
+      }
+    });
+  }
+
+  main();
+</script>
