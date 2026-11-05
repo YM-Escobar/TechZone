@@ -1,0 +1,33 @@
+
+--- import '../styles/global.css';
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a090c" />
+    <title>{title} — TechZone</title>
+  </head>
+
+  <body class="min-h-screen bg-ink-950 text-ink-100 antialiased">
+    <main class="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12">
+
+      <!-- Luces decorativas del fondo -->
+      <div class="pointer-events-none absolute -left-40 -top-40 size-96 rounded-full bg-violet-600/20 blur-[120px]"></div>
+      <div class="pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-danger/15 blur-[120px]"></div>
+
+      <!-- Contenido del login -->
+      <div class="relative z-10 w-full max-w-md">
+        <slot />
+      </div>
+
+    </main>
+  </body>
+</html>
