@@ -1,34 +1,120 @@
+
 ---
-import AuthLayout from '../layouts/AuthLayout.astro';
+import RegisterLayout from '../layouts/RegisterLayout.astro';
 ---
 
-<AuthLayout title="Crear cuenta" heading="Crear cuenta">
-  <form id="register-form" class="space-y-4">
-    <div data-alert hidden></div>
-    <div>
-      <label for="email" class="field-label">Correo</label>
-      <input id="email" name="email" type="email" class="field" autocomplete="email" required />
+<RegisterLayout title="Crear cuenta">
+  <div class="relative overflow-hidden rounded-lg border border-violet-500/30 bg-ink-900/95 p-6 shadow-2xl shadow-violet-950/50 sm:p-9">
+
+    <!-- Línea decorativa -->
+    <div class="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-violet-600 via-rose-500 to-pink-400"></div>
+
+    <!-- Encabezado -->
+    <div class="mb-7 text-center">
+      <p class="font-mono text-xs uppercase tracking-[0.3em] text-rose-400">
+        TECHZONE
+      </p>
+
+      <h1 class="mt-4 text-2xl font-bold text-white sm:text-3xl">
+        CREA TU CUENTA
+      </h1>
+
+      <p class="mt-2 text-sm text-ink-400">
+        Únete a nuestra comunidad gamer.
+      </p>
     </div>
-    <div>
-      <label for="username" class="field-label">Nombre de usuario</label>
-      <input id="username" name="username" class="field" autocomplete="username" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_.\-]+" />
-      <p class="mt-1 text-xs text-ink-500">Letras, números, punto, guion o guion bajo.</p>
+
+    <div class="mb-6 flex items-center gap-3">
+      <div class="h-px flex-1 bg-ink-700"></div>
+      <span class="font-mono text-[10px] uppercase text-ink-500">
+        Registro de usuario
+      </span>
+      <div class="h-px flex-1 bg-ink-700"></div>
     </div>
-    <div>
-      <label for="full_name" class="field-label">Nombre completo <span class="text-ink-500">(opcional)</span></label>
-      <input id="full_name" name="full_name" class="field" autocomplete="name" maxlength="120" />
+
+    <form id="register-form" class="space-y-4">
+      <div data-alert hidden></div>
+
+      <div>
+        <label for="email" class="field-label">Correo</label>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          class="field border-violet-500/30 bg-ink-950/80 py-3 transition-all duration-300 focus:border-rose-400 focus:shadow-[0_0_12px_rgba(255,45,149,0.25)]"
+          autocomplete="email"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="username" class="field-label">Nombre de usuario</label>
+        <input
+          id="username"
+          name="username"
+          class="field border-violet-500/30 bg-ink-950/80 py-3 transition-all duration-300 focus:border-rose-400 focus:shadow-[0_0_12px_rgba(255,45,149,0.25)]"
+          autocomplete="username"
+          required
+          minlength="3"
+          maxlength="50"
+          pattern="[A-Za-z0-9_.\-]+"
+        />
+        <p class="mt-1 text-xs text-ink-500">
+          Letras, números, punto, guion o guion bajo.
+        </p>
+      </div>
+
+      <div>
+        <label for="full_name" class="field-label">
+          Nombre completo <span class="text-ink-500">(opcional)</span>
+        </label>
+        <input
+          id="full_name"
+          name="full_name"
+          class="field border-violet-500/30 bg-ink-950/80 py-3 transition-all duration-300 focus:border-rose-400 focus:shadow-[0_0_12px_rgba(255,45,149,0.25)]"
+          autocomplete="name"
+          maxlength="120"
+        />
+      </div>
+
+      <div>
+        <label for="password" class="field-label">Contraseña</label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          class="field border-violet-500/30 bg-ink-950/80 py-3 transition-all duration-300 focus:border-rose-400 focus:shadow-[0_0_12px_rgba(255,45,149,0.25)]"
+          autocomplete="new-password"
+          required
+          minlength="8"
+        />
+        <p class="mt-1 text-xs text-ink-500">
+          Mínimo 8 caracteres.
+        </p>
+      </div>
+
+      <button
+        type="submit"
+        class="w-full rounded-sm bg-gradient-to-r from-violet-600 via-rose-500 to-pink-400 px-4 py-3 font-semibold text-white shadow-lg shadow-rose-500/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_20px_rgba(255,45,149,0.5)] active:scale-95"
+      >
+        CREAR CUENTA
+      </button>
+    </form>
+
+    <div class="mt-7 border-t border-ink-800 pt-6 text-center">
+      <p class="text-sm text-ink-400">
+        ¿Ya tienes cuenta?
+        <a href="/login" class="font-semibold text-rose-400 hover:text-rose-300">
+          Ingresa
+        </a>
+      </p>
     </div>
-    <div>
-      <label for="password" class="field-label">Contraseña</label>
-      <input id="password" name="password" type="password" class="field" autocomplete="new-password" required minlength="8" />
-      <p class="mt-1 text-xs text-ink-500">Mínimo 8 caracteres.</p>
-    </div>
-    <button type="submit" class="btn-primary w-full">Crear cuenta</button>
-  </form>
-  <p class="mt-6 text-sm text-ink-400">
-    ¿Ya tienes cuenta? <a href="/login" class="text-violet-400 hover:text-violet-300">Ingresa</a>
-  </p>
-</AuthLayout>
+
+    <p class="mt-6 text-center font-mono text-[9px] uppercase tracking-[0.2em] text-ink-600">
+      CREATE ACCOUNT // TECHZONE
+    </p>
+  </div>
+</RegisterLayout>
 
 <script>
   import { api } from '../lib/api';

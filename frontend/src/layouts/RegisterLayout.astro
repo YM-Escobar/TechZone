@@ -1,0 +1,41 @@
+
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0a090c" />
+    <title>{title} — TechZone</title>
+  </head>
+
+  <body class="min-h-screen bg-ink-950 text-ink-100 antialiased">
+    <main class="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-ink-950 via-violet-950/40 to-ink-950 px-4 py-10">
+
+      <!-- Cuadrícula gamer -->
+      <div
+        class="pointer-events-none absolute inset-0 opacity-20 [background-image:linear-gradient(rgba(255,45,149,0.25)_1px,transparent_1px),linear-gradient(90deg,rgba(139,92,246,0.25)_1px,transparent_1px)] [background-size:45px_45px]"
+      ></div>
+
+      <!-- Luces decorativas -->
+      <div class="pointer-events-none absolute -left-40 -top-40 size-96 rounded-full bg-violet-600/30 blur-[120px]"></div>
+
+      <div class="pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-rose-500/25 blur-[120px]"></div>
+
+      <!-- Formulario -->
+      <div class="relative z-10 w-full max-w-md">
+        <slot />
+      </div>
+
+    </main>
+  </body>
+</html>
