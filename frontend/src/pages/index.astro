@@ -4,73 +4,239 @@ import { CATEGORIES } from '../lib/format';
 ---
 
 <Base>
-  <section class="border-b border-ink-800">
-    <div class="mx-auto grid max-w-7xl gap-12 px-4 py-14 sm:px-6 md:py-20 lg:grid-cols-[1.15fr_1fr] lg:gap-16">
-      <div class="flex flex-col justify-center">
-        <p class="label text-violet-400">Tienda de componentes</p>
-        <h1 class="mt-4 max-w-xl text-4xl font-semibold leading-[1.05] tracking-tight text-balance sm:text-5xl lg:text-6xl">
-          Arma tu PC pieza por pieza.
-        </h1>
-        <p class="mt-5 max-w-md text-base leading-relaxed text-ink-400">
-          Procesadores, tarjetas de video, memorias y todo lo demás, con la ficha técnica a la vista para comparar antes de comprar.
-        </p>
-        <form action="/productos" class="mt-8 flex max-w-md gap-2" role="search">
-          <label for="hero-search" class="sr-only">Buscar componentes</label>
-          <input id="hero-search" name="search" type="search" placeholder="¿Qué estás buscando?" class="field" />
-          <button class="btn-primary shrink-0">Buscar</button>
-        </form>
-      </div>
+  <div class="relative overflow-hidden bg-ink-950 text-ink-100">
 
-      <nav aria-label="Categorías" class="border-t border-ink-800 lg:border-t-0">
-        <p class="label mb-2 mt-6 lg:mt-0">Categorías</p>
-        <ol class="divide-y divide-ink-800 border-y border-ink-800">
-          {CATEGORIES.map((c, i) => (
-            <li>
-              <a href={`/productos?category=${c.value}`} class="group flex items-center gap-4 py-2.5 text-sm">
-                <span class="w-6 font-mono text-[11px] text-ink-500">{String(i + 1).padStart(2, '0')}</span>
-                <span class="flex-1 text-ink-200 group-hover:text-ink-100">{c.label}</span>
-                <span class="font-mono text-[11px] text-ink-500" data-count={c.value}>—</span>
-                <span class="text-ink-700 transition-colors group-hover:text-violet-400" aria-hidden="true">→</span>
-              </a>
-            </li>
-          ))}
-        </ol>
+    <!-- Malla sutil tipo Grid Cyberpunk de fondo -->
+    <div
+      class="pointer-events-none absolute inset-0 opacity-[0.04]"
+      style="background-image: linear-gradient(to right, #8b5cf6 1px, transparent 1px), linear-gradient(to bottom, #8b5cf6 1px, transparent 1px); background-size: 36px 36px;"
+    ></div>
+
+    <!-- Luces volumétricas neon (Electric Violet + Neon Rose) -->
+    <div class="pointer-events-none absolute -top-40 left-1/4 h-[550px] w-[550px] rounded-full bg-violet-600/15 blur-[150px]"></div>
+    <div class="pointer-events-none absolute top-20 -right-20 h-[480px] w-[480px] rounded-full bg-rose-500/15 blur-[140px]"></div>
+    <div class="pointer-events-none absolute top-[55%] -left-32 h-[420px] w-[420px] rounded-full bg-violet-700/10 blur-[130px]"></div>
+
+    <section class="relative border-b border-ink-800/80">
+      <div class="mx-auto grid min-h-[620px] max-w-7xl items-center gap-10 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12 lg:py-24">
+        <div class="relative z-10 flex flex-col items-start">
+          <div class="inline-flex items-center gap-2 rounded-full border border-rose-500/30 bg-rose-950/40 px-3.5 py-1 backdrop-blur-md">
+            <span class="relative flex h-2 w-2">
+              <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-rose-400 opacity-75"></span>
+              <span class="relative inline-flex h-2 w-2 rounded-full bg-rose-500"></span>
+            </span>
+            <span class="font-mono text-[10px] font-semibold uppercase tracking-wider text-rose-300">
+              Tu próxima build empieza aquí
+            </span>
+          </div>
+
+          <h1 class="mt-6 max-w-2xl text-5xl font-extrabold uppercase leading-[0.94] tracking-[-0.055em] text-white text-balance sm:text-6xl lg:text-5xl">
+            No sigas el meta.
+            <span class="mt-1 block bg-gradient-to-r from-violet-400 via-rose-400 to-rose-500 bg-clip-text text-transparent drop-shadow-[0_0_30px_rgba(255,45,149,0.25)]">
+              Construye el tuyo.
+            </span>
+          </h1>
+
+          <p class="mt-6 max-w-lg text-lg leading-relaxed text-ink-200 sm:text-xl">
+            El hardware correcto convierte cada idea en tu próxima gran jugada. Encuentra las piezas para crear un setup tan único como tú.
+          </p>
+
+          <div class="mt-9 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <a href="/productos" class="group inline-flex min-h-12 items-center justify-center gap-3 rounded-sm bg-gradient-to-r from-violet-600 to-rose-600 px-6 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-white shadow-[0_0_28px_rgba(255,45,149,0.2)] transition-all duration-300 hover:from-violet-500 hover:to-rose-500 hover:shadow-[0_0_34px_rgba(255,45,149,0.4)]">
+              Encuentra tus piezas
+              <span class="transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
+            </a>
+            <a href="/registro" class="inline-flex min-h-12 items-center justify-center gap-2 rounded-sm border border-ink-700 bg-ink-950/50 px-6 py-3 font-mono text-xs font-semibold uppercase tracking-wider text-ink-200 transition-colors hover:border-violet-400/60 hover:text-white">
+              Únete a la comunidad
+            </a>
+          </div>
+        </div>
+
+        <div
+          id="hero-carousel"
+          class="relative mx-auto w-full max-w-[440px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-violet-400"
+          role="region"
+          aria-roledescription="carrusel"
+          aria-label="Componentes para tu PC gamer"
+          tabindex="0"
+        >
+          <div class="absolute inset-[12%] rounded-full bg-gradient-to-br from-violet-600/25 via-transparent to-rose-500/25 blur-3xl" aria-hidden="true"></div>
+          <div class="relative aspect-square overflow-hidden border border-ink-800/80 bg-ink-950/40">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(139,92,246,0.14),transparent_68%)]" aria-hidden="true"></div>
+            <div class="absolute inset-5 border border-dashed border-violet-500/15 sm:inset-8" aria-hidden="true"></div>
+            <div class="absolute left-8 top-8 font-mono text-[9px] uppercase tracking-[0.2em] text-violet-300/70 sm:left-12 sm:top-12">TechZone // Hardware</div>
+            <div class="absolute right-8 top-8 font-mono text-[9px] text-ink-500 sm:right-12 sm:top-12">SYS.01</div>
+            <div data-carousel-slide data-slide-title="Procesador" data-slide-code="CPU // CORE" class="absolute inset-0 flex flex-col items-center justify-center opacity-100 transition-opacity duration-700" role="group" aria-roledescription="diapositiva" aria-label="1 de 5">
+              <svg viewBox="0 0 256 256" class="w-[54%] text-violet-300 drop-shadow-[0_0_28px_rgba(139,92,246,0.45)]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M92 24v24m36-24v24m36-24v24M92 208v24m36-24v24m36-24v24M24 92h24m-24 36h24m-24 36h24m136-72h24m-24 36h24m-24 36h24"/>
+                <rect x="60" y="60" width="136" height="136" rx="14" class="fill-ink-900"/>
+                <rect x="82" y="82" width="92" height="92" rx="8" class="stroke-rose-400"/>
+                <path d="M102 108h52v40h-52z" class="fill-violet-500/20 stroke-violet-300"/>
+                <path d="M112 120h32m-32 14h20" class="stroke-rose-300"/>
+              </svg>
+              <span class="mt-5 font-mono text-xs uppercase tracking-[0.28em] text-ink-300">Procesador</span>
+            </div>
+            <div data-carousel-slide data-slide-title="Tarjeta gráfica" data-slide-code="GPU // VISUAL ENGINE" class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" role="group" aria-roledescription="diapositiva" aria-label="2 de 5" aria-hidden="true">
+              <svg viewBox="0 0 256 256" class="w-[62%] text-rose-300 drop-shadow-[0_0_28px_rgba(255,45,149,0.4)]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M34 82h188v92H34z" class="fill-ink-900"/>
+                <path d="M48 174v18m18-18v18m18-18v18m18-18v18m18-18v18m18-18v18m18-18v18"/>
+                <circle cx="102" cy="128" r="31" class="stroke-violet-300"/>
+                <circle cx="102" cy="128" r="8" class="fill-violet-500/30 stroke-violet-300"/>
+                <path d="m102 97 8 22-8 9-8-9zm31 31-22 8-9-8 9-8zm-31 31-8-22 8-9 8 9zm-31-31 22-8 9 8-9 8z" class="fill-violet-400/20 stroke-violet-300"/>
+                <circle cx="174" cy="128" r="25" class="stroke-rose-300"/>
+                <circle cx="174" cy="128" r="6" class="fill-rose-400/30"/>
+                <path d="M222 102h10m-10 52h10" class="stroke-rose-300"/>
+              </svg>
+              <span class="mt-5 font-mono text-xs uppercase tracking-[0.28em] text-ink-300">Tarjeta gráfica</span>
+            </div>
+            <div data-carousel-slide data-slide-title="Placa madre" data-slide-code="MB // SYSTEM BOARD" class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" role="group" aria-roledescription="diapositiva" aria-label="3 de 5" aria-hidden="true">
+              <svg viewBox="0 0 256 256" class="w-[56%] text-violet-300 drop-shadow-[0_0_28px_rgba(139,92,246,0.4)]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M56 34h144v188H56z" class="fill-ink-900"/>
+                <rect x="76" y="56" width="62" height="62" rx="5" class="stroke-rose-400"/>
+                <path d="M91 71h32v32H91z" class="fill-rose-500/20 stroke-rose-300"/>
+                <path d="M151 57h12v82h-12zm20 0h12v82h-12zM76 138h62v12H76zm0 22h62v12H76zm0 22h62v12H76z"/>
+                <circle cx="166" cy="177" r="22" class="stroke-violet-300"/>
+                <circle cx="166" cy="177" r="7" class="fill-violet-400/30"/>
+                <path d="M56 50H40m16 18H40m160-18h16m-16 18h16" class="stroke-rose-300"/>
+              </svg>
+              <span class="mt-5 font-mono text-xs uppercase tracking-[0.28em] text-ink-300">Placa madre</span>
+            </div>
+            <div data-carousel-slide data-slide-title="Memoria RAM" data-slide-code="RAM // HIGH SPEED" class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" role="group" aria-roledescription="diapositiva" aria-label="4 de 5" aria-hidden="true">
+              <svg viewBox="0 0 256 256" class="w-[68%] text-rose-300 drop-shadow-[0_0_28px_rgba(255,45,149,0.4)]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M34 82h188v92H34z" class="fill-ink-900"/>
+                <path d="M52 96h33v48H52zm47 0h33v48H99zm47 0h33v48h-33zm47 0h17v48h-17z" class="fill-violet-500/15 stroke-violet-300"/>
+                <path d="M42 174v16m18-16v16m18-16v16m18-16v16m18-16v16m18-16v16m18-16v16m18-16v16m18-16v16m18-16v16"/>
+                <path d="M60 106h17m-17 11h17m29-11h17m-17 11h17m30-11h17m-17 11h17" class="stroke-rose-300"/>
+                <path d="M83 70h90" class="stroke-rose-400"/>
+              </svg>
+              <span class="mt-5 font-mono text-xs uppercase tracking-[0.28em] text-ink-300">Memoria RAM</span>
+            </div>
+            <div data-carousel-slide data-slide-title="Almacenamiento SSD" data-slide-code="SSD // NVMe DRIVE" class="pointer-events-none absolute inset-0 flex flex-col items-center justify-center opacity-0 transition-opacity duration-700" role="group" aria-roledescription="diapositiva" aria-label="5 de 5" aria-hidden="true">
+              <svg viewBox="0 0 256 256" class="w-[58%] text-violet-300 drop-shadow-[0_0_28px_rgba(139,92,246,0.45)]" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M72 30h112v176H72z" class="fill-ink-900"/>
+                <path d="M94 50h68v37H94zm0 53h68v37H94zm0 53h68v30H94z" class="fill-violet-500/15 stroke-violet-300"/>
+                <path d="M104 61h48m-48 53h48m-48 53h48" class="stroke-rose-300"/>
+                <path d="M112 206v16m16-16v16m16-16v16" class="stroke-rose-400"/>
+                <circle cx="128" cy="43" r="4" class="fill-rose-300"/>
+                <path d="M60 76h12m112 0h12M60 158h12m112 0h12" class="stroke-rose-300"/>
+              </svg>
+              <span class="mt-5 font-mono text-xs uppercase tracking-[0.28em] text-ink-300">Almacenamiento SSD</span>
+            </div>
+            <div class="absolute bottom-8 left-8 right-8 flex items-center justify-between font-mono text-[9px] uppercase tracking-[0.16em] text-ink-500 sm:bottom-12 sm:left-12 sm:right-12">
+              <span data-carousel-code aria-hidden="true">CPU // CORE</span>
+              <span>COMPONENT 01—05</span>
+            </div>
+          </div>
+          <div class="relative z-10 mt-2 flex items-center justify-between border-t border-ink-800/80 pt-3">
+            <p data-carousel-status class="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-400" aria-live="polite" aria-atomic="true">
+              01 / PROCESADOR
+            </p>
+            <div class="flex items-center gap-2">
+              <div class="mr-2 flex items-center gap-1 sm:gap-1.5" role="group" aria-label="Seleccionar componente">
+                <button type="button" data-carousel-indicator="0" class="flex size-5 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-400 sm:size-6" aria-label="Mostrar componente 1" aria-current="true">
+                  <span class="size-2 rounded-full bg-violet-300 transition-all"></span>
+                </button>
+                <button type="button" data-carousel-indicator="1" class="flex size-5 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-400 sm:size-6" aria-label="Mostrar componente 2" aria-current="false">
+                  <span class="size-2 rounded-full bg-ink-700 transition-all"></span>
+                </button>
+                <button type="button" data-carousel-indicator="2" class="flex size-5 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-400 sm:size-6" aria-label="Mostrar componente 3" aria-current="false">
+                  <span class="size-2 rounded-full bg-ink-700 transition-all"></span>
+                </button>
+                <button type="button" data-carousel-indicator="3" class="flex size-5 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-400 sm:size-6" aria-label="Mostrar componente 4" aria-current="false">
+                  <span class="size-2 rounded-full bg-ink-700 transition-all"></span>
+                </button>
+                <button type="button" data-carousel-indicator="4" class="flex size-5 items-center justify-center rounded-full focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-400 sm:size-6" aria-label="Mostrar componente 5" aria-current="false">
+                  <span class="size-2 rounded-full bg-ink-700 transition-all"></span>
+                </button>
+              </div>
+              <button type="button" data-carousel-prev class="inline-flex size-8 items-center justify-center rounded-sm border border-ink-700 text-ink-200 transition-colors hover:border-violet-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-violet-400 sm:size-9" aria-label="Componente anterior">
+                <span aria-hidden="true">←</span>
+              </button>
+              <button type="button" data-carousel-next class="inline-flex size-8 items-center justify-center rounded-sm border border-ink-700 text-ink-200 transition-colors hover:border-rose-400 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-rose-400 sm:size-9" aria-label="Componente siguiente">
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-7xl px-4 pt-12 sm:px-6 sm:pt-14">
+      <div class="mb-4 flex items-end justify-between gap-4">
+        <div>
+          <p class="label text-violet-300">Tu setup, tus reglas</p>
+          <h2 class="mt-1 text-lg font-bold uppercase tracking-wide text-white">Elige tu terreno</h2>
+        </div>
+        <a href="/productos" class="font-mono text-[10px] uppercase tracking-wider text-ink-400 transition-colors hover:text-rose-300">Ver catálogo <span aria-hidden="true">↗</span></a>
+      </div>
+      <nav aria-label="Categorías de componentes" class="grid grid-cols-2 border-l border-t border-ink-800 sm:grid-cols-3 lg:grid-cols-5">
+        {CATEGORIES.map((c) => (
+          <a href={`/productos?category=${c.value}`} class="group flex min-h-14 items-center justify-between gap-2 border-b border-r border-ink-800 bg-ink-950/70 px-3 py-2.5 transition-colors hover:bg-ink-900 sm:px-4">
+            <span class="truncate text-xs font-medium text-ink-300 transition-colors group-hover:text-white">{c.label}</span>
+            <span class="flex shrink-0 items-center gap-2">
+              <span class="font-mono text-[9px] text-ink-600 transition-colors group-hover:text-violet-300">{c.code}</span>
+              <span class="min-w-4 text-right font-mono text-[10px] tabular-nums text-ink-500" data-count={c.value}>—</span>
+            </span>
+          </a>
+        ))}
       </nav>
-    </div>
-  </section>
+    </section>
 
-  <section class="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
-    <div class="mb-5 flex items-end justify-between gap-4">
-      <div>
-        <p class="label">Catálogo</p>
-        <h2 class="mt-1 text-2xl font-semibold tracking-tight">Algunos componentes</h2>
+    <!-- SECCIÓN CATÁLOGO / COMPONENTES DESTACADOS -->
+    <section class="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
+      <div class="mb-6 flex items-end justify-between gap-4">
+        <div>
+          <span class="label text-rose-400">Inventario Central</span>
+          <h2 class="mt-1 text-2xl font-bold uppercase tracking-tight text-white sm:text-3xl">
+            Algunos componentes
+          </h2>
+        </div>
+        <a href="/productos" class="inline-flex items-center gap-1.5 font-mono text-xs text-violet-400 hover:text-rose-400 transition-colors">
+          Ver todo <span>→</span>
+        </a>
       </div>
-      <a href="/productos" class="text-sm text-violet-400 hover:text-violet-300">Ver todo →</a>
-    </div>
-    <div id="featured" class="grid grid-cols-2 border-l border-t border-ink-800 md:grid-cols-4">
-      {Array.from({ length: 8 }).map(() => <div class="aspect-[3/4] animate-pulse border-r border-b border-ink-800 bg-ink-950" />)}
-    </div>
-  </section>
 
-  <section class="mx-auto mt-20 max-w-7xl px-4 sm:px-6">
-    <div class="grid gap-px border border-ink-800 bg-ink-800 md:grid-cols-3">
-      <div class="bg-ink-950 p-6">
-        <p class="font-mono text-xs text-violet-400">01</p>
-        <h3 class="mt-3 font-semibold">Fichas técnicas completas</h3>
-        <p class="mt-2 text-sm leading-relaxed text-ink-400">Socket, consumo, frecuencias y medidas en cada producto, para que sepas si es compatible antes de pedirlo.</p>
+      <!-- ID featured preservado: Aquí se inyectan las tarjetas desde format.ts -->
+      <div id="featured" class="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+        {Array.from({ length: 8 }).map(() => (
+          <div class="panel aspect-[3/4] animate-pulse border-ink-800/80 bg-ink-900/60" />
+        ))}
       </div>
-      <div class="bg-ink-950 p-6">
-        <p class="font-mono text-xs text-violet-400">02</p>
-        <h3 class="mt-3 font-semibold">Builds de la comunidad</h3>
-        <p class="mt-2 text-sm leading-relaxed text-ink-400">Mira cómo otros armaron sus equipos, clona una build y ajústala a tu presupuesto.</p>
+    </section>
+
+    <!-- PILARES DE VALOR TÉCNICO -->
+    <section class="mx-auto mt-20 max-w-7xl px-4 pb-20 sm:px-6">
+      <div class="grid gap-4 md:grid-cols-3">
+        <div class="panel p-6 border-ink-800 transition-all duration-300 hover:border-violet-500/70 hover:bg-ink-850/60">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-bold text-violet-400 bg-violet-950/70 border border-violet-800/50 px-2 py-0.5 rounded-sm">01</span>
+            <span class="font-mono text-[10px] text-ink-500">SPEC // CHECK</span>
+          </div>
+          <h3 class="mt-4 font-sans text-base font-bold text-white">Fichas técnicas completas</h3>
+          <p class="mt-2 text-xs text-ink-400 leading-relaxed">Socket, consumo, frecuencias y medidas en cada producto, para que sepas si es compatible antes de pedirlo.</p>
+        </div>
+
+        <div class="panel p-6 border-ink-800 transition-all duration-300 hover:border-rose-500/70 hover:bg-ink-850/60">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-bold text-rose-400 bg-rose-950/70 border border-rose-800/50 px-2 py-0.5 rounded-sm">02</span>
+            <span class="font-mono text-[10px] text-ink-500">COMMUNITY // RIGS</span>
+          </div>
+          <h3 class="mt-4 font-sans text-base font-bold text-white">Builds de la comunidad</h3>
+          <p class="mt-2 text-xs text-ink-400 leading-relaxed">Mira cómo otros armaron sus equipos, clona una build y ajústala a tu presupuesto.</p>
+        </div>
+
+        <div class="panel p-6 border-ink-800 transition-all duration-300 hover:border-violet-500/70 hover:bg-ink-850/60">
+          <div class="flex items-center justify-between">
+            <span class="font-mono text-xs font-bold text-violet-400 bg-violet-950/70 border border-violet-800/50 px-2 py-0.5 rounded-sm">03</span>
+            <span class="font-mono text-[10px] text-ink-500">DIRECT // ADVICE</span>
+          </div>
+          <h3 class="mt-4 font-sans text-base font-bold text-white">Asesoría personalizada</h3>
+          <p class="mt-2 text-xs text-ink-400 leading-relaxed">Cuéntanos qué usos le darás y un asesor te recomienda las piezas.</p>
+        </div>
       </div>
-      <div class="bg-ink-950 p-6">
-        <p class="font-mono text-xs text-violet-400">03</p>
-        <h3 class="mt-3 font-semibold">Asesoría personalizada</h3>
-        <p class="mt-2 text-sm leading-relaxed text-ink-400">Cuéntanos qué usos le darás y un asesor te recomienda las piezas.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+
+  </div>
 </Base>
 
 <script>
@@ -83,16 +249,84 @@ import { CATEGORIES } from '../lib/format';
     .then((page) => {
       featured.innerHTML = page.items.length
         ? page.items.map(productCard).join('')
-        : `<p class="col-span-full border-r border-b border-ink-800 bg-ink-950 p-10 text-center text-sm text-ink-400">Todavía no hay productos en el catálogo.</p>`;
+        : `<div class="col-span-full panel hatch p-12 text-center border-dashed border-ink-700">
+             <span class="font-mono text-xs uppercase tracking-wider text-rose-400 font-semibold">[ ESTADO: INVENTARIO EN ESPERA ]</span>
+             <p class="mt-2 text-xs text-ink-400">Todavía no hay productos registrados en el catálogo.</p>
+           </div>`;
     })
     .catch((err) => {
-      featured.innerHTML = `<p class="col-span-full border-r border-b border-ink-800 bg-ink-950 p-10 text-center text-sm text-danger">${escapeHtml(err.message)}</p>`;
+      featured.innerHTML = `<div class="col-span-full panel alert-error p-8 text-center text-xs font-mono">
+        [ERROR API]: ${escapeHtml(err.message)}
+      </div>`;
     });
 
-  // Cantidad de productos por categoría (solo se lee el total)
+  // Cantidad de productos por categoría (se preserva la lectura original)
   document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
     api<Page<Product>>('/products', { query: { category: el.dataset.count, limit: 1 } })
       .then((page) => (el.textContent = String(page.total)))
       .catch(() => (el.textContent = ''));
   });
+
+  const carousel = document.getElementById('hero-carousel');
+  if (carousel) {
+    const slides = Array.from(carousel.querySelectorAll<HTMLElement>('[data-carousel-slide]'));
+    const indicators = Array.from(carousel.querySelectorAll<HTMLButtonElement>('[data-carousel-indicator]'));
+    const status = carousel.querySelector<HTMLElement>('[data-carousel-status]');
+    const code = carousel.querySelector<HTMLElement>('[data-carousel-code]');
+    let activeSlide = 0;
+    let timer: ReturnType<typeof setInterval> | undefined;
+
+    const showSlide = (index: number) => {
+      activeSlide = (index + slides.length) % slides.length;
+      slides.forEach((slide, i) => {
+        const active = i === activeSlide;
+        slide.classList.toggle('opacity-100', active);
+        slide.classList.toggle('opacity-0', !active);
+        slide.classList.toggle('pointer-events-none', !active);
+        slide.setAttribute('aria-hidden', String(!active));
+      });
+      indicators.forEach((indicator, i) => {
+        const active = i === activeSlide;
+        const dot = indicator.querySelector('span');
+        dot?.classList.toggle('bg-violet-300', active);
+        dot?.classList.toggle('bg-ink-700', !active);
+        indicator.setAttribute('aria-current', String(active));
+      });
+
+      if (status) {
+        const title = slides[activeSlide]?.dataset.slideTitle ?? '';
+        status.textContent = `${String(activeSlide + 1).padStart(2, '0')} / ${title}`;
+      }
+      if (code) code.textContent = slides[activeSlide]?.dataset.slideCode ?? '';
+    };
+
+    const updateAutoplay = () => {
+      if (timer) clearInterval(timer);
+      timer = undefined;
+
+      if (!document.hidden) {
+        timer = setInterval(() => showSlide(activeSlide + 1), 4500);
+      }
+    };
+
+    const selectSlide = (index: number) => {
+      showSlide(index);
+      updateAutoplay();
+    };
+
+    carousel.querySelector('[data-carousel-prev]')?.addEventListener('click', () => selectSlide(activeSlide - 1));
+    carousel.querySelector('[data-carousel-next]')?.addEventListener('click', () => selectSlide(activeSlide + 1));
+    indicators.forEach((indicator, i) => indicator.addEventListener('click', () => selectSlide(i)));
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        selectSlide(activeSlide - 1);
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        selectSlide(activeSlide + 1);
+      }
+    });
+    document.addEventListener('visibilitychange', updateAutoplay);
+    updateAutoplay();
+  }
 </script>
