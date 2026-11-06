@@ -32,13 +32,9 @@ class Settings(BaseSettings):
     FIRST_ADMIN_USERNAME: str = "admin"
     FIRST_ADMIN_PASSWORD: str | None = None
 
-    # SMTP: si no se configura SMTP_HOST, los correos solo se escriben en el log
-    SMTP_HOST: str | None = None
-    SMTP_PORT: int = 587
-    SMTP_USER: str | None = None
-    SMTP_PASSWORD: str | None = None
-    SMTP_FROM: str = "TechZone <no-reply@techzone.com>"
-    SMTP_TLS: bool = True
+    # RESEND: si no se configura RESEND_API_KEY, los correos solo se escriben en el log
+    RESEND_API_KEY: str = ""
+    RESEND_FROM_EMAIL: str = "TechZone <no-reply@techzonegroup.com>"
 
     model_config = SettingsConfigDict(
         env_file=".env",
