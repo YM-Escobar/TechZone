@@ -34,7 +34,7 @@ class Settings(BaseSettings):
 
     # SMTP: si no se configura SMTP_HOST, los correos solo se escriben en el log
     RESEND_API_KEY: str = ""
-    RESEND_FROM_EMAIL: str = "TechZone <no-reply@techzone.com>"
+    RESEND_FROM_EMAIL: str = "TechZone <no-reply@techzonegroup.com>"
 
     model_config = SettingsConfigDict(
         env_file=".env",
