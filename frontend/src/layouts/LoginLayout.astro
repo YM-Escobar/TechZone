@@ -1,5 +1,7 @@
 
---- import '../styles/global.css';
+---
+import '../styles/global.css';
+
 interface Props {
   title: string;
 }
@@ -12,18 +14,22 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0a090c" />
+    <meta name="theme-color" content="#050912" />
     <title>{title} — TechZone</title>
   </head>
 
-  <body class="min-h-screen bg-ink-950 text-ink-100 antialiased">
-    <main class="relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12">
+  <body class="min-h-screen text-ink-100 antialiased">
+    <main class="gaming-bg relative flex min-h-screen items-center justify-center overflow-hidden px-4 py-12">
 
-      <!-- Luces decorativas del fondo -->
-      <div class="pointer-events-none absolute -left-40 -top-40 size-96 rounded-full bg-violet-600/20 blur-[120px]"></div>
-      <div class="pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-danger/15 blur-[120px]"></div>
+      <!-- Energía cerúlea y violeta -->
+      <div class="glow glow-blue"></div>
+      <div class="glow glow-purple"></div>
 
-      <!-- Contenido del login -->
+      <!-- Anillos de energía -->
+      <div class="energy-ring ring-one"></div>
+      <div class="energy-ring ring-two"></div>
+
+      <!-- Login -->
       <div class="relative z-10 w-full max-w-md">
         <slot />
       </div>
@@ -31,3 +37,48 @@ const { title } = Astro.props;
     </main>
   </body>
 </html>
+
+<style>
+  .gaming-bg {
+    background: radial-gradient(ellipse at center, #102438 0%, #080e19 45%, #03060c 100%);
+  }
+
+  .glow {
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    filter: blur(110px);
+    pointer-events: none;
+  }
+
+  .glow-blue {
+    top: -150px;
+    left: -100px;
+    background: #00bfff55;
+  }
+
+  .glow-purple {
+    bottom: -160px;
+    right: -100px;
+    background: #853bff44;
+  }
+
+  .energy-ring {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    border: 1px solid #00bfff30;
+    border-radius: 50%;
+    transform: rotate(-25deg) scaleY(0.35);
+    box-shadow: 0 0 35px #00bfff12, inset 0 0 35px #00bfff10;
+    pointer-events: none;
+  }
+
+  .ring-two {
+    width: 850px;
+    height: 850px;
+    border-color: #8b5cf625;
+    transform: rotate(35deg) scaleY(0.35);
+  }
+</style>
