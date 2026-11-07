@@ -165,17 +165,21 @@ import { CATEGORIES } from '../lib/format';
       <div class="mb-4 flex items-end justify-between gap-4">
         <div>
           <p class="label text-violet-300">Tu setup, tus reglas</p>
-          <h2 class="mt-1 text-lg font-bold uppercase tracking-wide text-white">Elige tu terreno</h2>
+          <h2 class="mt-1 text-lg font-bold uppercase tracking-wide text-white">Elige tus componente</h2>
         </div>
         <a href="/productos" class="font-mono text-[10px] uppercase tracking-wider text-ink-400 transition-colors hover:text-rose-300">Ver catálogo <span aria-hidden="true">↗</span></a>
       </div>
-      <nav aria-label="Categorías de componentes" class="grid grid-cols-2 border-l border-t border-ink-800 sm:grid-cols-3 lg:grid-cols-5">
+      <nav aria-label="Categorías de componentes" class="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
         {CATEGORIES.map((c) => (
-          <a href={`/productos?category=${c.value}`} class="group flex min-h-14 items-center justify-between gap-2 border-b border-r border-ink-800 bg-ink-950/70 px-3 py-2.5 transition-colors hover:bg-ink-900 sm:px-4">
-            <span class="truncate text-xs font-medium text-ink-300 transition-colors group-hover:text-white">{c.label}</span>
-            <span class="flex shrink-0 items-center gap-2">
-              <span class="font-mono text-[9px] text-ink-600 transition-colors group-hover:text-violet-300">{c.code}</span>
-              <span class="min-w-4 text-right font-mono text-[10px] tabular-nums text-ink-500" data-count={c.value}>—</span>
+          <a href={`/productos?category=${c.value}`} class="group relative flex min-h-24 flex-col justify-between overflow-hidden rounded-sm border border-ink-800 bg-ink-900/80 p-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-violet-500/60 hover:bg-ink-850/90 hover:shadow-[0_0_24px_rgba(139,92,246,0.12)] sm:min-h-28 sm:p-4">
+            <span class="pointer-events-none absolute -right-8 -top-8 size-20 rounded-full bg-violet-500/0 blur-2xl transition-colors duration-300 group-hover:bg-violet-500/20" aria-hidden="true"></span>
+            <span class="relative flex items-center justify-between gap-2">
+              <span class="truncate text-xs font-medium text-ink-300 transition-colors group-hover:text-white sm:text-sm">{c.label}</span>
+              <span class="rounded-sm border border-violet-500/25 bg-violet-950/50 px-1.5 py-0.5 font-mono text-[9px] text-violet-300 transition-all group-hover:border-rose-400/40 group-hover:bg-rose-950/40 group-hover:text-rose-300">{c.code}</span>
+            </span>
+            <span class="relative flex items-end justify-between">
+              <span class="font-mono text-[9px] uppercase tracking-[0.16em] text-ink-600 transition-colors group-hover:text-ink-400">Explorar →</span>
+              <span class="font-mono text-lg font-medium tabular-nums text-rose-300 drop-shadow-[0_0_8px_rgba(255,45,149,0.35)]" data-count={c.value}>—</span>
             </span>
           </a>
         ))}
@@ -183,7 +187,9 @@ import { CATEGORIES } from '../lib/format';
     </section>
 
     <!-- SECCIÓN CATÁLOGO / COMPONENTES DESTACADOS -->
-    <section class="mx-auto max-w-7xl px-4 pt-14 sm:px-6">
+    <section class="relative isolate mx-auto mt-3 max-w-7xl px-4 pt-14 sm:px-6">
+      <div class="pointer-events-none absolute -left-20 top-24 -z-10 size-72 rounded-full bg-violet-600/10 blur-[120px]" aria-hidden="true"></div>
+      <div class="pointer-events-none absolute -right-16 bottom-0 -z-10 size-64 rounded-full bg-rose-500/10 blur-[110px]" aria-hidden="true"></div>
       <div class="mb-6 flex items-end justify-between gap-4">
         <div>
           <span class="label text-rose-400">Inventario Central</span>
@@ -207,31 +213,40 @@ import { CATEGORIES } from '../lib/format';
     <!-- PILARES DE VALOR TÉCNICO -->
     <section class="mx-auto mt-20 max-w-7xl px-4 pb-20 sm:px-6">
       <div class="grid gap-4 md:grid-cols-3">
-        <div class="panel p-6 border-ink-800 transition-all duration-300 hover:border-violet-500/70 hover:bg-ink-850/60">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs font-bold text-violet-400 bg-violet-950/70 border border-violet-800/50 px-2 py-0.5 rounded-sm">01</span>
+        <div class="group relative overflow-hidden rounded-sm border border-ink-800 bg-ink-900/80 p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-ink-850/60">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/80 to-rose-400/70 opacity-60 transition-opacity group-hover:opacity-100" aria-hidden="true"></div>
+          <div class="absolute -right-10 -top-16 size-36 rounded-full bg-violet-500/0 blur-3xl transition-colors group-hover:bg-violet-500/15" aria-hidden="true"></div>
+          <div class="relative flex items-center justify-between">
+            <span class="rounded-sm border border-violet-500/40 bg-violet-950/80 px-2 py-0.5 font-mono text-xs font-bold text-violet-200 drop-shadow-[0_0_8px_rgba(139,92,246,0.45)]">01</span>
             <span class="font-mono text-[10px] text-ink-500">SPEC // CHECK</span>
           </div>
-          <h3 class="mt-4 font-sans text-base font-bold text-white">Fichas técnicas completas</h3>
-          <p class="mt-2 text-xs text-ink-400 leading-relaxed">Socket, consumo, frecuencias y medidas en cada producto, para que sepas si es compatible antes de pedirlo.</p>
+          <h3 class="relative mt-4 font-sans text-base font-bold text-white">Fichas técnicas completas</h3>
+          <p class="relative mt-2 text-xs leading-relaxed text-ink-400">Socket, consumo, frecuencias y medidas en cada producto, para que sepas si es compatible antes de pedirlo.</p>
+          <p class="relative mt-5 border-t border-ink-800 pt-3 font-mono text-[9px] uppercase tracking-[0.14em] text-ink-600">VALIDACIÓN // 01.001 <span class="float-right text-violet-400">●</span></p>
         </div>
 
-        <div class="panel p-6 border-ink-800 transition-all duration-300 hover:border-rose-500/70 hover:bg-ink-850/60">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs font-bold text-rose-400 bg-rose-950/70 border border-rose-800/50 px-2 py-0.5 rounded-sm">02</span>
+        <div class="group relative overflow-hidden rounded-sm border border-ink-800 bg-ink-900/80 p-6 transition-all duration-300 hover:border-rose-500/50 hover:bg-ink-850/60">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/80 to-rose-400/70 opacity-60 transition-opacity group-hover:opacity-100" aria-hidden="true"></div>
+          <div class="absolute -right-10 -top-16 size-36 rounded-full bg-rose-500/0 blur-3xl transition-colors group-hover:bg-rose-500/15" aria-hidden="true"></div>
+          <div class="relative flex items-center justify-between">
+            <span class="rounded-sm border border-rose-500/40 bg-rose-950/80 px-2 py-0.5 font-mono text-xs font-bold text-rose-200 drop-shadow-[0_0_8px_rgba(255,45,149,0.45)]">02</span>
             <span class="font-mono text-[10px] text-ink-500">COMMUNITY // RIGS</span>
           </div>
-          <h3 class="mt-4 font-sans text-base font-bold text-white">Builds de la comunidad</h3>
-          <p class="mt-2 text-xs text-ink-400 leading-relaxed">Mira cómo otros armaron sus equipos, clona una build y ajústala a tu presupuesto.</p>
+          <h3 class="relative mt-4 font-sans text-base font-bold text-white">Builds de la comunidad</h3>
+          <p class="relative mt-2 text-xs leading-relaxed text-ink-400">Mira cómo otros armaron sus equipos, clona una build y ajústala a tu presupuesto.</p>
+          <p class="relative mt-5 border-t border-ink-800 pt-3 font-mono text-[9px] uppercase tracking-[0.14em] text-ink-600">COMMUNITY // 02.014 <span class="float-right text-rose-400">●</span></p>
         </div>
 
-        <div class="panel p-6 border-ink-800 transition-all duration-300 hover:border-violet-500/70 hover:bg-ink-850/60">
-          <div class="flex items-center justify-between">
-            <span class="font-mono text-xs font-bold text-violet-400 bg-violet-950/70 border border-violet-800/50 px-2 py-0.5 rounded-sm">03</span>
+        <div class="group relative overflow-hidden rounded-sm border border-ink-800 bg-ink-900/80 p-6 transition-all duration-300 hover:border-violet-500/50 hover:bg-ink-850/60">
+          <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/80 to-rose-400/70 opacity-60 transition-opacity group-hover:opacity-100" aria-hidden="true"></div>
+          <div class="absolute -right-10 -top-16 size-36 rounded-full bg-violet-500/0 blur-3xl transition-colors group-hover:bg-violet-500/15" aria-hidden="true"></div>
+          <div class="relative flex items-center justify-between">
+            <span class="rounded-sm border border-violet-500/40 bg-violet-950/80 px-2 py-0.5 font-mono text-xs font-bold text-violet-200 drop-shadow-[0_0_8px_rgba(139,92,246,0.45)]">03</span>
             <span class="font-mono text-[10px] text-ink-500">DIRECT // ADVICE</span>
           </div>
-          <h3 class="mt-4 font-sans text-base font-bold text-white">Asesoría personalizada</h3>
-          <p class="mt-2 text-xs text-ink-400 leading-relaxed">Cuéntanos qué usos le darás y un asesor te recomienda las piezas.</p>
+          <h3 class="relative mt-4 font-sans text-base font-bold text-white">Asesoría personalizada</h3>
+          <p class="relative mt-2 text-xs leading-relaxed text-ink-400">Cuéntanos qué usos le darás y un asesor te recomienda las piezas.</p>
+          <p class="relative mt-5 border-t border-ink-800 pt-3 font-mono text-[9px] uppercase tracking-[0.14em] text-ink-600">DIRECT // 03.024 <span class="float-right text-violet-400">●</span></p>
         </div>
       </div>
     </section>
@@ -249,9 +264,22 @@ import { CATEGORIES } from '../lib/format';
     .then((page) => {
       featured.innerHTML = page.items.length
         ? page.items.map(productCard).join('')
-        : `<div class="col-span-full panel hatch p-12 text-center border-dashed border-ink-700">
-             <span class="font-mono text-xs uppercase tracking-wider text-rose-400 font-semibold">[ ESTADO: INVENTARIO EN ESPERA ]</span>
-             <p class="mt-2 text-xs text-ink-400">Todavía no hay productos registrados en el catálogo.</p>
+        : `<div class="relative col-span-full overflow-hidden rounded-sm border border-dashed border-violet-500/30 bg-ink-900/70 p-8 text-center transition-colors hover:border-rose-500/50 sm:p-12">
+             <span class="pointer-events-none absolute -right-12 -top-16 size-48 rounded-full bg-violet-500/10 blur-3xl" aria-hidden="true"></span>
+             <span class="pointer-events-none absolute -bottom-16 -left-12 size-48 rounded-full bg-rose-500/10 blur-3xl" aria-hidden="true"></span>
+             <span class="absolute left-0 top-0 h-4 w-4 border-l border-t border-violet-400/60" aria-hidden="true"></span>
+             <span class="absolute right-0 top-0 h-4 w-4 border-r border-t border-rose-400/60" aria-hidden="true"></span>
+             <span class="absolute bottom-0 left-0 h-4 w-4 border-b border-l border-rose-400/60" aria-hidden="true"></span>
+             <span class="absolute bottom-0 right-0 h-4 w-4 border-b border-r border-violet-400/60" aria-hidden="true"></span>
+             <div class="relative mx-auto flex max-w-xl flex-col items-center">
+               <span class="inline-flex items-center gap-2 rounded-sm border border-rose-500/25 bg-rose-950/40 px-3 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.14em] text-rose-300">
+                 <span class="size-1.5 animate-pulse rounded-full bg-rose-400 shadow-[0_0_10px_rgba(255,45,149,0.8)]"></span>
+                 [ ESTADO: INVENTARIO EN ESPERA ]
+               </span>
+               <p class="mt-5 font-mono text-[10px] uppercase tracking-[0.18em] text-violet-300/80">Central de inventario // Canal 01</p>
+               <p class="mt-2 text-sm text-ink-300">Todavía no hay productos registrados en el catálogo.</p>
+               <p class="mt-2 font-mono text-[10px] text-ink-500">SISTEMA EN LÍNEA <span class="text-violet-400">·</span> ESPERANDO DATOS</p>
+             </div>
            </div>`;
     })
     .catch((err) => {
