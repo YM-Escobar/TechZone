@@ -42,7 +42,8 @@ REQUIRED_FIELDS = {
     },
     ProductCategory.COOLING:{
         "cooling_type",
-        "supported_sockets"
+        "supported_sockets",
+        "tdp_rating_w"
     },
     ProductCategory.STORAGE:{
         "storage_type",
