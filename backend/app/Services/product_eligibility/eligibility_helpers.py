@@ -1,28 +1,5 @@
 #HELPERS: CAMPOS QUE SE USARAN DURANTE LAS VALIDACIONES
 from typing import Any
-from app.Services.product_eligibility.eligibility import REQUIRED_FIELDS
-from app.Models.product import ProductCategory
-
-
-
-#COMPROBAR SI LOS CAMPOS ESTAN PRESENTES
-def check_builder_eligibility(
-  category: ProductCategory,
-  specs: dict[str, Any]  
-) -> bool:
-    
-    required_fields = REQUIRED_FIELDS.get(category)
-    
-    #SI ALGUN CAMPO ESTA VACIO, REGRESA FALSE (NO PODRA PARTICIPAR/NO ES ELEGIBLE EN EL BUILDER)
-    if required_fields is None:
-        return False
-    
-    #COMPRUEBA QUE LOS CAMPOS EXISTAN Y QUE NINGUNO ESTE VACIO
-    return all(
-        field in specs and specs[field] is not None
-        for field in required_fields
-    )
-
 
 
 #COMPRUEBA QUE EL VALOR SEA ENTERO POSITIVO
