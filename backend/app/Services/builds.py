@@ -106,4 +106,4 @@ class BuildService:
             if product_id in existing:
                 existing[product_id].quantity = quantity
             else:
-                build.items.append(BuildItem(product=products[product_id], quantity=quantity))
+                build.items.append(BuildItem( product_id=product_id,product=products[product_id], quantity=quantity))
