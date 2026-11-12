@@ -1,36 +1,152 @@
 ---
 import Logo from './Logo.astro';
 import { CATEGORIES } from '../lib/format';
+import { API_URL } from '../lib/api';
 
 const year = new Date().getFullYear();
+const hardwareCategories = CATEGORIES.slice(0, 6);
 ---
 
-<footer class="mt-24 border-t border-ink-800">
-  <div class="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr]">
-    <div class="max-w-sm">
-      <Logo />
-      <p class="mt-4 text-sm leading-relaxed text-ink-400">
-        Componentes para armar o mejorar tu PC, con fichas técnicas claras y una comunidad que comparte sus builds.
+<footer class="relative mt-24 overflow-hidden border-t border-ink-800 bg-ink-950">
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-violet-500/40 via-rose-500/50 to-violet-500/40" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-violet-500/[0.04] to-transparent blur-xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto grid max-w-7xl gap-x-8 gap-y-12 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-[1.35fr_repeat(4,minmax(0,1fr))] lg:gap-8 lg:py-16">
+    <div class="md:col-span-2 lg:col-span-1">
+      <Logo class="transition-colors hover:text-violet-300" />
+      <p class="mt-5 max-w-sm text-sm leading-relaxed text-ink-400">
+        Cada gran partida empieza con una buena build. Encuentra el hardware, compara especificaciones y arma un equipo hecho a tu medida.
       </p>
+
+      <div class="mt-5 inline-flex items-center gap-2 border border-ok/20 bg-ok/5 px-3 py-2 font-mono text-[9px] uppercase tracking-[0.08em] text-ok sm:text-[10px]">
+        <span id="footer-system-dot" class="size-1.5 animate-pulse rounded-full bg-ok shadow-[0_0_8px_rgba(111,211,155,0.8)]" aria-hidden="true"></span>
+        <span data-footer-status aria-live="polite">SYSTEM CHECK // CONNECTING</span>
+      </div>
+
+      <div class="mt-5 flex flex-wrap items-center gap-2">
+        <a
+          href="https://github.com/YM-Escobar/TechZone"
+          target="_blank"
+          rel="noreferrer"
+          class="inline-flex items-center gap-2 border border-ink-800 bg-ink-900/70 px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-ink-300 transition-all hover:border-violet-500/50 hover:text-white hover:shadow-[0_0_16px_rgba(139,92,246,0.12)]"
+          aria-label="Ver TechZone en GitHub (abre en una pestaña nueva)"
+        >
+          <svg viewBox="0 0 24 24" class="size-4 fill-current" aria-hidden="true">
+            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.01-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.75 2.45 3.13 1.74.1-.72.39-1.22.7-1.5-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.43 3.04-1.14 3.04-1.14.61 1.54.23 2.68.12 2.96.71.78 1.14 1.78 1.14 3 0 4.29-2.61 5.23-5.1 5.5.4.35.75 1.02.75 2.06V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
+          </svg>
+          GitHub
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </div>
-    <div>
-      <p class="label mb-3">Categorías</p>
-      <ul class="grid grid-cols-2 gap-x-4 gap-y-2 text-sm md:grid-cols-1">
-        {CATEGORIES.slice(0, 6).map((c) => (
-          <li><a href={`/productos?category=${c.value}`} class="text-ink-400 hover:text-ink-100">{c.label}</a></li>
+
+    <nav aria-label="Hardware y catálogo">
+      <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-violet-300">
+        <span class="h-px w-4 bg-violet-400" aria-hidden="true"></span>
+        Hardware
+      </h2>
+      <ul class="space-y-2.5 text-xs">
+        {hardwareCategories.map((category) => (
+          <li>
+            <a href={`/productos?category=${category.value}`} class="text-ink-400 transition-colors hover:text-white">
+              {category.value === 'placa_madre' ? 'Motherboards' : category.label}
+            </a>
+          </li>
         ))}
       </ul>
-    </div>
-    <div>
-      <p class="label mb-3">Cuenta</p>
-      <ul class="space-y-2 text-sm">
-        <li><a href="/login" class="text-ink-400 hover:text-ink-100">Ingresar</a></li>
-        <li><a href="/registro" class="text-ink-400 hover:text-ink-100">Crear cuenta</a></li>
-        <li><a href="/perfil" class="text-ink-400 hover:text-ink-100">Mi perfil</a></li>
+    </nav>
+
+    <nav aria-label="Herramientas y builds">
+      <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-rose-300">
+        <span class="h-px w-4 bg-rose-400" aria-hidden="true"></span>
+        Herramientas & builds
+      </h2>
+      <ul class="space-y-3 text-xs">
+        {['Comparador de piezas', 'Configurador PC', 'Builds de la comunidad', 'Calculadora de consumo (Watts)'].map((item) => (
+          <li class="flex items-start justify-between gap-2 text-ink-500" aria-disabled="true" title="Disponible próximamente">
+            <span>{item}</span>
+            <span class="shrink-0 font-mono text-[8px] uppercase tracking-wider text-violet-400/70">Próx.</span>
+          </li>
+        ))}
       </ul>
-    </div>
+    </nav>
+
+    <nav aria-label="Soporte y documentación">
+      <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-violet-300">
+        <span class="h-px w-4 bg-violet-400" aria-hidden="true"></span>
+        Soporte & docs
+      </h2>
+      <ul class="space-y-3 text-xs">
+        <li>
+          <a href={`${API_URL}/health`} target="_blank" rel="noreferrer" class="text-ink-400 transition-colors hover:text-white">
+            Estado del servicio <span class="font-mono text-[9px] text-violet-400">↗</span>
+          </a>
+        </li>
+        {['Guías de armado', 'Garantías y envíos', 'FAQ técnico'].map((item) => (
+          <li class="flex items-start justify-between gap-2 text-ink-500" aria-disabled="true" title="Documentación disponible próximamente">
+            <span>{item}</span>
+            <span class="shrink-0 font-mono text-[8px] uppercase tracking-wider text-violet-400/70">Próx.</span>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <nav aria-label="Cuenta y panel">
+      <h2 class="mb-4 flex items-center gap-2 font-mono text-[10px] font-medium uppercase tracking-[0.14em] text-rose-300">
+        <span class="h-px w-4 bg-rose-400" aria-hidden="true"></span>
+        Cuenta & panel
+      </h2>
+      <ul class="space-y-2.5 text-xs">
+        <li><a href="/login" class="text-ink-400 transition-colors hover:text-white">Iniciar sesión</a></li>
+        <li><a href="/registro" class="text-ink-400 transition-colors hover:text-white">Registro</a></li>
+        <li><a href="/perfil" class="text-ink-400 transition-colors hover:text-white">Perfil de usuario</a></li>
+        <li class="flex items-start justify-between gap-2 text-ink-500" aria-disabled="true" title="Disponible próximamente">
+          <span>Mis builds guardadas</span>
+          <span class="shrink-0 font-mono text-[8px] uppercase tracking-wider text-rose-400/70">Próx.</span>
+        </li>
+      </ul>
+    </nav>
   </div>
-  <div class="border-t border-ink-800">
-    <p class="mx-auto max-w-7xl px-4 py-5 font-mono text-[11px] text-ink-500 sm:px-6">© {year} TechZone</p>
+
+  <div class="relative border-t border-ink-800/80">
+    <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 sm:px-6 lg:flex-row lg:items-center lg:justify-between">
+      <p class="text-xs text-ink-500">© {year} TechZone. Todos los derechos reservados.</p>
+      <p class="font-mono text-[9px] uppercase tracking-[0.12em] text-ink-600">Engineered with <span class="text-violet-400">Astro</span> + <span class="text-rose-400">FastAPI</span></p>
+      <nav aria-label="Documentos legales" class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-[9px] uppercase tracking-wider text-ink-600">
+        {['Términos de servicio', 'Privacidad', 'Cookies'].map((item) => (
+          <span aria-disabled="true" title="Documento pendiente de publicación" class="cursor-not-allowed transition-colors">
+            {item}
+          </span>
+        ))}
+      </nav>
+    </div>
   </div>
 </footer>
+
+<script>
+  const status = document.querySelector<HTMLElement>('[data-footer-status]');
+  const statusDot = document.getElementById('footer-system-dot');
+
+  async function checkFrontendStatus() {
+    if (!status || !statusDot) return;
+
+    const startedAt = performance.now();
+    try {
+      const response = await fetch(window.location.href, { method: 'HEAD', cache: 'no-store' });
+      if (!response.ok) throw new Error(`Frontend health check returned ${response.status}`);
+
+      const ping = Math.round(performance.now() - startedAt);
+      status.textContent = `SYSTEM OPERATIONAL // PING: ${ping}ms`;
+      statusDot.classList.remove('bg-danger', 'shadow-[0_0_8px_rgba(255,107,125,0.8)]');
+      statusDot.classList.add('bg-ok', 'shadow-[0_0_8px_rgba(111,211,155,0.8)]');
+    } catch (error) {
+      status.textContent = 'SYSTEM OFFLINE // PING: --';
+      statusDot.classList.remove('bg-ok', 'shadow-[0_0_8px_rgba(111,211,155,0.8)]');
+      statusDot.classList.add('bg-danger', 'shadow-[0_0_8px_rgba(255,107,125,0.8)]');
+      console.error('TechZone frontend status check failed:', error);
+    }
+  }
+
+  void checkFrontendStatus();
+  window.setInterval(() => void checkFrontendStatus(), 30_000);
+</script>
