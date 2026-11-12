@@ -73,6 +73,7 @@ const { title } = Astro.props;
     transform: rotate(-25deg) scaleY(0.35);
     box-shadow: 0 0 35px #00bfff12, inset 0 0 35px #00bfff10;
     pointer-events: none;
+    animation: energy-pulse 8s ease-in-out infinite alternate;
   }
 
   .ring-two {
@@ -80,5 +81,15 @@ const { title } = Astro.props;
     height: 850px;
     border-color: #8b5cf625;
     transform: rotate(35deg) scaleY(0.35);
+  }
+
+  @keyframes energy-pulse {
+    from {
+      opacity: 0.5;
+    }
+
+    to {
+      opacity: 1;
+    }
   }
 </style>
