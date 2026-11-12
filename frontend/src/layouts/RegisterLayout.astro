@@ -27,9 +27,9 @@ const { title } = Astro.props;
       ></div>
 
       <!-- Luces decorativas -->
-      <div class="pointer-events-none absolute -left-40 -top-40 size-96 rounded-full bg-violet-600/30 blur-[120px]"></div>
+      <div class="register-glow pointer-events-none absolute -left-40 -top-40 size-96 rounded-full bg-violet-600/30 blur-[120px]"></div>
 
-      <div class="pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-rose-500/25 blur-[120px]"></div>
+      <div class="register-glow register-glow-pink pointer-events-none absolute -bottom-40 -right-40 size-96 rounded-full bg-rose-500/25 blur-[120px]"></div>
 
       <!-- Formulario -->
       <div class="relative z-10 w-full max-w-md">
@@ -39,3 +39,23 @@ const { title } = Astro.props;
     </main>
   </body>
 </html>
+
+<style>
+  .register-glow {
+    animation: glow-pulse 7s ease-in-out infinite alternate;
+  }
+
+  .register-glow-pink {
+    animation-delay: 2s;
+  }
+
+  @keyframes glow-pulse {
+    from {
+      opacity: 0.5;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+</style>
