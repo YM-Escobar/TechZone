@@ -102,7 +102,7 @@ def validate_motherboard_specs(specs: dict[str, Any]) -> bool:
     for slot in m2_slots:
         if not has_required_keys(
             slot,
-            {"interface", "supported_form_factors"}
+            {"interface", "supported_form_factors", "quantity"}
         ):
             return False
 
@@ -113,6 +113,9 @@ def validate_motherboard_specs(specs: dict[str, Any]) -> bool:
             return False
 
         if not slot["supported_form_factors"]:
+            return False
+        
+        if not is_positive_int(slot["quantity"]):
             return False
 
         # Los recursos compartidos son opcionales.

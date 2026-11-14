@@ -6,6 +6,7 @@ from app.Services.compatibility.rules.storage.storage_motherboard import (
     check_storage_motherboard_form_factor,
     check_storage_motherboard_connection_availability,
 )
+from app.Services.compatibility.processors.storage import run_storage_rules
 
 
 @pytest.fixture
@@ -349,3 +350,143 @@ def test_storage_availability_invalid_occupied_index(
     )
 
     assert result.status == "indeterminate"
+
+
+def test_storage_availability_m2_group_keeps_remaining_slots(
+    motherboard_specs,
+    nvme_specs,
+):
+    motherboard_specs["m2_slots_details"] = [
+        {
+            "interface": "PCIe",
+            "supported_form_factors": ["M.2 2280"],
+            "quantity": 2,
+        }
+    ]
+
+    result = check_storage_motherboard_connection_availability(
+        nvme_specs,
+        motherboard_specs,
+        occupied_m2_slot_indexes=[0],
+    )
+
+    assert result.status == "compatible"
+
+
+def test_storage_availability_m2_group_is_full(
+    motherboard_specs,
+    nvme_specs,
+):
+    motherboard_specs["m2_slots_details"] = [
+        {
+            "interface": "PCIe",
+            "supported_form_factors": ["M.2 2280"],
+            "quantity": 2,
+        }
+    ]
+
+    result = check_storage_motherboard_connection_availability(
+        nvme_specs,
+        motherboard_specs,
+        occupied_m2_slot_indexes=[0, 0],
+    )
+
+    assert result.status == "incompatible"
+
+
+def test_storage_availability_zero_sata_ports_is_incompatible(
+    motherboard_specs,
+    sata_specs,
+):
+    motherboard_specs["sata_ports"] = 0
+
+    result = check_storage_motherboard_connection_availability(
+        sata_specs,
+        motherboard_specs,
+    )
+
+    assert result.status == "incompatible"
+
+
+def test_storage_processor_accumulates_sata_units(
+    motherboard_specs,
+    sata_specs,
+):
+    components = {
+        "motherboard": {"specs": motherboard_specs},
+        "storage": [
+            {"specs": sata_specs, "quantity": 4},
+            {"specs": sata_specs, "quantity": 4},
+        ],
+    }
+
+    results = run_storage_rules(components)
+    availability_results = [
+        result for result in results
+        if result.rule_id == "storage_motherboard_connection_availability"
+    ]
+
+    assert len(availability_results) == 1
+    assert availability_results[0].status == "incompatible"
+
+
+def test_storage_processor_reserves_m2_slots_independently(
+    motherboard_specs,
+    nvme_specs,
+):
+    motherboard_specs["m2_slots_details"] = [
+        {
+            "interface": "PCIe",
+            "supported_form_factors": ["M.2 2280"],
+            "quantity": 2,
+        }
+    ]
+    components = {
+        "motherboard": {"specs": motherboard_specs},
+        "storage": [
+            {"specs": nvme_specs, "quantity": 1},
+            {"specs": nvme_specs, "quantity": 1},
+        ],
+    }
+
+    results = run_storage_rules(components)
+    availability_results = [
+        result for result in results
+        if result.rule_id == "storage_motherboard_connection_availability"
+    ]
+
+    assert len(availability_results) == 2
+    assert all(result.status == "compatible" for result in availability_results)
+
+
+def test_storage_processor_checks_sata_after_m2_shared_resources(
+    motherboard_specs,
+    nvme_specs,
+    sata_specs,
+):
+    motherboard_specs["sata_ports"] = 4
+    motherboard_specs["m2_slots_details"] = [
+        {
+            "interface": "PCIe",
+            "supported_form_factors": ["M.2 2280"],
+            "quantity": 1,
+            "shared_resources": {"disabled_sata_ports": [1, 2]},
+        }
+    ]
+    components = {
+        "motherboard": {"specs": motherboard_specs},
+        "storage": [
+            {"specs": sata_specs, "quantity": 3},
+            {"specs": nvme_specs, "quantity": 1},
+        ],
+    }
+
+    results = run_storage_rules(components)
+    sata_availability = [
+        result for result in results
+        if result.rule_id == "storage_motherboard_connection_availability"
+        and "SATA" in result.message
+    ]
+
+    assert len(sata_availability) == 1
+    assert sata_availability[0].status == "incompatible"

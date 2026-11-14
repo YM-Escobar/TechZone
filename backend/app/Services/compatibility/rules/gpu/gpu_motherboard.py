@@ -249,3 +249,4 @@ def check_gpu_motherboard_pcie_generation(
         ),
         components=["gpu", "motherboard"],
     )
+

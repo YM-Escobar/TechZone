@@ -527,3 +527,25 @@ def test_storage_with_invalid_interface_is_not_eligible():
     assert is_product_builder_eligible(
         ProductCategory.STORAGE, specs
     ) is False
+
+
+def test_motherboard_m2_slot_without_quantity_is_not_eligible():
+    specs = {
+        "socket": "AM5",
+        "supported_cpu_models": [{"model": "Ryzen 5 7600"}],
+        "memory_type": "DDR5",
+        "max_memory_gb": 192,
+        "memory_slots": 4,
+        "sata_ports": 4,
+        "pcie_slots_details": [],
+        "m2_slots_details": [
+            {
+                "interface": "PCIe",
+                "supported_form_factors": ["M.2 2280"],
+            }
+        ],
+    }
+
+    assert is_product_builder_eligible(
+        ProductCategory.MOTHERBOARD, specs
+    ) is False
