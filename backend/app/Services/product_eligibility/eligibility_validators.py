@@ -1,5 +1,33 @@
+import re
 from typing import Any
 from app.Services.product_eligibility.eligibility_helpers import is_positive_int,is_non_negative_int,is_non_empty_string,is_dict,is_list_of_dicts,has_required_keys,is_string_list
+
+
+def _get_pcie_size(value: Any) -> int | None:
+    if not isinstance(value, str):
+        return None
+
+    match = re.fullmatch(r"x(1|4|8|16)", value.strip().casefold())
+
+    if match is None:
+        return None
+
+    return int(match.group(1))
+
+
+def _is_valid_pcie_generation(value: Any) -> bool:
+    return (
+        isinstance(value, str)
+        and re.fullmatch(r"[1-9]\d*\.0", value.strip()) is not None
+    )
+
+
+def _is_valid_pcie_lanes(value: Any, physical_size: int) -> bool:
+    return (
+        is_positive_int(value)
+        and value in {1, 2, 4, 8, 16}
+        and value <= physical_size
+    )
 
 
 
@@ -58,6 +86,9 @@ def validate_motherboard_specs(specs: dict[str, Any]) -> bool:
         if not has_required_keys(cpu, {"model"}):
             return False
 
+        if not is_non_empty_string(cpu["model"]):
+            return False
+
         # Si se proporciona una versión mínima de BIOS,
         # debe ser un texto no vacío.
         if "min_bios_version" in cpu:
@@ -79,13 +110,15 @@ def validate_motherboard_specs(specs: dict[str, Any]) -> bool:
         ):
             return False
 
-        if not is_non_empty_string(slot["generation"]):
+        if not _is_valid_pcie_generation(slot["generation"]):
             return False
 
-        if not is_non_empty_string(slot["physical_size"]):
+        physical_size = _get_pcie_size(slot["physical_size"])
+
+        if physical_size is None:
             return False
 
-        if not is_positive_int(slot["electrical_lanes"]):
+        if not _is_valid_pcie_lanes(slot["electrical_lanes"], physical_size):
             return False
 
         if not is_positive_int(slot["quantity"]):
@@ -106,7 +139,10 @@ def validate_motherboard_specs(specs: dict[str, Any]) -> bool:
         ):
             return False
 
-        if not is_non_empty_string(slot["interface"]):
+        if (
+            not is_non_empty_string(slot["interface"])
+            or slot["interface"].strip().casefold() not in {"pcie", "sata"}
+        ):
             return False
 
         if not is_string_list(slot["supported_form_factors"]):
@@ -127,7 +163,7 @@ def validate_motherboard_specs(specs: dict[str, Any]) -> bool:
                 return False
 
             # Si se declaran puertos SATA deshabilitados,
-            # deben ser una lista de enteros no negativos.
+            # deben ser números de puerto válidos.
             if "disabled_sata_ports" in shared:
                 disabled_ports = shared["disabled_sata_ports"]
 
@@ -135,7 +171,7 @@ def validate_motherboard_specs(specs: dict[str, Any]) -> bool:
                     return False
 
                 if not all(
-                    is_non_negative_int(port)
+                    is_positive_int(port) and port <= specs["sata_ports"]
                     for port in disabled_ports
                 ):
                     return False
@@ -198,13 +234,15 @@ def validate_gpu_specs(specs: dict[str, Any]) -> bool:
     ):
         return False
 
-    if not is_non_empty_string(interface["generation"]):
+    if not _is_valid_pcie_generation(interface["generation"]):
         return False
 
-    if not is_non_empty_string(interface["physical_size"]):
+    physical_size = _get_pcie_size(interface["physical_size"])
+
+    if physical_size is None:
         return False
 
-    if not is_positive_int(interface["electrical_lanes"]):
+    if not _is_valid_pcie_lanes(interface["electrical_lanes"], physical_size):
         return False
 
     if not is_positive_int(specs.get("vram_gb")):
@@ -310,9 +348,16 @@ def validate_storage_specs(specs: dict[str, Any]) -> bool:
     if not is_non_empty_string(interface["connection"]):
         return False
 
-    if interface["connection"] == "PCIe":
-        if not is_non_empty_string(interface.get("generation")):
+    protocol = interface["protocol"].strip().casefold()
+    connection = interface["connection"].strip().casefold()
+
+    if protocol == "nvme" and connection == "pcie":
+        if not _is_valid_pcie_generation(interface.get("generation")):
             return False
+    elif protocol == "sata" and connection in {"m.2", "sata"}:
+        pass
+    else:
+        return False
 
     if not is_non_empty_string(specs.get("form_factor")):
         return False

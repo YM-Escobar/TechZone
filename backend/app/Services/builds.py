@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.core.exceptions import BadRequestError, ForbiddenError, NotFoundError
 from app.Models.build import Build, BuildItem
+from app.Models.product import ProductCategory
 from app.Models.user import User
 from app.Repository.advisory_repository import AdvisoryRepository
 from app.Repository.build_repository import BuildRepository
@@ -177,6 +178,36 @@ class BuildService:
         if unavailable:
             raise BadRequestError(
                 f"Productos no encontrados o no disponibles para el builder: {unavailable}"
+            )
+
+        single_unit_categories = {
+            ProductCategory.CPU,
+            ProductCategory.MOTHERBOARD,
+            ProductCategory.PSU,
+            ProductCategory.COOLING,
+        }
+        category_quantities: dict[ProductCategory, int] = {}
+
+        for product_id, quantity in quantities.items():
+            category = products[product_id].category
+
+            if isinstance(category, str):
+                category = ProductCategory(category)
+
+            category_quantities[category] = (
+                category_quantities.get(category, 0) + quantity
+            )
+
+        invalid_categories = [
+            category.value
+            for category in single_unit_categories
+            if category_quantities.get(category, 0) > 1
+        ]
+
+        if invalid_categories:
+            raise BadRequestError(
+                "Solo se permite una unidad de cada una de estas categorías: "
+                f"{', '.join(sorted(invalid_categories))}"
             )
 
         # Convertir los productos al formato esperado por el Engine.

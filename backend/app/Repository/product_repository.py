@@ -22,6 +22,7 @@ class ProductRepository(BaseRepository[Product]):
         min_price: Decimal | None = None,
         max_price: Decimal | None = None,
         only_active: bool = True,
+        is_builder_eligible: bool | None = None,
     ) -> tuple[list[Product], int]:
         stmt = select(Product).order_by(Product.name, Product.id)
         if search:
@@ -37,6 +38,8 @@ class ProductRepository(BaseRepository[Product]):
             stmt = stmt.where(Product.price <= max_price)
         if only_active:
             stmt = stmt.where(Product.is_active.is_(True))
+        if is_builder_eligible is not None:
+            stmt = stmt.where(Product.is_builder_eligible.is_(is_builder_eligible))
         return self.paginate(stmt, skip, limit)
 
     def get_many(self, product_ids: list[int]) -> list[Product]:

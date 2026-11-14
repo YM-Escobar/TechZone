@@ -4,6 +4,7 @@ from fastapi import APIRouter, Depends, status
 
 from app.api.deps import CurrentUser, DbSession, OptionalUser, PaginationDep
 from app.Schema.build_schema import BuildCreate, BuildOut, BuildUpdate, BuildCompatibilityRequest
+from app.Schema.compatibility_schema import BuildCompatibilityResultOut
 from app.Schema.common_schema import Page
 from app.Services.builds import BuildService
 
@@ -28,7 +29,7 @@ def list_my_builds(user: CurrentUser, service: Service, page: PaginationDep):
     return service.list_mine(user, page.skip, page.limit)
 
 
-@router.post("/compatibility")
+@router.post("/compatibility", response_model=BuildCompatibilityResultOut)
 def evaluate_build_compatibility(data: BuildCompatibilityRequest, user: CurrentUser, service: Service):
     return service.evaluate_compatibility(data.items)
 

@@ -1,15 +1,10 @@
-
 from typing import Any
 
 from app.Services.compatibility.rule_result import RuleResult
 
 # Reglas de GPU.
-from app.Services.compatibility.rules.gpu.gpu_motherboard import (
-    check_gpu_motherboard_pcie_interface,
-    check_gpu_motherboard_pcie_generation,
-)
-from app.Services.compatibility.rules.gpu.gpu_pcie_slots import (
-    check_gpu_motherboard_pcie_slot_availability,
+from app.Services.compatibility.rules.gpu.gpu_pcie_allocation import (
+    check_gpu_motherboard_pcie_allocation,
 )
 from app.Services.compatibility.rules.gpu.gpu_psu import (
     check_gpu_psu_wattage,
@@ -43,8 +38,8 @@ def run_gpu_rules(
     psu_specs = _get_specs(psu) if psu else None
 
     if motherboard and gpu_components:
-        results.append(
-            check_gpu_motherboard_pcie_slot_availability(
+        results.extend(
+            check_gpu_motherboard_pcie_allocation(
                 gpu_components,
                 motherboard_specs,
             )
@@ -52,21 +47,6 @@ def run_gpu_rules(
 
     for gpu in gpu_components:
         gpu_specs = _get_specs(gpu)
-
-        if motherboard:
-            results.append(
-                check_gpu_motherboard_pcie_interface(
-                    gpu_specs,
-                    motherboard_specs,
-                )
-            )
-
-            results.append(
-                check_gpu_motherboard_pcie_generation(
-                    gpu_specs,
-                    motherboard_specs,
-                )
-            )
 
         if psu:
             results.append(

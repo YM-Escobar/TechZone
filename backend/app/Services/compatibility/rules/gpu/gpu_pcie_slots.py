@@ -31,11 +31,19 @@ def check_gpu_motherboard_pcie_slot_availability(
 ) -> RuleResult:
     slots = motherboard_specs.get("pcie_slots_details")
 
-    if not isinstance(slots, list) or not slots:
+    if not isinstance(slots, list):
         return RuleResult(
             rule_id="gpu_motherboard_pcie_slot_availability",
             status="indeterminate",
             message="No hay información suficiente sobre las ranuras PCIe de la motherboard.",
+            components=["gpu", "motherboard"],
+        )
+
+    if not slots:
+        return RuleResult(
+            rule_id="gpu_motherboard_pcie_slot_availability",
+            status="incompatible",
+            message="La motherboard no declara ranuras PCIe disponibles para la GPU.",
             components=["gpu", "motherboard"],
         )
 

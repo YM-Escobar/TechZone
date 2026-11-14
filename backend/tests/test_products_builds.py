@@ -29,6 +29,32 @@ def test_product_filters_and_inactive(client, admin, make_product):
     assert product["id"] in [p["id"] for p in with_inactive["items"]]
 
 
+def test_product_builder_eligibility_filter(client, admin, make_product):
+    eligible_specs = {
+        "interface": {
+            "generation": "4.0",
+            "physical_size": "x16",
+            "electrical_lanes": 16,
+        },
+        "vram_gb": 12,
+        "board_power_w": 250,
+        "recommended_psu_w": 650,
+        "power_connectors_required": [],
+    }
+    eligible = make_product(category="gpu", specs=eligible_specs)
+    ineligible = make_product(category="gpu", specs={})
+
+    response = client.get("/api/products?is_builder_eligible=true")
+    assert response.status_code == 200
+    assert eligible["id"] in [product["id"] for product in response.json()["items"]]
+    assert ineligible["id"] not in [product["id"] for product in response.json()["items"]]
+    assert response.json()["items"][0]["is_builder_eligible"] is True
+
+    response = client.get("/api/products?is_builder_eligible=false")
+    assert response.status_code == 200
+    assert ineligible["id"] in [product["id"] for product in response.json()["items"]]
+
+
 def test_product_image_upload(client, admin, make_product):
     product = make_product()
     response = client.put(f"/api/products/{product['id']}/image", files={"file": ("gpu.png", PNG, "image/png")}, headers=admin)

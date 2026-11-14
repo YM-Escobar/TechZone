@@ -153,6 +153,7 @@ def test_build_compatibility_endpoint(client, admin, make_product):
     }
     assert result["total_rules"] > 0
     assert "results" in result
+    assert "indeterminate_count" not in result
 
 
 def test_build_compatibility_rejects_ineligible_product(

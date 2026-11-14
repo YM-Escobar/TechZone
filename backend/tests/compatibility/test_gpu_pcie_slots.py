@@ -181,3 +181,12 @@ def test_gpu_pcie_slot_availability_invalid_quantity(
     )
 
     assert result.status == "indeterminate"
+
+
+def test_gpu_pcie_slot_availability_empty_slots_is_incompatible(gpu_x16):
+    result = check_gpu_motherboard_pcie_slot_availability(
+        [gpu_x16],
+        {"pcie_slots_details": []},
+    )
+
+    assert result.status == "incompatible"

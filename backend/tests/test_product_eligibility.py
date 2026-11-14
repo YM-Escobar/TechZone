@@ -549,3 +549,188 @@ def test_motherboard_m2_slot_without_quantity_is_not_eligible():
     assert is_product_builder_eligible(
         ProductCategory.MOTHERBOARD, specs
     ) is False
+
+
+def test_gpu_with_invalid_pcie_physical_size_is_not_eligible():
+    specs = {
+        "interface": {
+            "generation": "4.0",
+            "physical_size": "x15",
+            "electrical_lanes": 16,
+        },
+        "vram_gb": 12,
+        "board_power_w": 250,
+        "recommended_psu_w": 650,
+        "power_connectors_required": [],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.GPU, specs) is False
+
+
+def test_gpu_with_electrical_lanes_greater_than_physical_size_is_not_eligible():
+    specs = {
+        "interface": {
+            "generation": "4.0",
+            "physical_size": "x8",
+            "electrical_lanes": 16,
+        },
+        "vram_gb": 12,
+        "board_power_w": 250,
+        "recommended_psu_w": 650,
+        "power_connectors_required": [],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.GPU, specs) is False
+
+
+def test_motherboard_with_invalid_pcie_slot_generation_is_not_eligible():
+    specs = {
+        "socket": "AM5",
+        "supported_cpu_models": [{"model": "Ryzen 5 7600"}],
+        "memory_type": "DDR5",
+        "max_memory_gb": 192,
+        "memory_slots": 4,
+        "sata_ports": 4,
+        "pcie_slots_details": [
+            {
+                "generation": "Gen4",
+                "physical_size": "x16",
+                "electrical_lanes": 16,
+                "quantity": 1,
+            }
+        ],
+        "m2_slots_details": [],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.MOTHERBOARD, specs) is False
+
+
+def test_motherboard_with_zero_disabled_sata_port_is_not_eligible():
+    specs = {
+        "socket": "AM5",
+        "supported_cpu_models": [{"model": "Ryzen 5 7600"}],
+        "memory_type": "DDR5",
+        "max_memory_gb": 192,
+        "memory_slots": 4,
+        "sata_ports": 4,
+        "pcie_slots_details": [],
+        "m2_slots_details": [
+            {
+                "interface": "PCIe",
+                "supported_form_factors": ["M.2 2280"],
+                "quantity": 1,
+                "shared_resources": {"disabled_sata_ports": [0]},
+            }
+        ],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.MOTHERBOARD, specs) is False
+
+
+def test_storage_with_unsupported_protocol_connection_pair_is_not_eligible():
+    specs = {
+        "storage_type": "SSD",
+        "capacity_gb": 1000,
+        "interface": {
+            "protocol": "NVMe",
+            "connection": "SATA",
+        },
+        "form_factor": "M.2 2280",
+    }
+
+    assert is_product_builder_eligible(ProductCategory.STORAGE, specs) is False
+
+
+def test_storage_interface_validation_is_case_insensitive():
+    specs = {
+        "storage_type": "SSD",
+        "capacity_gb": 1000,
+        "interface": {
+            "protocol": "nvme",
+            "connection": "pcie",
+            "generation": "4.0",
+        },
+        "form_factor": "M.2 2280",
+    }
+
+    assert is_product_builder_eligible(ProductCategory.STORAGE, specs) is True
+
+
+def test_motherboard_with_invalid_pcie_physical_size_is_not_eligible():
+    specs = {
+        "socket": "AM5",
+        "supported_cpu_models": [{"model": "Ryzen 5 7600"}],
+        "memory_type": "DDR5",
+        "max_memory_gb": 192,
+        "memory_slots": 4,
+        "sata_ports": 4,
+        "pcie_slots_details": [
+            {
+                "generation": "4.0",
+                "physical_size": "x15",
+                "electrical_lanes": 8,
+                "quantity": 1,
+            }
+        ],
+        "m2_slots_details": [],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.MOTHERBOARD, specs) is False
+
+
+def test_motherboard_with_electrical_lanes_greater_than_physical_size_is_not_eligible():
+    specs = {
+        "socket": "AM5",
+        "supported_cpu_models": [{"model": "Ryzen 5 7600"}],
+        "memory_type": "DDR5",
+        "max_memory_gb": 192,
+        "memory_slots": 4,
+        "sata_ports": 4,
+        "pcie_slots_details": [
+            {
+                "generation": "4.0",
+                "physical_size": "x8",
+                "electrical_lanes": 16,
+                "quantity": 1,
+            }
+        ],
+        "m2_slots_details": [],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.MOTHERBOARD, specs) is False
+
+
+def test_motherboard_with_unknown_m2_interface_is_not_eligible():
+    specs = {
+        "socket": "AM5",
+        "supported_cpu_models": [{"model": "Ryzen 5 7600"}],
+        "memory_type": "DDR5",
+        "max_memory_gb": 192,
+        "memory_slots": 4,
+        "sata_ports": 4,
+        "pcie_slots_details": [],
+        "m2_slots_details": [
+            {
+                "interface": "USB",
+                "supported_form_factors": ["M.2 2280"],
+                "quantity": 1,
+            }
+        ],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.MOTHERBOARD, specs) is False
+
+
+def test_motherboard_with_empty_cpu_model_is_not_eligible():
+    specs = {
+        "socket": "AM5",
+        "supported_cpu_models": [{"model": "  "}],
+        "memory_type": "DDR5",
+        "max_memory_gb": 192,
+        "memory_slots": 4,
+        "sata_ports": 4,
+        "pcie_slots_details": [],
+        "m2_slots_details": [],
+    }
+
+    assert is_product_builder_eligible(ProductCategory.MOTHERBOARD, specs) is False
