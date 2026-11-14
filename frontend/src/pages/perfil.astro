@@ -3,99 +3,135 @@ import Base from '../layouts/Base.astro';
 ---
 
 <Base title="Mi perfil">
-  <div class="mx-auto max-w-4xl px-4 pt-10 sm:px-6">
-    <div id="profile-head" class="flex items-center gap-5 border-b border-ink-800 pb-8">
-      <div class="size-16 animate-pulse rounded-sm bg-ink-900"></div>
-      <div class="space-y-2"><div class="h-6 w-40 bg-ink-900"></div><div class="h-4 w-56 bg-ink-900"></div></div>
-    </div>
+  <div class="relative isolate overflow-hidden">
+    <div class="pointer-events-none absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(ellipse_at_top,rgba(139,92,246,0.12),transparent_68%)]" aria-hidden="true"></div>
+    <div class="mx-auto max-w-6xl px-4 py-8 sm:px-6 sm:py-12">
+      <div class="mb-6">
+        <p class="label flex items-center gap-2"><span class="text-violet-300">TECHZONE</span><span class="text-ink-700">//</span> CUENTA</p>
+        <h1 class="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">Mi perfil</h1>
+        <p class="mt-2 text-sm text-ink-400">Administra tu identidad, tus preferencias y la seguridad de tu cuenta.</p>
+      </div>
 
-    <div id="verify-banner" hidden class="mt-6 flex flex-wrap items-center justify-between gap-3 border border-warn/40 bg-warn/5 px-4 py-3 text-sm">
-      <span class="text-warn">Tu correo todavía no está verificado.</span>
-      <button id="resend-btn" class="text-sm font-medium text-ink-100 underline underline-offset-4 hover:text-violet-300">Reenviar enlace</button>
-    </div>
-
-    <div class="divide-y divide-ink-800">
-      <!-- Datos -->
-      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
-        <div>
-          <h2 class="font-semibold">Datos del perfil</h2>
-          <p class="mt-1 text-sm text-ink-400">Lo que ven los demás en la comunidad.</p>
-        </div>
-        <form id="profile-form" class="space-y-4">
-          <div data-alert hidden></div>
-          <div class="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label for="username" class="field-label">Nombre de usuario</label>
-              <input id="username" name="username" class="field" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_.\-]+" />
-            </div>
-            <div>
-              <label for="full_name" class="field-label">Nombre completo</label>
-              <input id="full_name" name="full_name" class="field" maxlength="120" />
-            </div>
+      <section id="profile-hero" class="panel relative mb-6 overflow-hidden">
+        <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-violet-500/60 via-rose-500/45 to-transparent" aria-hidden="true"></div>
+        <div id="profile-head" class="flex flex-col gap-5 p-5 sm:flex-row sm:items-center sm:p-7">
+          <div class="size-20 animate-pulse rounded-sm bg-ink-800"></div>
+          <div class="min-w-0 flex-1 space-y-2">
+            <div class="h-6 w-40 animate-pulse bg-ink-800"></div>
+            <div class="h-4 w-56 max-w-full animate-pulse bg-ink-800"></div>
           </div>
-          <div>
-            <label for="bio" class="field-label">Sobre ti</label>
-            <textarea id="bio" name="bio" rows="4" maxlength="1000" class="field resize-y" placeholder="Qué usas tu PC, qué te interesa armar…"></textarea>
-          </div>
-          <button type="submit" class="btn-primary">Guardar cambios</button>
-        </form>
-      </section>
-
-      <!-- Foto -->
-      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
-        <div>
-          <h2 class="font-semibold">Foto de perfil</h2>
-          <p class="mt-1 text-sm text-ink-400">JPG, PNG, WEBP o GIF, hasta 5 MB.</p>
         </div>
-        <div>
-          <div id="avatar-alert" hidden></div>
-          <div class="mt-0 flex flex-wrap items-center gap-4">
-            <div id="avatar-preview" class="size-20 overflow-hidden rounded-sm border border-ink-800 bg-ink-900"></div>
-            <label class="btn-ghost cursor-pointer">
-              Subir imagen
-              <input id="avatar-input" type="file" accept="image/jpeg,image/png,image/webp,image/gif" class="sr-only" />
-            </label>
-            <button id="avatar-remove" class="text-sm text-ink-400 hover:text-danger" hidden>Quitar foto</button>
+        <div class="grid gap-px border-t border-ink-800 bg-ink-800 sm:grid-cols-3">
+          <div class="bg-ink-900 px-5 py-4">
+            <p class="label">Correo</p>
+            <p id="profile-email" class="mt-1 truncate text-sm text-ink-200">—</p>
+          </div>
+          <div class="bg-ink-900 px-5 py-4">
+            <p class="label">Miembro desde</p>
+            <p id="profile-created" class="mt-1 text-sm text-ink-200">—</p>
+          </div>
+          <div class="bg-ink-900 px-5 py-4">
+            <p class="label">Tipo de cuenta</p>
+            <p id="profile-role" class="mt-1 text-sm text-ink-200">—</p>
           </div>
         </div>
       </section>
 
-      <!-- Contraseña -->
-      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
-        <div>
-          <h2 class="font-semibold">Contraseña</h2>
-        </div>
-        <form id="password-form" class="max-w-md space-y-4">
-          <div data-alert hidden></div>
-          <div>
-            <label for="current_password" class="field-label">Contraseña actual</label>
-            <input id="current_password" name="current_password" type="password" class="field" autocomplete="current-password" required />
-          </div>
-          <div>
-            <label for="new_password" class="field-label">Contraseña nueva</label>
-            <input id="new_password" name="new_password" type="password" class="field" autocomplete="new-password" required minlength="8" />
-          </div>
-          <button type="submit" class="btn-ghost">Cambiar contraseña</button>
-        </form>
-      </section>
+      <div id="verify-banner" hidden class="alert mb-6 flex flex-wrap items-center justify-between gap-3 border-warn/40 bg-warn/5 text-sm">
+        <span class="text-warn">Tu correo todavía no está verificado.</span>
+        <button id="resend-btn" class="font-medium text-ink-100 underline underline-offset-4 hover:text-violet-300">Reenviar enlace</button>
+      </div>
 
-      <!-- Sesiones y cuenta -->
-      <section class="grid gap-6 py-10 md:grid-cols-[220px_1fr]">
-        <div>
-          <h2 class="font-semibold">Cuenta</h2>
-        </div>
+      <div id="profile-error" class="alert-error mb-6" role="alert" hidden></div>
+
+      <div class="grid items-start gap-6 xl:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.7fr)]">
         <div class="space-y-6">
-          <div id="account-alert" hidden></div>
-          <div class="flex flex-wrap items-center justify-between gap-3">
-            <p class="text-sm text-ink-400">Cerrar la sesión en todos tus dispositivos.</p>
-            <button id="logout-all" class="btn-ghost">Cerrar todas las sesiones</button>
-          </div>
-          <div class="flex flex-wrap items-center justify-between gap-3 border border-danger/30 p-4">
-            <p class="max-w-sm text-sm text-ink-400">Eliminar tu cuenta borra también tus builds, publicaciones y comentarios. No se puede deshacer.</p>
-            <button id="delete-account" class="btn-danger">Eliminar cuenta</button>
-          </div>
+          <section class="panel p-5 sm:p-6">
+            <div class="mb-5">
+              <p class="label">Identidad</p>
+              <h2 class="mt-1 text-lg font-semibold">Datos del perfil</h2>
+              <p class="mt-1 text-sm text-ink-400">Lo que ven los demás en la comunidad.</p>
+            </div>
+            <form id="profile-form" class="space-y-4">
+              <div data-alert hidden></div>
+              <div class="grid gap-4 sm:grid-cols-2">
+                <div>
+                  <label for="username" class="field-label">Nombre de usuario</label>
+                  <input id="username" name="username" class="field" required minlength="3" maxlength="50" pattern="[A-Za-z0-9_.\-]+" autocomplete="username" />
+                </div>
+                <div>
+                  <label for="full_name" class="field-label">Nombre completo</label>
+                  <input id="full_name" name="full_name" class="field" maxlength="120" autocomplete="name" />
+                </div>
+              </div>
+              <div>
+                <label for="bio" class="field-label">Sobre ti</label>
+                <textarea id="bio" name="bio" rows="4" maxlength="1000" class="field resize-y" placeholder="Qué usas tu PC, qué te interesa armar…"></textarea>
+              </div>
+              <div class="flex justify-end border-t border-ink-800 pt-4">
+                <button type="submit" class="btn-primary">Guardar cambios</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel p-5 sm:p-6">
+            <div class="mb-4">
+              <p class="label">Imagen de cuenta</p>
+              <h2 class="mt-1 text-lg font-semibold">Foto de perfil</h2>
+              <p class="mt-1 text-sm text-ink-400">JPG, PNG, WEBP o GIF · hasta 5 MB</p>
+            </div>
+            <div id="avatar-alert" class="mb-3" hidden></div>
+            <div class="flex flex-wrap items-center gap-4">
+              <div id="avatar-preview" class="size-20 overflow-hidden rounded-sm border border-ink-800 bg-ink-900"></div>
+              <div class="flex flex-wrap items-center gap-3">
+                <label class="btn-ghost cursor-pointer">
+                  Subir imagen
+                  <input id="avatar-input" type="file" accept="image/jpeg,image/png,image/webp,image/gif" class="sr-only" />
+                </label>
+                <button id="avatar-remove" type="button" class="text-sm text-ink-400 transition-colors hover:text-danger" hidden>Quitar foto</button>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+
+        <div class="space-y-6">
+          <section class="panel p-5 sm:p-6">
+            <div class="mb-5">
+              <p class="label text-rose-300">Seguridad</p>
+              <h2 class="mt-1 text-lg font-semibold">Cambiar contraseña</h2>
+              <p class="mt-1 text-sm text-ink-400">Usa una contraseña segura y única.</p>
+            </div>
+            <form id="password-form" class="space-y-4">
+              <div data-alert hidden></div>
+              <div>
+                <label for="current_password" class="field-label">Contraseña actual</label>
+                <input id="current_password" name="current_password" type="password" class="field" autocomplete="current-password" required />
+              </div>
+              <div>
+                <label for="new_password" class="field-label">Contraseña nueva</label>
+                <input id="new_password" name="new_password" type="password" class="field" autocomplete="new-password" required minlength="8" />
+                <p class="mt-1.5 text-[11px] text-ink-500">Debe tener al menos 8 caracteres.</p>
+              </div>
+              <button type="submit" class="btn-ghost w-full">Actualizar contraseña</button>
+            </form>
+          </section>
+
+          <section class="panel p-5 sm:p-6">
+            <p class="label">Control de acceso</p>
+            <h2 class="mt-1 text-lg font-semibold">Sesiones</h2>
+            <p class="mt-2 text-sm leading-relaxed text-ink-400">Cierra las sesiones abiertas en tus dispositivos. Se cerrará también la sesión actual.</p>
+            <div id="account-alert" class="mt-4" hidden></div>
+            <button id="logout-all" type="button" class="btn-ghost mt-4 w-full">Cerrar todas las sesiones</button>
+          </section>
+
+          <section class="border border-danger/25 bg-danger/[0.03] p-5 sm:p-6">
+            <p class="label text-danger">Zona de riesgo</p>
+            <h2 class="mt-1 font-semibold">Eliminar cuenta</h2>
+            <p class="mt-2 text-sm leading-relaxed text-ink-400">Se borrarán también tus builds, publicaciones y comentarios. Esta acción no se puede deshacer.</p>
+            <button id="delete-account" type="button" class="btn-danger mt-4 w-full">Eliminar mi cuenta</button>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 </Base>
@@ -119,22 +155,37 @@ import Base from '../layouts/Base.astro';
   function avatarHtml(user: User, size: string) {
     const src = mediaUrl(user.avatar_url);
     return src
-      ? `<img src="${escapeHtml(src)}" alt="" class="${size} rounded-sm object-cover" />`
-      : `<span class="${size} flex items-center justify-center rounded-sm bg-violet-950 font-mono text-xl text-violet-300">${escapeHtml(user.username.charAt(0).toUpperCase())}</span>`;
+      ? `<img src="${escapeHtml(src)}" alt="" class="${size} rounded-sm border border-violet-500/25 object-cover" />`
+      : `<span class="${size} flex items-center justify-center rounded-sm border border-violet-500/25 bg-violet-950 font-mono text-xl text-violet-300">${escapeHtml(user.username.charAt(0).toUpperCase())}</span>`;
   }
 
   function render(user: User) {
     setUser(user);
     head.innerHTML = `
-      ${avatarHtml(user, 'size-16')}
-      <div class="min-w-0">
-        <h1 class="truncate text-2xl font-semibold tracking-tight">${escapeHtml(user.full_name || user.username)}</h1>
-        <p class="mt-1 truncate font-mono text-xs text-ink-400">@${escapeHtml(user.username)} · ${escapeHtml(user.email)}</p>
-        <p class="mt-1 font-mono text-[11px] text-ink-500">${ROLE_LABELS[user.role] ?? user.role} · desde ${date(user.created_at)}</p>
+      ${avatarHtml(user, 'size-20')}
+      <div class="min-w-0 flex-1">
+        <div class="flex flex-wrap items-center gap-2">
+          <h2 class="truncate text-2xl font-semibold tracking-tight text-white">${escapeHtml(user.full_name || user.username)}</h2>
+          <span class="inline-flex items-center gap-1.5 border ${user.role === 'admin' ? 'border-violet-500/30 bg-violet-500/[0.08] text-violet-300' : 'border-ink-700 bg-ink-850 text-ink-300'} px-2 py-1 font-mono text-[9px] uppercase tracking-wider">
+            ${user.role === 'admin' ? '<span class="size-1.5 rounded-full bg-violet-400"></span>' : ''}
+            ${escapeHtml(ROLE_LABELS[user.role] ?? user.role)}
+          </span>
+          <span class="inline-flex items-center gap-1.5 border ${user.is_verified ? 'border-ok/20 bg-ok/5 text-ok' : 'border-warn/30 bg-warn/5 text-warn'} px-2 py-1 font-mono text-[9px] uppercase tracking-wider">
+            <span class="size-1.5 rounded-full ${user.is_verified ? 'bg-ok' : 'bg-warn'}"></span>
+            ${user.is_verified ? 'Verificada' : 'Sin verificar'}
+          </span>
+        </div>
+        <p class="mt-2 truncate font-mono text-xs text-ink-400">@${escapeHtml(user.username)}</p>
+        <p class="mt-1 font-mono text-[10px] text-ink-500">MIEMBRO DESDE // ${date(user.created_at)}</p>
       </div>`;
     avatarPreview.innerHTML = avatarHtml(user, 'size-full');
     avatarRemove.hidden = !user.avatar_url;
     document.getElementById('verify-banner')!.hidden = user.is_verified;
+    document.getElementById('profile-email')!.textContent = user.email;
+    document.getElementById('profile-created')!.textContent = date(user.created_at);
+    document.getElementById('profile-role')!.innerHTML = user.role === 'admin'
+      ? `${escapeHtml(ROLE_LABELS[user.role])} <a href="/admin" class="ml-2 font-mono text-[10px] uppercase tracking-wider text-violet-300 hover:text-rose-300">Abrir panel →</a>`
+      : escapeHtml(ROLE_LABELS[user.role] ?? user.role);
   }
 
   async function main() {
@@ -220,5 +271,9 @@ import Base from '../layouts/Base.astro';
     });
   }
 
-  main();
+  void main().catch((err: unknown) => {
+    const error = document.getElementById('profile-error')!;
+    error.textContent = err instanceof Error ? err.message : 'No se pudo cargar el perfil.';
+    error.hidden = false;
+  });
 </script>

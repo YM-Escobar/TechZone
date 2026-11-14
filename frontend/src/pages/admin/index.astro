@@ -1,0 +1,137 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout
+  title="Resumen"
+  description="Una vista rápida del estado de la comunidad, el catálogo y las tareas de moderación."
+>
+  <div id="admin-error" class="alert-error mb-6" role="alert" hidden></div>
+
+  <section aria-label="Indicadores principales" class="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+    <article class="panel relative overflow-hidden p-5">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-violet-500/60 to-transparent" aria-hidden="true"></div>
+      <p class="label">Usuarios</p>
+      <p id="stat-users" class="mt-4 font-mono text-3xl font-medium text-white">—</p>
+      <p id="stat-active" class="mt-2 text-xs text-ink-500">Cargando actividad</p>
+    </article>
+    <article class="panel relative overflow-hidden p-5">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-rose-500/60 to-transparent" aria-hidden="true"></div>
+      <p class="label">Catálogo</p>
+      <p id="stat-products" class="mt-4 font-mono text-3xl font-medium text-white">—</p>
+      <p class="mt-2 text-xs text-ink-500">Productos registrados</p>
+    </article>
+    <article class="panel relative overflow-hidden p-5">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-violet-500/60 to-transparent" aria-hidden="true"></div>
+      <p class="label">Comunidad</p>
+      <p id="stat-community" class="mt-4 font-mono text-3xl font-medium text-white">—</p>
+      <p id="stat-comments" class="mt-2 text-xs text-ink-500">Builds y publicaciones</p>
+    </article>
+    <a href="/admin/reportes" class="panel group relative overflow-hidden p-5 transition-colors hover:border-rose-500/40">
+      <div class="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-rose-500/60 to-transparent" aria-hidden="true"></div>
+      <p class="label">Revisión pendiente</p>
+      <p id="stat-reports" class="mt-4 font-mono text-3xl font-medium text-rose-300">—</p>
+      <p class="mt-2 text-xs text-ink-500 transition-colors group-hover:text-rose-300">Reportes por revisar <span aria-hidden="true">→</span></p>
+    </a>
+  </section>
+
+  <div class="mt-6 grid gap-6 xl:grid-cols-[1.1fr_0.9fr]">
+    <section class="panel" aria-labelledby="users-title">
+      <div class="flex flex-wrap items-center justify-between gap-3 border-b border-ink-800 px-5 py-4">
+        <div>
+          <p class="label">Actividad de cuenta</p>
+          <h2 id="users-title" class="mt-1 text-lg font-semibold">Usuarios recientes</h2>
+        </div>
+        <a href="/admin/usuarios" class="font-mono text-[10px] uppercase tracking-wider text-violet-300 transition-colors hover:text-rose-300">Ver usuarios →</a>
+      </div>
+      <div id="recent-users" class="divide-y divide-ink-800">
+        <p class="px-5 py-8 text-sm text-ink-500">Cargando usuarios…</p>
+      </div>
+      <div id="role-stats" class="grid grid-cols-3 gap-3 border-t border-ink-800 px-5 py-4"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="reports-title">
+      <div class="flex items-center justify-between gap-3 border-b border-ink-800 px-5 py-4">
+        <div>
+          <p class="label">Moderación</p>
+          <h2 id="reports-title" class="mt-1 text-lg font-semibold">Cola de reportes</h2>
+        </div>
+        <a href="/admin/reportes" class="font-mono text-[10px] uppercase tracking-wider text-violet-300 transition-colors hover:text-rose-300">Abrir cola →</a>
+      </div>
+      <div id="recent-reports" class="divide-y divide-ink-800">
+        <p class="px-5 py-8 text-sm text-ink-500">Cargando reportes…</p>
+      </div>
+    </section>
+  </div>
+</AdminLayout>
+
+<script>
+  import { api, type AdminStats, type Page, type Report, type User } from '../../lib/api';
+  import { requireAdminUser } from '../../lib/admin';
+  import { date, escapeHtml } from '../../lib/format';
+
+  const error = document.getElementById('admin-error')!;
+
+  async function main() {
+    if (!(await requireAdminUser())) return;
+
+    try {
+      const [stats, users, reports] = await Promise.all([
+        api<AdminStats>('/admin/stats'),
+        api<Page<User>>('/admin/users', { query: { limit: 5 } }),
+        api<Page<Report>>('/admin/reports', { query: { status: 'pendiente', limit: 5 } }),
+      ]);
+
+      document.getElementById('stat-users')!.textContent = stats.users.total.toLocaleString('es');
+      document.getElementById('stat-active')!.textContent = `${stats.users.active.toLocaleString('es')} cuentas activas`;
+      document.getElementById('stat-products')!.textContent = stats.products.toLocaleString('es');
+      document.getElementById('stat-community')!.textContent = (stats.builds + stats.posts).toLocaleString('es');
+      document.getElementById('stat-comments')!.textContent = `${stats.comments.toLocaleString('es')} comentarios · ${stats.builds.toLocaleString('es')} builds`;
+      document.getElementById('stat-reports')!.textContent = stats.pending_reports.toLocaleString('es');
+
+      document.getElementById('recent-users')!.innerHTML = users.items.length
+        ? users.items.map((user) => `
+          <div class="flex items-center justify-between gap-3 px-5 py-3">
+            <div class="min-w-0">
+              <p class="truncate text-sm font-medium text-ink-100">${escapeHtml(user.full_name || user.username)}</p>
+              <p class="mt-0.5 truncate font-mono text-[10px] text-ink-500">@${escapeHtml(user.username)} · ${date(user.created_at)}</p>
+            </div>
+            <span class="shrink-0 border border-ink-700 px-2 py-1 font-mono text-[9px] uppercase tracking-wider text-violet-300">${escapeHtml(user.role)}</span>
+          </div>`).join('')
+        : '<p class="px-5 py-8 text-sm text-ink-500">Todavía no hay usuarios registrados.</p>';
+
+      const roles: Array<[keyof AdminStats['users']['by_role'], string]> = [
+        ['usuario', 'Usuarios'], ['asesor', 'Asesores'], ['admin', 'Admins'],
+      ];
+      document.getElementById('role-stats')!.innerHTML = roles.map(([role, label]) => `
+        <div>
+          <p class="font-mono text-lg text-white">${stats.users.by_role[role].toLocaleString('es')}</p>
+          <p class="label mt-1">${label}</p>
+        </div>`).join('');
+
+      document.getElementById('recent-reports')!.innerHTML = reports.items.length
+        ? reports.items.map((report) => {
+          const subject = report.post?.title ?? report.comment?.content ?? 'Contenido no disponible';
+          const type = report.post ? 'Publicación' : 'Comentario';
+          return `
+            <div class="px-5 py-4">
+              <div class="flex items-start justify-between gap-3">
+                <div class="min-w-0">
+                  <p class="line-clamp-2 text-sm leading-relaxed text-ink-200">${escapeHtml(subject)}</p>
+                  <p class="mt-2 font-mono text-[10px] text-ink-500">${type} · @${escapeHtml(report.reporter.username)} · ${date(report.created_at)}</p>
+                </div>
+                <span class="shrink-0 size-2 rounded-full bg-rose-400 shadow-[0_0_10px_rgba(255,45,149,0.45)]" aria-label="Pendiente"></span>
+              </div>
+            </div>`;
+        }).join('')
+        : '<p class="px-5 py-8 text-sm text-ok">No hay reportes pendientes. Buen trabajo.</p>';
+    } catch (err) {
+      error.textContent = err instanceof Error ? err.message : 'No se pudo cargar el resumen.';
+      error.hidden = false;
+      document.getElementById('recent-users')!.innerHTML = '';
+      document.getElementById('recent-reports')!.innerHTML = '';
+    }
+  }
+
+  void main();
+</script>

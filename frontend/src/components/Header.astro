@@ -79,6 +79,9 @@ const path = Astro.url.pathname;
     }
     const avatar = mediaUrl(user.avatar_url);
     const initial = escapeHtml(user.username.charAt(0).toUpperCase());
+    const adminLink = user.role === 'admin'
+      ? '<a href="/admin" role="menuitem" class="block px-3 py-2 text-sm text-violet-300 hover:bg-ink-850">Panel de administración</a>'
+      : '';
     slot.innerHTML = `
       <div class="relative">
         <button id="user-btn" class="flex items-center gap-2 rounded-sm py-1 pl-1 pr-2 hover:bg-ink-850" aria-haspopup="menu" aria-expanded="false">
@@ -89,6 +92,7 @@ const path = Astro.url.pathname;
         </button>
         <div id="user-menu" role="menu" class="panel absolute right-0 mt-1 hidden w-48 py-1 shadow-xl shadow-black/40">
           <a href="/perfil" role="menuitem" class="block px-3 py-2 text-sm text-ink-200 hover:bg-ink-850">Mi perfil</a>
+          ${adminLink}
           <button id="logout-btn" role="menuitem" class="block w-full px-3 py-2 text-left text-sm text-ink-400 hover:bg-ink-850 hover:text-ink-100">Cerrar sesión</button>
         </div>
       </div>`;

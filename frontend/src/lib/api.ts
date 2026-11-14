@@ -40,6 +40,42 @@ export interface User {
   updated_at: string;
 }
 
+export interface AdminStats {
+  users: {
+    total: number;
+    active: number;
+    inactive: number;
+    by_role: Record<Role, number>;
+  };
+  products: number;
+  builds: number;
+  posts: number;
+  comments: number;
+  pending_reports: number;
+  advisories_by_status: Record<string, number>;
+}
+
+export type ReportStatus = 'pendiente' | 'resuelto' | 'descartado';
+
+export interface Report {
+  id: number;
+  reason: string;
+  status: ReportStatus;
+  reporter: Pick<User, 'id' | 'username' | 'full_name'>;
+  post: { id: number; title: string; author: Pick<User, 'id' | 'username' | 'full_name'> } | null;
+  comment: {
+    id: number;
+    post_id: number;
+    content: string;
+    author: Pick<User, 'id' | 'username' | 'full_name'>;
+    created_at: string;
+    updated_at: string;
+  } | null;
+  resolved_by: Pick<User, 'id' | 'username' | 'full_name'> | null;
+  resolved_at: string | null;
+  created_at: string;
+}
+
 export interface Product {
   id: number;
   name: string;
