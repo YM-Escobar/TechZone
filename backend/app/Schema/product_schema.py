@@ -42,5 +42,6 @@ class ProductOut(ORMModel):
     image_url: str | None
     specs: dict[str, Any]
     is_active: bool
+    is_builder_eligible: bool
     created_at: datetime
     updated_at: datetime

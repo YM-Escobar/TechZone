@@ -29,6 +29,7 @@ class ProductService:
         min_price: Decimal | None = None,
         max_price: Decimal | None = None,
         include_inactive: bool = False,
+        is_builder_eligible: bool | None = None,
     ) -> PageResult[Product]:
         
         only_active = not (
@@ -45,6 +46,7 @@ class ProductService:
             min_price=min_price,
             max_price=max_price,
             only_active=only_active,
+            is_builder_eligible=is_builder_eligible,
         )
         
         return PageResult(items, total, skip, limit)

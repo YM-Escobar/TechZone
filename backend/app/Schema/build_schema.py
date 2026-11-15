@@ -44,3 +44,10 @@ class BuildOut(ORMModel):
     total_price: Money
     created_at: datetime
     updated_at: datetime
+
+# Datos necesarios para evaluar la compatibilidad de una selección de componentes sin guardar una build.
+class BuildCompatibilityRequest(BaseModel):
+    items: list[BuildItemIn] = Field(
+        min_length=1,
+        description="Componentes que se desean evaluar"
+    )

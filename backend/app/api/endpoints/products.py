@@ -30,10 +30,12 @@ def list_products(
     min_price: Decimal | None = None,
     max_price: Decimal | None = None,
     include_inactive: bool = False,
+    is_builder_eligible: bool | None = None,
 ):
     return service.list(
         viewer, page.skip, page.limit, search=search, category=category, brand=brand,
         min_price=min_price, max_price=max_price, include_inactive=include_inactive,
+        is_builder_eligible=is_builder_eligible,
     )
 
 

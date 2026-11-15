@@ -1,4 +1,3 @@
-
 from typing import Any
 
 from app.Services.compatibility.rule_result import RuleResult
@@ -158,3 +157,4 @@ def check_ram_motherboard_slots(
         ),
         components=["ram", "motherboard"]
     )
+ 

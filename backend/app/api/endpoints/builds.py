@@ -3,9 +3,11 @@ from typing import Annotated
 from fastapi import APIRouter, Depends, status
 
 from app.api.deps import CurrentUser, DbSession, OptionalUser, PaginationDep
-from app.Schema.build_schema import BuildCreate, BuildOut, BuildUpdate
+from app.Schema.build_schema import BuildCreate, BuildOut, BuildUpdate, BuildCompatibilityRequest
+from app.Schema.compatibility_schema import BuildCompatibilityResultOut
 from app.Schema.common_schema import Page
 from app.Services.builds import BuildService
+
 
 router = APIRouter(prefix="/builds", tags=["builds"])
 
@@ -25,6 +27,11 @@ def list_public_builds(service: Service, page: PaginationDep, search: str | None
 @router.get("/me", response_model=Page[BuildOut])
 def list_my_builds(user: CurrentUser, service: Service, page: PaginationDep):
     return service.list_mine(user, page.skip, page.limit)
+
+
+@router.post("/compatibility", response_model=BuildCompatibilityResultOut)
+def evaluate_build_compatibility(data: BuildCompatibilityRequest, user: CurrentUser, service: Service):
+    return service.evaluate_compatibility(data.items)
 
 
 @router.get("/{build_id}", response_model=BuildOut)
