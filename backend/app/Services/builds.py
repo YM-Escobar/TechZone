@@ -92,9 +92,9 @@ class BuildService:
             quantities[item.product_id] = quantities.get(item.product_id, 0) + item.quantity
 
         products = {product.id: product for product in self.products.get_many(list(quantities))}
-        unavailable = [pid for pid in quantities if pid not in products or not products[pid].is_active]
+        unavailable = [pid for pid in quantities if (pid not in products or not products[pid].is_active or not products[pid].is_builder_eligible)]
         if unavailable:
-            raise BadRequestError(f"Productos no encontrados o no disponibles: {unavailable}")
+            raise BadRequestError(f"Productos no encontrados o no disponibles para el builder: {unavailable}")
 
         # Se actualizan los ítems existentes en lugar de recrearlos para no violar
         # la restricción única (build_id, product_id) al guardar
@@ -106,4 +106,4 @@ class BuildService:
             if product_id in existing:
                 existing[product_id].quantity = quantity
             else:
-                build.items.append(BuildItem(product=products[product_id], quantity=quantity))
+                build.items.append(BuildItem( product_id=product_id,product=products[product_id], quantity=quantity))

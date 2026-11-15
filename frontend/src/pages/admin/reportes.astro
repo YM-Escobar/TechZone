@@ -1,0 +1,186 @@
+---
+import AdminLayout from '../../layouts/AdminLayout.astro';
+---
+
+<AdminLayout
+  title="Reportes"
+  description="Revisa los reportes de la comunidad y registra su resolución."
+>
+  <div id="reports-message" class="mb-5 text-sm" role="status" aria-live="polite" hidden></div>
+
+  <section class="panel overflow-hidden" aria-label="Reportes de la comunidad">
+    <div class="flex flex-wrap items-end justify-between gap-4 border-b border-ink-800 px-5 py-5">
+      <div>
+        <p class="label">Moderación // Cola de revisión</p>
+        <h2 class="mt-1 text-lg font-semibold">Contenido reportado</h2>
+      </div>
+      <p id="reports-count" class="font-mono text-[10px] text-ink-500" aria-live="polite"></p>
+    </div>
+
+    <div id="report-filters" class="flex flex-wrap gap-2 border-b border-ink-800 px-5 py-3" role="group" aria-label="Filtrar reportes por estado">
+      <button data-status="pendiente" aria-pressed="true" class="report-filter border border-rose-500/30 bg-rose-500/[0.08] px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-rose-300">Pendientes</button>
+      <button data-status="resuelto" aria-pressed="false" class="report-filter border border-transparent px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-ink-400 transition-colors hover:border-ink-700 hover:text-ink-100">Resueltos</button>
+      <button data-status="descartado" aria-pressed="false" class="report-filter border border-transparent px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-ink-400 transition-colors hover:border-ink-700 hover:text-ink-100">Descartados</button>
+      <button data-status="" aria-pressed="false" class="report-filter border border-transparent px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-ink-400 transition-colors hover:border-ink-700 hover:text-ink-100">Todos</button>
+    </div>
+
+    <div id="reports-results" class="divide-y divide-ink-800">
+      <p class="px-5 py-12 text-center text-sm text-ink-500">Cargando reportes…</p>
+    </div>
+    <div class="flex flex-wrap items-center justify-between gap-3 border-t border-ink-800 px-5 py-4">
+      <p id="reports-page" class="font-mono text-[10px] text-ink-500"></p>
+      <nav id="reports-pager" class="flex items-center gap-2" aria-label="Paginación de reportes"></nav>
+    </div>
+  </section>
+</AdminLayout>
+
+<script>
+  import { api, type Page, type Report, type ReportStatus } from '../../lib/api';
+  import { requireAdminUser } from '../../lib/admin';
+  import { date, escapeHtml } from '../../lib/format';
+
+  const PAGE_SIZE = 12;
+  const results = document.getElementById('reports-results')!;
+  const message = document.getElementById('reports-message')!;
+  const count = document.getElementById('reports-count')!;
+  const pageInfo = document.getElementById('reports-page')!;
+  const pager = document.getElementById('reports-pager')!;
+  let filter: ReportStatus | '' = 'pendiente';
+  let skip = 0;
+  let total = 0;
+
+  function showMessage(text: string, isError = false) {
+    message.textContent = text;
+    message.className = isError ? 'alert-error mb-5' : 'alert-ok mb-5';
+    message.hidden = !text;
+  }
+
+  function reportStatus(status: ReportStatus) {
+    const styles: Record<ReportStatus, string> = {
+      pendiente: 'border-rose-500/30 bg-rose-500/[0.08] text-rose-300',
+      resuelto: 'border-ok/20 bg-ok/5 text-ok',
+      descartado: 'border-ink-700 bg-ink-850 text-ink-400',
+    };
+    const labels: Record<ReportStatus, string> = {
+      pendiente: 'Pendiente',
+      resuelto: 'Resuelto',
+      descartado: 'Descartado',
+    };
+    return `<span class="inline-flex border px-2 py-1 font-mono text-[9px] uppercase tracking-wider ${styles[status]}">${labels[status]}</span>`;
+  }
+
+  function renderReport(report: Report) {
+    const isPost = report.post !== null;
+    const targetTitle = isPost ? report.post!.title : 'Comentario reportado';
+    const targetBody = isPost ? null : report.comment?.content ?? 'El comentario ya no está disponible.';
+    const targetAuthor = isPost ? report.post!.author.username : report.comment?.author.username;
+    const actions = report.status === 'pendiente'
+      ? `<button data-action="status" data-id="${report.id}" data-next="resuelto" class="btn-primary px-3 py-2 text-[10px]">Resolver</button>
+         <button data-action="status" data-id="${report.id}" data-next="descartado" class="btn-ghost px-3 py-2 text-[10px]">Descartar</button>`
+      : `<button data-action="status" data-id="${report.id}" data-next="pendiente" class="btn-ghost px-3 py-2 text-[10px]">Reabrir</button>`;
+
+    return `
+      <article class="px-5 py-5 sm:px-6">
+        <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+          <div class="min-w-0 flex-1">
+            <div class="flex flex-wrap items-center gap-2">
+              ${reportStatus(report.status)}
+              <span class="font-mono text-[9px] uppercase tracking-wider text-violet-300">${isPost ? 'Publicación' : 'Comentario'}</span>
+              <span class="font-mono text-[9px] text-ink-600">ID ${report.id}</span>
+            </div>
+            <h3 class="mt-3 text-base font-semibold leading-snug text-white">${escapeHtml(targetTitle)}</h3>
+            ${targetBody ? `<blockquote class="mt-2 border-l border-violet-500/40 pl-3 text-sm leading-relaxed text-ink-300">${escapeHtml(targetBody)}</blockquote>` : ''}
+            <div class="mt-4 grid gap-2 text-xs sm:grid-cols-2">
+              <p class="text-ink-400">Reportado por <span class="text-ink-200">@${escapeHtml(report.reporter.username)}</span></p>
+              ${targetAuthor ? `<p class="text-ink-400">Autor del contenido <span class="text-ink-200">@${escapeHtml(targetAuthor)}</span></p>` : ''}
+              <p class="text-ink-500">Recibido ${date(report.created_at)}</p>
+              ${report.resolved_by ? `<p class="text-ink-500">${report.status === 'resuelto' ? 'Resuelto' : 'Revisado'} por @${escapeHtml(report.resolved_by.username)}${report.resolved_at ? ` · ${date(report.resolved_at)}` : ''}</p>` : ''}
+            </div>
+            <div class="mt-4 border border-ink-800 bg-ink-950/60 p-3">
+              <p class="label mb-1">Motivo del reporte</p>
+              <p class="whitespace-pre-wrap text-sm leading-relaxed text-ink-200">${escapeHtml(report.reason)}</p>
+            </div>
+          </div>
+          <div class="flex shrink-0 gap-2 lg:pt-1">${actions}</div>
+        </div>
+      </article>`;
+  }
+
+  function setFilterButtons() {
+    document.querySelectorAll<HTMLButtonElement>('.report-filter').forEach((button) => {
+      const active = button.dataset.status === filter;
+      button.setAttribute('aria-pressed', String(active));
+      button.className = active
+        ? 'report-filter border border-rose-500/30 bg-rose-500/[0.08] px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-rose-300'
+        : 'report-filter border border-transparent px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-ink-400 transition-colors hover:border-ink-700 hover:text-ink-100';
+    });
+  }
+
+  async function loadReports() {
+    results.innerHTML = '<p class="px-5 py-12 text-center text-sm text-ink-500">Cargando reportes…</p>';
+    try {
+      const page = await api<Page<Report>>('/admin/reports', {
+        query: { skip, limit: PAGE_SIZE, status: filter || undefined },
+      });
+      total = page.total;
+      results.innerHTML = page.items.length
+        ? page.items.map(renderReport).join('')
+        : `<div class="px-5 py-14 text-center">
+            <p class="font-mono text-[10px] uppercase tracking-wider text-ok">SYSTEM CLEAR</p>
+            <p class="mt-2 text-sm text-ink-400">${filter === 'pendiente' ? 'No hay reportes pendientes.' : 'No hay reportes en esta vista.'}</p>
+          </div>`;
+      const start = total === 0 ? 0 : skip + 1;
+      const end = Math.min(skip + PAGE_SIZE, total);
+      count.textContent = `${total.toLocaleString('es')} ${filter ? `· ${filter}` : '· total'}`;
+      pageInfo.textContent = `${start}–${end} de ${total.toLocaleString('es')}`;
+      pager.innerHTML = `
+        <button data-page="prev" class="btn-ghost px-3 py-2 text-xs" ${skip === 0 ? 'disabled' : ''}>← Anterior</button>
+        <button data-page="next" class="btn-ghost px-3 py-2 text-xs" ${skip + PAGE_SIZE >= total ? 'disabled' : ''}>Siguiente →</button>`;
+    } catch (err) {
+      results.innerHTML = '<p class="px-5 py-12 text-center text-sm text-danger">No se pudieron cargar los reportes.</p>';
+      showMessage(err instanceof Error ? err.message : 'No se pudieron cargar los reportes.', true);
+    }
+  }
+
+  async function main() {
+    if (!(await requireAdminUser())) return;
+    setFilterButtons();
+    await loadReports();
+  }
+
+  document.getElementById('report-filters')!.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-status]');
+    if (!button) return;
+    filter = (button.dataset.status ?? '') as ReportStatus | '';
+    skip = 0;
+    showMessage('');
+    setFilterButtons();
+    void loadReports();
+  });
+
+  pager.addEventListener('click', (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-page]');
+    if (!button || button.disabled) return;
+    skip = button.dataset.page === 'next' ? skip + PAGE_SIZE : Math.max(0, skip - PAGE_SIZE);
+    void loadReports();
+  });
+
+  results.addEventListener('click', async (event) => {
+    const button = (event.target as HTMLElement).closest<HTMLButtonElement>('[data-action="status"]');
+    if (!button) return;
+    button.disabled = true;
+    try {
+      await api<Report>(`/admin/reports/${button.dataset.id}`, {
+        method: 'PATCH',
+        json: { status: button.dataset.next },
+      });
+      showMessage(button.dataset.next === 'pendiente' ? 'El reporte volvió a la cola pendiente.' : 'El estado del reporte se actualizó.');
+      await loadReports();
+    } catch (err) {
+      button.disabled = false;
+      showMessage(err instanceof Error ? err.message : 'No se pudo actualizar el reporte.', true);
+    }
+  });
+
+  void main();
+</script>

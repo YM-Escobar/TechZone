@@ -1,0 +1,129 @@
+---
+import '../styles/global.css';
+import Logo from '../components/Logo.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const path = Astro.url.pathname;
+const links = [
+  { href: '/admin', label: 'Resumen', code: 'OVW' },
+  { href: '/admin/usuarios', label: 'Usuarios', code: 'USR' },
+  { href: '/admin/reportes', label: 'Reportes', code: 'MOD' },
+];
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} — TechZone Admin</title>
+  </head>
+  <body class="min-h-dvh bg-ink-950 text-ink-100">
+    <div class="pointer-events-none fixed inset-x-0 top-0 z-0 h-48 bg-gradient-to-b from-violet-500/[0.05] to-transparent" aria-hidden="true"></div>
+    <div class="relative mx-auto flex min-h-dvh max-w-[1800px]">
+      <aside class="sticky top-0 hidden h-dvh w-64 shrink-0 flex-col border-r border-ink-800 bg-ink-950/90 px-5 py-6 lg:flex">
+        <a href="/admin" aria-label="TechZone Admin, ir al resumen">
+          <Logo />
+        </a>
+        <div class="mt-10">
+          <p class="label mb-3 px-3">Administración</p>
+          <nav class="space-y-1" aria-label="Navegación de administración">
+            {links.map((link) => {
+              const active = path === link.href || (link.href !== '/admin' && path.startsWith(link.href));
+              return (
+                <a
+                  href={link.href}
+                  aria-current={active ? 'page' : undefined}
+                  class:list={[
+                    'group flex items-center gap-3 border px-3 py-2.5 text-sm transition-colors',
+                    active
+                      ? 'border-violet-500/25 bg-violet-500/[0.08] text-white'
+                      : 'border-transparent text-ink-400 hover:border-ink-800 hover:bg-ink-900 hover:text-ink-100',
+                  ]}
+                >
+                  <span class:list={['font-mono text-[10px]', active ? 'text-violet-300' : 'text-ink-600 group-hover:text-violet-300']}>{link.code}</span>
+                  {link.label}
+                </a>
+              );
+            })}
+          </nav>
+        </div>
+        <div class="mt-auto border-t border-ink-800 pt-4">
+          <div class="mb-4 flex items-center gap-2 border border-ok/20 bg-ok/5 px-3 py-2 font-mono text-[9px] uppercase tracking-wider text-ok">
+            <span class="size-1.5 animate-pulse rounded-full bg-ok shadow-[0_0_8px_rgba(111,211,155,0.8)]" aria-hidden="true"></span>
+            <span>Panel operativo</span>
+          </div>
+          <a href="/" class="block px-3 py-2 text-xs text-ink-400 transition-colors hover:text-violet-300">← Volver a TechZone</a>
+        </div>
+      </aside>
+
+      <div class="min-w-0 flex-1">
+        <header class="sticky top-0 z-20 border-b border-ink-800 bg-ink-950/90 backdrop-blur-xl">
+          <div class="flex min-h-14 flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-2 sm:px-6 lg:px-8">
+            <div class="flex flex-1 items-center gap-3 lg:hidden">
+              <a href="/admin" aria-label="TechZone Admin"><Logo /></a>
+            </div>
+            <nav class="order-3 flex w-full items-center gap-1 overflow-x-auto sm:order-none sm:w-auto lg:hidden" aria-label="Administración">
+              {links.map((link) => (
+                <a
+                  href={link.href}
+                  aria-current={path === link.href ? 'page' : undefined}
+                  class:list={[
+                    'px-2.5 py-2 text-xs transition-colors',
+                    path === link.href ? 'text-violet-300' : 'text-ink-400 hover:text-white',
+                  ]}
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            <div class="ml-auto flex items-center gap-3">
+              <a href="/" class="hidden text-xs text-ink-500 transition-colors hover:text-ink-200 sm:block">Ver sitio</a>
+              <span class="h-4 w-px bg-ink-800" aria-hidden="true"></span>
+              <a id="admin-identity" href="/perfil" class="max-w-36 truncate font-mono text-[11px] text-ink-300 transition-colors hover:text-violet-300">ADMIN // ...</a>
+              <button id="admin-logout" class="border border-ink-800 px-2.5 py-1.5 font-mono text-[9px] uppercase tracking-wider text-ink-400 transition-colors hover:border-rose-500/50 hover:text-rose-300">Salir</button>
+            </div>
+          </div>
+          <div class="h-px bg-gradient-to-r from-violet-500/35 via-rose-500/40 to-violet-500/35" aria-hidden="true"></div>
+        </header>
+
+        <main class="px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
+          <div class="mx-auto max-w-7xl">
+            <div class="mb-8">
+              <p class="label flex items-center gap-2"><span class="text-violet-300">TECHZONE</span><span class="text-ink-700">//</span> CONTROL ROOM</p>
+              <h1 class="mt-2 text-3xl font-semibold tracking-tight text-white sm:text-4xl">{title}</h1>
+              <p class="mt-2 max-w-2xl text-sm leading-relaxed text-ink-400">{description}</p>
+            </div>
+            <slot />
+            <footer class="mt-12 flex flex-col gap-2 border-t border-ink-800 pt-4 font-mono text-[9px] uppercase tracking-wider text-ink-600 sm:flex-row sm:items-center sm:justify-between">
+              <span>© {new Date().getFullYear()} TechZone // Admin</span>
+              <span>Engineered with <span class="text-violet-400">Astro</span> + <span class="text-rose-400">FastAPI</span></span>
+            </footer>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  import { onUserChange, logout } from '../lib/session';
+
+  const identity = document.getElementById('admin-identity');
+  onUserChange((user) => {
+    if (identity) identity.textContent = user ? `ADMIN // ${user.username}` : 'ADMIN // SESIÓN';
+  });
+
+  document.getElementById('admin-logout')?.addEventListener('click', async () => {
+    await logout();
+    location.href = '/login';
+  });
+</script>
