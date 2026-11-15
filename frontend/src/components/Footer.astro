@@ -1,7 +1,6 @@
 ---
 import Logo from './Logo.astro';
 import { CATEGORIES } from '../lib/format';
-import { API_URL } from '../lib/api';
 
 const year = new Date().getFullYear();
 const hardwareCategories = CATEGORIES.slice(0, 6);
@@ -25,17 +24,15 @@ const hardwareCategories = CATEGORIES.slice(0, 6);
 
       <div class="mt-5 flex flex-wrap items-center gap-2">
         <a
-          href="https://github.com/YM-Escobar/TechZone"
-          target="_blank"
-          rel="noreferrer"
+          href="mailto:techzone.soporte1@gmail.com"
           class="inline-flex items-center gap-2 border border-ink-800 bg-ink-900/70 px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-ink-300 transition-all hover:border-violet-500/50 hover:text-white hover:shadow-[0_0_16px_rgba(139,92,246,0.12)]"
-          aria-label="Ver TechZone en GitHub (abre en una pestaña nueva)"
+          aria-label="Enviar correo a techzone.soporte1@gmail.com"
         >
-          <svg viewBox="0 0 24 24" class="size-4 fill-current" aria-hidden="true">
-            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.53v-2.08c-3.1.67-3.75-1.32-3.75-1.32-.5-1.28-1.23-1.62-1.23-1.62-1.01-.7.08-.69.08-.69 1.12.08 1.71 1.15 1.71 1.15 1 .1.75 2.45 3.13 1.74.1-.72.39-1.22.7-1.5-2.48-.28-5.09-1.24-5.09-5.52 0-1.22.44-2.22 1.15-3-.12-.28-.5-1.42.11-2.96 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.43 3.04-1.14 3.04-1.14.61 1.54.23 2.68.12 2.96.71.78 1.14 1.78 1.14 3 0 4.29-2.61 5.23-5.1 5.5.4.35.75 1.02.75 2.06V22c0 .29.2.63.77.52A11.1 11.1 0 0 0 12 .9Z"/>
+          <svg viewBox="0 0 24 24" class="size-4 fill-none stroke-current" stroke-width="1.5" aria-hidden="true">
+            <path d="M3.75 5.25h16.5v13.5H3.75z" />
+            <path d="m4.5 6 7.5 6 7.5-6" />
           </svg>
-          GitHub
-          <span aria-hidden="true">↗</span>
+          techzone.soporte1@gmail.com
         </a>
       </div>
     </div>
@@ -62,7 +59,7 @@ const hardwareCategories = CATEGORIES.slice(0, 6);
         Herramientas & builds
       </h2>
       <ul class="space-y-3 text-xs">
-        {['Comparador de piezas', 'Configurador PC', 'Builds de la comunidad', 'Calculadora de consumo (Watts)'].map((item) => (
+        {['Configurador PC', 'Builds de la comunidad'].map((item) => (
           <li class="flex items-start justify-between gap-2 text-ink-500" aria-disabled="true" title="Disponible próximamente">
             <span>{item}</span>
             <span class="shrink-0 font-mono text-[8px] uppercase tracking-wider text-violet-400/70">Próx.</span>
@@ -78,11 +75,11 @@ const hardwareCategories = CATEGORIES.slice(0, 6);
       </h2>
       <ul class="space-y-3 text-xs">
         <li>
-          <a href={`${API_URL}/health`} target="_blank" rel="noreferrer" class="text-ink-400 transition-colors hover:text-white">
+          <a href="/estado-servicio" class="text-ink-400 transition-colors hover:text-white">
             Estado del servicio <span class="font-mono text-[9px] text-violet-400">↗</span>
           </a>
         </li>
-        {['Guías de armado', 'Garantías y envíos', 'FAQ técnico'].map((item) => (
+        {['Guías de armado', 'FAQ técnico'].map((item) => (
           <li class="flex items-start justify-between gap-2 text-ink-500" aria-disabled="true" title="Documentación disponible próximamente">
             <span>{item}</span>
             <span class="shrink-0 font-mono text-[8px] uppercase tracking-wider text-violet-400/70">Próx.</span>

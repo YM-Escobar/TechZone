@@ -1,0 +1,114 @@
+---
+import Base from '../layouts/Base.astro';
+import { API_URL } from '../lib/api';
+---
+
+<Base title="Estado del servicio" description="Consulta el estado de conexión de los servicios de TechZone.">
+  <section
+    data-health-endpoint={`${API_URL}/health`}
+    class="relative isolate flex min-h-[65vh] items-center overflow-hidden bg-ink-950 px-4 py-16 text-ink-100 sm:px-6"
+  >
+    <div class="pointer-events-none absolute inset-0 -z-10 opacity-[0.04]" aria-hidden="true" style="background-image: linear-gradient(to right, #8b5cf6 1px, transparent 1px), linear-gradient(to bottom, #8b5cf6 1px, transparent 1px); background-size: 36px 36px;"></div>
+    <div class="pointer-events-none absolute -top-32 left-1/2 -z-10 size-[30rem] -translate-x-1/2 rounded-full bg-violet-600/15 blur-[130px]" aria-hidden="true"></div>
+
+    <div class="mx-auto w-full max-w-3xl">
+      <div class="text-center">
+        <p class="font-mono text-[10px] uppercase tracking-[0.24em] text-violet-300">TechZone // Centro de servicio</p>
+        <h1 class="mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl">Estado del servicio</h1>
+        <p class="mx-auto mt-4 max-w-xl text-sm leading-relaxed text-ink-400 sm:text-base">
+          Revisa en tiempo real la conexión con los servicios de TechZone.
+        </p>
+      </div>
+
+      <div class="mt-10 border border-ink-800 bg-ink-900/80 p-5 shadow-[0_0_60px_rgba(139,92,246,0.08)] sm:p-8">
+        <div class="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div class="flex items-center gap-4">
+            <span data-health-indicator class="flex size-12 shrink-0 items-center justify-center border border-ink-700 bg-ink-950 text-ink-500" aria-hidden="true">
+              <span class="size-3 rounded-full bg-current"></span>
+            </span>
+            <div>
+              <p class="font-mono text-[10px] uppercase tracking-[0.16em] text-ink-500">Conexión de la API</p>
+              <p data-health-status class="mt-1 text-xl font-semibold text-white" aria-live="polite">Comprobando conexión…</p>
+            </div>
+          </div>
+          <button data-health-refresh type="button" class="inline-flex min-h-11 items-center justify-center gap-2 border border-ink-700 px-4 font-mono text-[10px] uppercase tracking-wider text-ink-200 transition-colors hover:border-violet-400/60 hover:text-white disabled:cursor-wait disabled:opacity-60">
+            <span aria-hidden="true">↻</span>
+            Comprobar de nuevo
+          </button>
+        </div>
+
+        <div class="mt-7 grid gap-4 border-t border-ink-800 pt-5 sm:grid-cols-2">
+          <div>
+            <p class="font-mono text-[9px] uppercase tracking-wider text-ink-500">Tiempo de respuesta</p>
+            <p data-health-ping class="mt-1 font-mono text-sm text-ink-200">—</p>
+          </div>
+          <div>
+            <p class="font-mono text-[9px] uppercase tracking-wider text-ink-500">Última comprobación</p>
+            <p data-health-checked class="mt-1 font-mono text-sm text-ink-200">—</p>
+          </div>
+        </div>
+      </div>
+
+      <p data-health-detail class="mt-4 text-center text-xs text-ink-500" aria-live="polite">
+        Estamos verificando que el servicio esté conectado.
+      </p>
+      <div class="mt-8 flex justify-center">
+        <a href="/" class="font-mono text-[10px] uppercase tracking-wider text-violet-300 transition-colors hover:text-rose-300">
+          <span aria-hidden="true">←</span> Volver a TechZone
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<script>
+  const panel = document.querySelector<HTMLElement>('[data-health-endpoint]');
+  const status = document.querySelector<HTMLElement>('[data-health-status]');
+  const indicator = document.querySelector<HTMLElement>('[data-health-indicator]');
+  const ping = document.querySelector<HTMLElement>('[data-health-ping]');
+  const checked = document.querySelector<HTMLElement>('[data-health-checked]');
+  const detail = document.querySelector<HTMLElement>('[data-health-detail]');
+  const refresh = document.querySelector<HTMLButtonElement>('[data-health-refresh]');
+  let isChecking = false;
+
+  async function checkService() {
+    if (isChecking || !panel || !status || !indicator || !ping || !checked || !detail || !refresh) return;
+
+    isChecking = true;
+    refresh.disabled = true;
+    status.textContent = 'Comprobando conexión…';
+    detail.textContent = 'Estamos verificando que el servicio esté conectado.';
+
+    const startedAt = performance.now();
+    try {
+      const response = await fetch(panel.dataset.healthEndpoint ?? '', { cache: 'no-store' });
+      if (!response.ok) throw new Error(`Health check returned ${response.status}`);
+
+      const result: unknown = await response.json();
+      if (typeof result !== 'object' || result === null || !('status' in result) || result.status !== 'ok') {
+        throw new Error('Health check returned an unexpected response');
+      }
+
+      status.textContent = 'Conectado';
+      status.className = 'mt-1 text-xl font-semibold text-ok';
+      indicator.className = 'flex size-12 shrink-0 items-center justify-center border border-ok/30 bg-ok/10 text-ok';
+      ping.textContent = `${Math.round(performance.now() - startedAt)} ms`;
+      detail.textContent = 'Todos los servicios de TechZone están respondiendo correctamente.';
+    } catch (error) {
+      status.textContent = 'Sin conexión';
+      status.className = 'mt-1 text-xl font-semibold text-danger';
+      indicator.className = 'flex size-12 shrink-0 items-center justify-center border border-danger/30 bg-danger/10 text-danger';
+      ping.textContent = 'No disponible';
+      detail.textContent = 'No pudimos conectar con la API. Intenta comprobarlo de nuevo en unos momentos.';
+      console.error('TechZone service status check failed:', error);
+    } finally {
+      checked.textContent = new Intl.DateTimeFormat('es', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date());
+      refresh.disabled = false;
+      isChecking = false;
+    }
+  }
+
+  refresh?.addEventListener('click', () => void checkService());
+  void checkService();
+  window.setInterval(() => void checkService(), 30_000);
+</script>
