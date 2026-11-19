@@ -1,0 +1,1821 @@
+[
+  {
+    "name": "ASUS ROG STRIX B650E-F GAMING WIFI",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 229,
+    "stock": 7,
+    "description": "Placa ATX B650E con PCIe 5.0 en la ranura gráfica y en la M.2 principal.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "B650E",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 2
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 1
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS TUF GAMING B650-PLUS WIFI",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 179,
+    "stock": 9,
+    "description": "Placa ATX B650 de la serie TUF con Wi-Fi 6.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "B650",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 2
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MAG B650 TOMAHAWK WIFI",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 199,
+    "stock": 8,
+    "description": "Placa ATX B650 con 6 puertos SATA y Wi-Fi 6E.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "B650",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 6,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 2,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 1
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI PRO B650M-A WIFI",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 149,
+    "stock": 12,
+    "description": "Placa Micro-ATX B650 para equipos AM5 compactos.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "B650",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "Micro-ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 2,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Gigabyte B650 AORUS ELITE AX",
+    "brand": "Gigabyte",
+    "category": "placa_madre",
+    "price": 189,
+    "stock": 8,
+    "description": "Placa ATX B650 con tres ranuras M.2 y Wi-Fi 6E.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "B650",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 2,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 1
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASRock B650M Pro RS WiFi",
+    "brand": "ASRock",
+    "category": "placa_madre",
+    "price": 139,
+    "stock": 11,
+    "description": "Placa Micro-ATX B650 con Wi-Fi 6E y tres ranuras M.2.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "B650",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "Micro-ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2230",
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 1
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS ROG STRIX X870E-E GAMING WIFI",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 499,
+    "stock": 3,
+    "description": "Placa ATX X870E de gama alta con cinco ranuras M.2 y Wi-Fi 7.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "X870E",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 3
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MAG X870 TOMAHAWK WIFI",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 299,
+    "stock": 6,
+    "description": "Placa ATX X870 con USB4 y Wi-Fi 7.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "X870",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 2
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Gigabyte X870 AORUS ELITE WIFI7",
+    "brand": "Gigabyte",
+    "category": "placa_madre",
+    "price": 279,
+    "stock": 6,
+    "description": "Placa ATX X870 con cuatro ranuras M.2 y Wi-Fi 7.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "X870",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 2,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "25110"
+          ],
+          "quantity": 1
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "25110"
+          ],
+          "quantity": 2
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI B850 GAMING PLUS WIFI",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 189,
+    "stock": 9,
+    "description": "Placa ATX B850 con M.2 PCIe 5.0 y Wi-Fi 7.",
+    "specs": {
+      "socket": "AM5",
+      "chipset": "B850",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 7600"
+        },
+        {
+          "model": "AMD Ryzen 5 7600X"
+        },
+        {
+          "model": "AMD Ryzen 7 7700X"
+        },
+        {
+          "model": "AMD Ryzen 7 7800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 7900X"
+        },
+        {
+          "model": "AMD Ryzen 9 7950X"
+        },
+        {
+          "model": "AMD Ryzen 5 9600X"
+        },
+        {
+          "model": "AMD Ryzen 7 9700X"
+        },
+        {
+          "model": "AMD Ryzen 7 9800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 9900X"
+        },
+        {
+          "model": "AMD Ryzen 9 9950X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 2,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 1
+        },
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MAG B550 TOMAHAWK",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 149,
+    "stock": 7,
+    "description": "Placa ATX B550 con PCIe 4.0 para la GPU y la M.2 principal.",
+    "specs": {
+      "socket": "AM4",
+      "chipset": "B550",
+      "memory_type": "DDR4",
+      "max_memory_gb": 128,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 6,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 5600"
+        },
+        {
+          "model": "AMD Ryzen 5 5600X"
+        },
+        {
+          "model": "AMD Ryzen 7 5700X"
+        },
+        {
+          "model": "AMD Ryzen 7 5800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 5900X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 2
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS TUF GAMING B550-PLUS WIFI II",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 159,
+    "stock": 8,
+    "description": "Placa ATX B550 con Wi-Fi 6 y doble M.2.",
+    "specs": {
+      "socket": "AM4",
+      "chipset": "B550",
+      "memory_type": "DDR4",
+      "max_memory_gb": 128,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 6,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 5600"
+        },
+        {
+          "model": "AMD Ryzen 5 5600X"
+        },
+        {
+          "model": "AMD Ryzen 7 5700X"
+        },
+        {
+          "model": "AMD Ryzen 7 5800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 5900X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 3
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Gigabyte B550 AORUS ELITE V2",
+    "brand": "Gigabyte",
+    "category": "placa_madre",
+    "price": 139,
+    "stock": 9,
+    "description": "Placa ATX B550 con doble M.2 y disipadores en VRM.",
+    "specs": {
+      "socket": "AM4",
+      "chipset": "B550",
+      "memory_type": "DDR4",
+      "max_memory_gb": 128,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 5600"
+        },
+        {
+          "model": "AMD Ryzen 5 5600X"
+        },
+        {
+          "model": "AMD Ryzen 7 5700X"
+        },
+        {
+          "model": "AMD Ryzen 7 5800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 5900X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 2,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 2
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASRock B550M Pro4",
+    "brand": "ASRock",
+    "category": "placa_madre",
+    "price": 99,
+    "stock": 14,
+    "description": "Placa Micro-ATX B550 de buena relación precio/prestaciones.",
+    "specs": {
+      "socket": "AM4",
+      "chipset": "B550",
+      "memory_type": "DDR4",
+      "max_memory_gb": 128,
+      "memory_slots": 4,
+      "form_factor": "Micro-ATX",
+      "sata_ports": 6,
+      "supported_cpu_models": [
+        {
+          "model": "AMD Ryzen 5 5600"
+        },
+        {
+          "model": "AMD Ryzen 5 5600X"
+        },
+        {
+          "model": "AMD Ryzen 7 5700X"
+        },
+        {
+          "model": "AMD Ryzen 7 5800X3D"
+        },
+        {
+          "model": "AMD Ryzen 9 5900X"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2230",
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI PRO B760M-A WIFI DDR4",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 129,
+    "stock": 12,
+    "description": "Placa Micro-ATX B760 que usa memoria DDR4.",
+    "specs": {
+      "socket": "LGA1700",
+      "chipset": "B760",
+      "memory_type": "DDR4",
+      "max_memory_gb": 128,
+      "memory_slots": 4,
+      "form_factor": "Micro-ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core i5-12400F"
+        },
+        {
+          "model": "Intel Core i5-13400F"
+        },
+        {
+          "model": "Intel Core i5-14400F"
+        },
+        {
+          "model": "Intel Core i5-14600K"
+        },
+        {
+          "model": "Intel Core i7-14700K"
+        },
+        {
+          "model": "Intel Core i9-14900K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS PRIME B760M-A WIFI D4",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 129,
+    "stock": 10,
+    "description": "Placa Micro-ATX B760 con DDR4 y Wi-Fi 6.",
+    "specs": {
+      "socket": "LGA1700",
+      "chipset": "B760",
+      "memory_type": "DDR4",
+      "max_memory_gb": 128,
+      "memory_slots": 4,
+      "form_factor": "Micro-ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core i5-12400F"
+        },
+        {
+          "model": "Intel Core i5-13400F"
+        },
+        {
+          "model": "Intel Core i5-14400F"
+        },
+        {
+          "model": "Intel Core i5-14600K"
+        },
+        {
+          "model": "Intel Core i7-14700K"
+        },
+        {
+          "model": "Intel Core i9-14900K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Gigabyte B760 AORUS ELITE AX",
+    "brand": "Gigabyte",
+    "category": "placa_madre",
+    "price": 179,
+    "stock": 8,
+    "description": "Placa ATX B760 con DDR5 y tres ranuras M.2.",
+    "specs": {
+      "socket": "LGA1700",
+      "chipset": "B760",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core i5-12400F"
+        },
+        {
+          "model": "Intel Core i5-13400F"
+        },
+        {
+          "model": "Intel Core i5-14400F"
+        },
+        {
+          "model": "Intel Core i5-14600K"
+        },
+        {
+          "model": "Intel Core i7-14700K"
+        },
+        {
+          "model": "Intel Core i9-14900K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x16",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 3
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MAG Z790 TOMAHAWK WIFI",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 259,
+    "stock": 6,
+    "description": "Placa ATX Z790 con PCIe 5.0 para la GPU y cuatro M.2.",
+    "specs": {
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 7,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core i5-12400F"
+        },
+        {
+          "model": "Intel Core i5-13400F"
+        },
+        {
+          "model": "Intel Core i5-14400F"
+        },
+        {
+          "model": "Intel Core i5-14600K"
+        },
+        {
+          "model": "Intel Core i7-14700K"
+        },
+        {
+          "model": "Intel Core i9-14900K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 4
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS ROG STRIX Z790-E GAMING WIFI II",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 449,
+    "stock": 3,
+    "description": "Placa ATX Z790 de gama alta con Wi-Fi 7.",
+    "specs": {
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core i5-12400F"
+        },
+        {
+          "model": "Intel Core i5-13400F"
+        },
+        {
+          "model": "Intel Core i5-14400F"
+        },
+        {
+          "model": "Intel Core i5-14600K"
+        },
+        {
+          "model": "Intel Core i7-14700K"
+        },
+        {
+          "model": "Intel Core i9-14900K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 5
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASRock Z790 Pro RS",
+    "brand": "ASRock",
+    "category": "placa_madre",
+    "price": 189,
+    "stock": 7,
+    "description": "Placa ATX Z790 con cuatro ranuras M.2.",
+    "specs": {
+      "socket": "LGA1700",
+      "chipset": "Z790",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 6,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core i5-12400F"
+        },
+        {
+          "model": "Intel Core i5-13400F"
+        },
+        {
+          "model": "Intel Core i5-14400F"
+        },
+        {
+          "model": "Intel Core i5-14600K"
+        },
+        {
+          "model": "Intel Core i7-14700K"
+        },
+        {
+          "model": "Intel Core i9-14900K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "3.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 2
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 4
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MAG Z890 TOMAHAWK WIFI",
+    "brand": "MSI",
+    "category": "placa_madre",
+    "price": 299,
+    "stock": 6,
+    "description": "Placa ATX Z890 para Core Ultra 200S con Wi-Fi 7 y Thunderbolt 4.",
+    "specs": {
+      "socket": "LGA1851",
+      "chipset": "Z890",
+      "memory_type": "DDR5",
+      "max_memory_gb": 256,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core Ultra 5 245K"
+        },
+        {
+          "model": "Intel Core Ultra 7 265K"
+        },
+        {
+          "model": "Intel Core Ultra 9 285K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 4
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS ROG STRIX Z890-E GAMING WIFI",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 499,
+    "stock": 3,
+    "description": "Placa ATX Z890 de gama alta con cinco ranuras M.2.",
+    "specs": {
+      "socket": "LGA1851",
+      "chipset": "Z890",
+      "memory_type": "DDR5",
+      "max_memory_gb": 192,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core Ultra 5 245K"
+        },
+        {
+          "model": "Intel Core Ultra 7 265K"
+        },
+        {
+          "model": "Intel Core Ultra 9 285K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 5
+        }
+      ]
+    }
+  },
+  {
+    "name": "Gigabyte Z890 AORUS ELITE WIFI7",
+    "brand": "Gigabyte",
+    "category": "placa_madre",
+    "price": 279,
+    "stock": 6,
+    "description": "Placa ATX Z890 con cuatro ranuras M.2 y Wi-Fi 7.",
+    "specs": {
+      "socket": "LGA1851",
+      "chipset": "Z890",
+      "memory_type": "DDR5",
+      "max_memory_gb": 256,
+      "memory_slots": 4,
+      "form_factor": "ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core Ultra 5 245K"
+        },
+        {
+          "model": "Intel Core Ultra 7 265K"
+        },
+        {
+          "model": "Intel Core Ultra 9 285K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280",
+            "22110"
+          ],
+          "quantity": 4
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS PRIME B860M-A WIFI",
+    "brand": "ASUS",
+    "category": "placa_madre",
+    "price": 159,
+    "stock": 9,
+    "description": "Placa Micro-ATX B860 para Core Ultra 200S.",
+    "specs": {
+      "socket": "LGA1851",
+      "chipset": "B860",
+      "memory_type": "DDR5",
+      "max_memory_gb": 256,
+      "memory_slots": 4,
+      "form_factor": "Micro-ATX",
+      "sata_ports": 4,
+      "supported_cpu_models": [
+        {
+          "model": "Intel Core Ultra 5 245K"
+        },
+        {
+          "model": "Intel Core Ultra 7 265K"
+        },
+        {
+          "model": "Intel Core Ultra 9 285K"
+        }
+      ],
+      "pcie_slots_details": [
+        {
+          "generation": "5.0",
+          "physical_size": "x16",
+          "electrical_lanes": 16,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x16",
+          "electrical_lanes": 4,
+          "quantity": 1
+        },
+        {
+          "generation": "4.0",
+          "physical_size": "x1",
+          "electrical_lanes": 1,
+          "quantity": 1
+        }
+      ],
+      "m2_slots_details": [
+        {
+          "interface": "PCIe",
+          "supported_form_factors": [
+            "2242",
+            "2260",
+            "2280"
+          ],
+          "quantity": 2
+        }
+      ]
+    }
+  }
+]

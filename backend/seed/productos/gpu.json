@@ -1,0 +1,522 @@
+[
+  {
+    "name": "NVIDIA GeForce RTX 5090 Founders Edition",
+    "brand": "NVIDIA",
+    "category": "gpu",
+    "price": 1999,
+    "stock": 2,
+    "description": "Tope de gama Blackwell con 32 GB GDDR7.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 32,
+      "length_mm": 304,
+      "board_power_w": 575,
+      "recommended_psu_w": 1000,
+      "power_connectors_required": [
+        {
+          "type": "12V-2x6",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "NVIDIA GeForce RTX 5080 Founders Edition",
+    "brand": "NVIDIA",
+    "category": "gpu",
+    "price": 999,
+    "stock": 4,
+    "description": "GPU Blackwell con 16 GB GDDR7 para 4K.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 304,
+      "board_power_w": 360,
+      "recommended_psu_w": 850,
+      "power_connectors_required": [
+        {
+          "type": "12V-2x6",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS PRIME GeForce RTX 5070 Ti 16GB GDDR7 OC Edition",
+    "brand": "ASUS",
+    "category": "gpu",
+    "price": 799,
+    "stock": 5,
+    "description": "RTX 5070 Ti de diseño compacto de 2.5 ranuras.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 304,
+      "board_power_w": 300,
+      "recommended_psu_w": 750,
+      "power_connectors_required": [
+        {
+          "type": "12V-2x6",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "NVIDIA GeForce RTX 5070 Founders Edition",
+    "brand": "NVIDIA",
+    "category": "gpu",
+    "price": 549,
+    "stock": 7,
+    "description": "GPU Blackwell de dos ranuras para 1440p.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 12,
+      "length_mm": 242,
+      "board_power_w": 250,
+      "recommended_psu_w": 650,
+      "power_connectors_required": [
+        {
+          "type": "12V-2x6",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI GeForce RTX 5060 Ti 16G VENTUS 2X OC",
+    "brand": "MSI",
+    "category": "gpu",
+    "price": 449,
+    "stock": 9,
+    "description": "RTX 5060 Ti de doble ventilador con 16 GB.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 8
+      },
+      "vram_gb": 16,
+      "length_mm": 197,
+      "board_power_w": 180,
+      "recommended_psu_w": 450,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI GeForce RTX 5060 8G VENTUS 2X OC",
+    "brand": "MSI",
+    "category": "gpu",
+    "price": 309,
+    "stock": 12,
+    "description": "RTX 5060 de doble ventilador para 1080p.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 8
+      },
+      "vram_gb": 8,
+      "length_mm": 197,
+      "board_power_w": 145,
+      "recommended_psu_w": 450,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "NVIDIA GeForce RTX 4080 SUPER Founders Edition",
+    "brand": "NVIDIA",
+    "category": "gpu",
+    "price": 999,
+    "stock": 3,
+    "description": "GPU Ada Lovelace para 4K.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 310,
+      "board_power_w": 320,
+      "recommended_psu_w": 750,
+      "power_connectors_required": [
+        {
+          "type": "12VHPWR",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "NVIDIA GeForce RTX 4070 SUPER Founders Edition",
+    "brand": "NVIDIA",
+    "category": "gpu",
+    "price": 599,
+    "stock": 6,
+    "description": "GPU Ada Lovelace de dos ranuras para 1440p.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 12,
+      "length_mm": 244,
+      "board_power_w": 220,
+      "recommended_psu_w": 650,
+      "power_connectors_required": [
+        {
+          "type": "12VHPWR",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "NVIDIA GeForce RTX 4060 Ti 8GB Founders Edition",
+    "brand": "NVIDIA",
+    "category": "gpu",
+    "price": 399,
+    "stock": 8,
+    "description": "GPU Ada Lovelace para 1080p alto.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 8
+      },
+      "vram_gb": 8,
+      "length_mm": 244,
+      "board_power_w": 160,
+      "recommended_psu_w": 550,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "NVIDIA GeForce RTX 4060 Founders Edition",
+    "brand": "NVIDIA",
+    "category": "gpu",
+    "price": 299,
+    "stock": 10,
+    "description": "GPU Ada Lovelace eficiente para 1080p.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 8
+      },
+      "vram_gb": 8,
+      "length_mm": 244,
+      "board_power_w": 115,
+      "recommended_psu_w": 550,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI GeForce RTX 3050 VENTUS 2X 6G OC",
+    "brand": "MSI",
+    "category": "gpu",
+    "price": 179,
+    "stock": 14,
+    "description": "RTX 3050 de 70 W que se alimenta solo desde la ranura PCIe.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 8
+      },
+      "vram_gb": 6,
+      "length_mm": 189,
+      "board_power_w": 70,
+      "recommended_psu_w": 300,
+      "power_connectors_required": []
+    }
+  },
+  {
+    "name": "Sapphire PULSE AMD Radeon RX 9070 XT 16GB",
+    "brand": "Sapphire",
+    "category": "gpu",
+    "price": 699,
+    "stock": 6,
+    "description": "RDNA 4 con 16 GB GDDR6 para 1440p y 4K.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 313,
+      "board_power_w": 304,
+      "recommended_psu_w": 750,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sapphire PULSE AMD Radeon RX 9070 16GB",
+    "brand": "Sapphire",
+    "category": "gpu",
+    "price": 599,
+    "stock": 6,
+    "description": "RDNA 4 con 16 GB GDDR6 de consumo moderado.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 313,
+      "board_power_w": 220,
+      "recommended_psu_w": 650,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "Sapphire PULSE AMD Radeon RX 9060 XT 16GB",
+    "brand": "Sapphire",
+    "category": "gpu",
+    "price": 379,
+    "stock": 9,
+    "description": "RDNA 4 con 16 GB para 1080p y 1440p.",
+    "specs": {
+      "interface": {
+        "generation": "5.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 240,
+      "board_power_w": 160,
+      "recommended_psu_w": 450,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "AMD Radeon RX 7900 XTX",
+    "brand": "AMD",
+    "category": "gpu",
+    "price": 899,
+    "stock": 3,
+    "description": "Diseño de referencia RDNA 3 con 24 GB GDDR6.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 24,
+      "length_mm": 287,
+      "board_power_w": 355,
+      "recommended_psu_w": 800,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "AMD Radeon RX 7900 XT",
+    "brand": "AMD",
+    "category": "gpu",
+    "price": 699,
+    "stock": 4,
+    "description": "Diseño de referencia RDNA 3 con 20 GB GDDR6.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 20,
+      "length_mm": 276,
+      "board_power_w": 315,
+      "recommended_psu_w": 750,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "AMD Radeon RX 7900 GRE",
+    "brand": "AMD",
+    "category": "gpu",
+    "price": 549,
+    "stock": 5,
+    "description": "Diseño de referencia RDNA 3 con 16 GB GDDR6.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 276,
+      "board_power_w": 260,
+      "recommended_psu_w": 700,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "AMD Radeon RX 7800 XT",
+    "brand": "AMD",
+    "category": "gpu",
+    "price": 499,
+    "stock": 7,
+    "description": "Diseño de referencia RDNA 3 para 1440p.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 16,
+      "length_mm": 267,
+      "board_power_w": 263,
+      "recommended_psu_w": 700,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "AMD Radeon RX 7700 XT",
+    "brand": "AMD",
+    "category": "gpu",
+    "price": 419,
+    "stock": 7,
+    "description": "Diseño de referencia RDNA 3 con 12 GB.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 16
+      },
+      "vram_gb": 12,
+      "length_mm": 267,
+      "board_power_w": 245,
+      "recommended_psu_w": 700,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2
+        }
+      ]
+    }
+  },
+  {
+    "name": "AMD Radeon RX 7600",
+    "brand": "AMD",
+    "category": "gpu",
+    "price": 269,
+    "stock": 11,
+    "description": "Diseño de referencia RDNA 3 para 1080p.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 8
+      },
+      "vram_gb": 8,
+      "length_mm": 204,
+      "board_power_w": 165,
+      "recommended_psu_w": 550,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 1
+        }
+      ]
+    }
+  },
+  {
+    "name": "Intel Arc B580 Limited Edition",
+    "brand": "Intel",
+    "category": "gpu",
+    "price": 249,
+    "stock": 10,
+    "description": "GPU Battlemage con 12 GB GDDR6.",
+    "specs": {
+      "interface": {
+        "generation": "4.0",
+        "physical_size": "x16",
+        "electrical_lanes": 8
+      },
+      "vram_gb": 12,
+      "length_mm": 272,
+      "board_power_w": 190,
+      "recommended_psu_w": 600,
+      "power_connectors_required": [
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 1
+        }
+      ]
+    }
+  }
+]

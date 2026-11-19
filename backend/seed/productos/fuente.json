@@ -1,0 +1,806 @@
+[
+  {
+    "name": "Corsair RM750x (2024) ATX 3.1",
+    "brand": "Corsair",
+    "category": "fuente",
+    "price": 109,
+    "stock": 10,
+    "description": "Fuente modular ATX 3.1 de 750 W con conector 12V-2x6 nativo.",
+    "specs": {
+      "wattage_w": 750,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 3,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Corsair RM850x (2024) ATX 3.1",
+    "brand": "Corsair",
+    "category": "fuente",
+    "price": 139,
+    "stock": 9,
+    "description": "Fuente modular ATX 3.1 de 850 W con conector 12V-2x6 nativo.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 12,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Corsair RM1000x (2024) ATX 3.1",
+    "brand": "Corsair",
+    "category": "fuente",
+    "price": 179,
+    "stock": 6,
+    "description": "Fuente modular ATX 3.1 de 1000 W.",
+    "specs": {
+      "wattage_w": 1000,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 14,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Corsair RM650e (2025) ATX 3.1",
+    "brand": "Corsair",
+    "category": "fuente",
+    "price": 84,
+    "stock": 13,
+    "description": "Fuente modular ATX 3.1 de 650 W.",
+    "specs": {
+      "wattage_w": 650,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 6,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Corsair CX650 (2023)",
+    "brand": "Corsair",
+    "category": "fuente",
+    "price": 69,
+    "stock": 15,
+    "description": "Fuente no modular de 650 W para equipos de entrada.",
+    "specs": {
+      "wattage_w": 650,
+      "certification": "80 Plus Bronze",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 6,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Corsair HX1500i (2025) ATX 3.1",
+    "brand": "Corsair",
+    "category": "fuente",
+    "price": 349,
+    "stock": 3,
+    "description": "Fuente modular de 1500 W con monitorización digital.",
+    "specs": {
+      "wattage_w": 1500,
+      "certification": "80 Plus Platinum",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 6,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 16,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Seasonic FOCUS GX-750 ATX 3.1",
+    "brand": "Seasonic",
+    "category": "fuente",
+    "price": 119,
+    "stock": 8,
+    "description": "Fuente modular ATX 3.1 de 750 W.",
+    "specs": {
+      "wattage_w": 750,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Seasonic FOCUS GX-850 ATX 3.1",
+    "brand": "Seasonic",
+    "category": "fuente",
+    "price": 139,
+    "stock": 7,
+    "description": "Fuente modular ATX 3.1 de 850 W.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 3,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 10,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Seasonic VERTEX GX-1000",
+    "brand": "Seasonic",
+    "category": "fuente",
+    "price": 219,
+    "stock": 4,
+    "description": "Fuente modular ATX 3.0 de 1000 W.",
+    "specs": {
+      "wattage_w": 1000,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 12,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "be quiet! Pure Power 12 M 750W",
+    "brand": "be quiet!",
+    "category": "fuente",
+    "price": 109,
+    "stock": 9,
+    "description": "Fuente modular ATX 3.0 silenciosa de 750 W.",
+    "specs": {
+      "wattage_w": 750,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 6,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "be quiet! Pure Power 12 M 850W",
+    "brand": "be quiet!",
+    "category": "fuente",
+    "price": 129,
+    "stock": 7,
+    "description": "Fuente modular ATX 3.0 silenciosa de 850 W.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "be quiet! Straight Power 12 1000W",
+    "brand": "be quiet!",
+    "category": "fuente",
+    "price": 219,
+    "stock": 4,
+    "description": "Fuente modular Platinum de 1000 W.",
+    "specs": {
+      "wattage_w": 1000,
+      "certification": "80 Plus Platinum",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 12,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MAG A750GL PCIE5",
+    "brand": "MSI",
+    "category": "fuente",
+    "price": 99,
+    "stock": 11,
+    "description": "Fuente modular ATX 3.0 de 750 W.",
+    "specs": {
+      "wattage_w": 750,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 3,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MAG A850GL PCIE5",
+    "brand": "MSI",
+    "category": "fuente",
+    "price": 119,
+    "stock": 10,
+    "description": "Fuente modular ATX 3.0 de 850 W.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 3,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "MSI MPG A1000G PCIE5",
+    "brand": "MSI",
+    "category": "fuente",
+    "price": 189,
+    "stock": 5,
+    "description": "Fuente modular ATX 3.0 de 1000 W.",
+    "specs": {
+      "wattage_w": 1000,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 12,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Thermaltake Toughpower GF A3 850W",
+    "brand": "Thermaltake",
+    "category": "fuente",
+    "price": 129,
+    "stock": 6,
+    "description": "Fuente modular ATX 3.0 de 850 W.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 12,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Thermaltake Smart BX1 650W",
+    "brand": "Thermaltake",
+    "category": "fuente",
+    "price": 59,
+    "stock": 16,
+    "description": "Fuente no modular de 650 W.",
+    "specs": {
+      "wattage_w": 650,
+      "certification": "80 Plus Bronze",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 6,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "EVGA SuperNOVA 850 G7",
+    "brand": "EVGA",
+    "category": "fuente",
+    "price": 139,
+    "stock": 6,
+    "description": "Fuente modular compacta de 850 W.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 6,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "Cooler Master MWE Gold 850 V2 ATX 3.0",
+    "brand": "Cooler Master",
+    "category": "fuente",
+    "price": 109,
+    "stock": 8,
+    "description": "Fuente modular ATX 3.0 de 850 W.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 3,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 12,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "ASUS ROG STRIX 1000W Gold Aura Edition",
+    "brand": "ASUS",
+    "category": "fuente",
+    "price": 229,
+    "stock": 4,
+    "description": "Fuente modular ATX 3.0 de 1000 W con iluminación Aura.",
+    "specs": {
+      "wattage_w": 1000,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 4,
+          "native": true
+        },
+        {
+          "type": "12VHPWR",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  },
+  {
+    "name": "NZXT C850 Gold (2024)",
+    "brand": "NZXT",
+    "category": "fuente",
+    "price": 129,
+    "stock": 7,
+    "description": "Fuente modular ATX 3.1 de 850 W.",
+    "specs": {
+      "wattage_w": 850,
+      "certification": "80 Plus Gold",
+      "power_connectors": [
+        {
+          "type": "ATX 24-pin",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "EPS 4+4-pin",
+          "quantity": 2,
+          "native": true
+        },
+        {
+          "type": "PCIe 8-pin",
+          "quantity": 3,
+          "native": true
+        },
+        {
+          "type": "12V-2x6",
+          "quantity": 1,
+          "native": true
+        },
+        {
+          "type": "SATA power",
+          "quantity": 8,
+          "native": true
+        }
+      ]
+    }
+  }
+]
