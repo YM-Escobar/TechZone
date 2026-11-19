@@ -77,7 +77,7 @@ class ProductService:
 
         product = self._get_any(product_id)
 
-        changes = update_data(data, {"description", "image_url"})
+        changes = update_data(data, {"description", "image_url", "purchase_url"})
 
         if "image_url" in changes and changes["image_url"] != product.image_url:
             storage.delete_image(product.image_url)

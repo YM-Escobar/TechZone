@@ -55,6 +55,19 @@ def test_product_builder_eligibility_filter(client, admin, make_product):
     assert ineligible["id"] in [product["id"] for product in response.json()["items"]]
 
 
+def test_product_purchase_url(client, admin, make_product):
+    url = "https://www.amazon.com/s?k=AMD+Ryzen+5+7600X"
+    product = make_product(purchase_url=url)
+    assert product["purchase_url"] == url
+
+    # Solo se aceptan enlaces http(s)
+    bad = client.patch(f"/api/products/{product['id']}", json={"purchase_url": "javascript:alert(1)"}, headers=admin)
+    assert bad.status_code == 422
+
+    cleared = client.patch(f"/api/products/{product['id']}", json={"purchase_url": None}, headers=admin)
+    assert cleared.status_code == 200 and cleared.json()["purchase_url"] is None
+
+
 def test_product_image_upload(client, admin, make_product):
     product = make_product()
     response = client.put(f"/api/products/{product['id']}/image", files={"file": ("gpu.png", PNG, "image/png")}, headers=admin)

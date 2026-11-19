@@ -85,6 +85,7 @@ export interface Product {
   price: number;
   stock: number;
   image_url: string | null;
+  purchase_url: string | null;
   specs: Record<string, unknown>;
   is_active: boolean;
   created_at: string;

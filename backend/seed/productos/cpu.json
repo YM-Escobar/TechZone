@@ -1,0 +1,533 @@
+[
+  {
+    "name": "AMD Ryzen 5 7600",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 199,
+    "stock": 14,
+    "description": "6 núcleos Zen 4 con gráficos integrados Radeon; incluye disipador Wraith Stealth.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 6,
+      "threads": 12,
+      "base_clock_ghz": 3.8,
+      "boost_clock_ghz": 5.1,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5200
+    }
+  },
+  {
+    "name": "AMD Ryzen 5 7600X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 209,
+    "stock": 12,
+    "description": "6 núcleos Zen 4 desbloqueados para gaming en AM5.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 6,
+      "threads": 12,
+      "base_clock_ghz": 4.7,
+      "boost_clock_ghz": 5.3,
+      "tdp_w": 105,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5200
+    }
+  },
+  {
+    "name": "AMD Ryzen 7 7700X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 279,
+    "stock": 9,
+    "description": "8 núcleos Zen 4 para gaming y creación de contenido.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 8,
+      "threads": 16,
+      "base_clock_ghz": 4.5,
+      "boost_clock_ghz": 5.4,
+      "tdp_w": 105,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5200
+    }
+  },
+  {
+    "name": "AMD Ryzen 7 7800X3D",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 399,
+    "stock": 6,
+    "description": "8 núcleos con 3D V-Cache (96 MB de L3) orientado a gaming.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 8,
+      "threads": 16,
+      "base_clock_ghz": 4.2,
+      "boost_clock_ghz": 5.0,
+      "tdp_w": 120,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5200
+    }
+  },
+  {
+    "name": "AMD Ryzen 9 7900X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 369,
+    "stock": 5,
+    "description": "12 núcleos Zen 4 para cargas multihilo.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 12,
+      "threads": 24,
+      "base_clock_ghz": 4.7,
+      "boost_clock_ghz": 5.6,
+      "tdp_w": 170,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5200
+    }
+  },
+  {
+    "name": "AMD Ryzen 9 7950X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 529,
+    "stock": 4,
+    "description": "16 núcleos Zen 4 para estaciones de trabajo.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 16,
+      "threads": 32,
+      "base_clock_ghz": 4.5,
+      "boost_clock_ghz": 5.7,
+      "tdp_w": 170,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5200
+    }
+  },
+  {
+    "name": "AMD Ryzen 5 9600X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 249,
+    "stock": 11,
+    "description": "6 núcleos Zen 5 con TDP de 65 W.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 6,
+      "threads": 12,
+      "base_clock_ghz": 3.9,
+      "boost_clock_ghz": 5.4,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "AMD Ryzen 7 9700X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 329,
+    "stock": 9,
+    "description": "8 núcleos Zen 5 eficientes.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 8,
+      "threads": 16,
+      "base_clock_ghz": 3.8,
+      "boost_clock_ghz": 5.5,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "AMD Ryzen 7 9800X3D",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 479,
+    "stock": 5,
+    "description": "8 núcleos Zen 5 con 3D V-Cache de segunda generación.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 8,
+      "threads": 16,
+      "base_clock_ghz": 4.7,
+      "boost_clock_ghz": 5.2,
+      "tdp_w": 120,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "AMD Ryzen 9 9900X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 429,
+    "stock": 5,
+    "description": "12 núcleos Zen 5 para productividad.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 12,
+      "threads": 24,
+      "base_clock_ghz": 4.4,
+      "boost_clock_ghz": 5.6,
+      "tdp_w": 120,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "AMD Ryzen 9 9950X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 599,
+    "stock": 3,
+    "description": "16 núcleos Zen 5, tope de gama de escritorio AMD.",
+    "specs": {
+      "socket": "AM5",
+      "cores": 16,
+      "threads": 32,
+      "base_clock_ghz": 4.3,
+      "boost_clock_ghz": 5.7,
+      "tdp_w": 170,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "AMD Ryzen 5 5600",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 119,
+    "stock": 18,
+    "description": "6 núcleos Zen 3 para equipos AM4 de presupuesto ajustado.",
+    "specs": {
+      "socket": "AM4",
+      "cores": 6,
+      "threads": 12,
+      "base_clock_ghz": 3.5,
+      "boost_clock_ghz": 4.4,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR4"
+      ],
+      "max_memory_gb": 128,
+      "max_memory_speed_mhz": 3200
+    }
+  },
+  {
+    "name": "AMD Ryzen 5 5600X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 139,
+    "stock": 13,
+    "description": "6 núcleos Zen 3 desbloqueados.",
+    "specs": {
+      "socket": "AM4",
+      "cores": 6,
+      "threads": 12,
+      "base_clock_ghz": 3.7,
+      "boost_clock_ghz": 4.6,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR4"
+      ],
+      "max_memory_gb": 128,
+      "max_memory_speed_mhz": 3200
+    }
+  },
+  {
+    "name": "AMD Ryzen 7 5700X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 159,
+    "stock": 10,
+    "description": "8 núcleos Zen 3 con TDP de 65 W.",
+    "specs": {
+      "socket": "AM4",
+      "cores": 8,
+      "threads": 16,
+      "base_clock_ghz": 3.4,
+      "boost_clock_ghz": 4.6,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR4"
+      ],
+      "max_memory_gb": 128,
+      "max_memory_speed_mhz": 3200
+    }
+  },
+  {
+    "name": "AMD Ryzen 7 5800X3D",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 299,
+    "stock": 3,
+    "description": "8 núcleos con 3D V-Cache para la plataforma AM4.",
+    "specs": {
+      "socket": "AM4",
+      "cores": 8,
+      "threads": 16,
+      "base_clock_ghz": 3.4,
+      "boost_clock_ghz": 4.5,
+      "tdp_w": 105,
+      "supported_memory_types": [
+        "DDR4"
+      ],
+      "max_memory_gb": 128,
+      "max_memory_speed_mhz": 3200
+    }
+  },
+  {
+    "name": "AMD Ryzen 9 5900X",
+    "brand": "AMD",
+    "category": "cpu",
+    "price": 279,
+    "stock": 4,
+    "description": "12 núcleos Zen 3 para AM4.",
+    "specs": {
+      "socket": "AM4",
+      "cores": 12,
+      "threads": 24,
+      "base_clock_ghz": 3.7,
+      "boost_clock_ghz": 4.8,
+      "tdp_w": 105,
+      "supported_memory_types": [
+        "DDR4"
+      ],
+      "max_memory_gb": 128,
+      "max_memory_speed_mhz": 3200
+    }
+  },
+  {
+    "name": "Intel Core i5-12400F",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 109,
+    "stock": 16,
+    "description": "6 núcleos de rendimiento sin gráficos integrados; admite DDR4 y DDR5.",
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 6,
+      "threads": 12,
+      "base_clock_ghz": 2.5,
+      "boost_clock_ghz": 4.4,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR4",
+        "DDR5"
+      ],
+      "max_memory_gb": 128,
+      "max_memory_speed_mhz": 4800
+    }
+  },
+  {
+    "name": "Intel Core i5-13400F",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 169,
+    "stock": 12,
+    "description": "6 núcleos P + 4 núcleos E, sin gráficos integrados.",
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 10,
+      "threads": 16,
+      "base_clock_ghz": 2.5,
+      "boost_clock_ghz": 4.6,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR4",
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 4800
+    }
+  },
+  {
+    "name": "Intel Core i5-14400F",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 179,
+    "stock": 12,
+    "description": "6 núcleos P + 4 núcleos E, sin gráficos integrados.",
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 10,
+      "threads": 16,
+      "base_clock_ghz": 2.5,
+      "boost_clock_ghz": 4.7,
+      "tdp_w": 65,
+      "supported_memory_types": [
+        "DDR4",
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 4800
+    }
+  },
+  {
+    "name": "Intel Core i5-14600K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 249,
+    "stock": 9,
+    "description": "6 núcleos P + 8 núcleos E desbloqueados.",
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 14,
+      "threads": 20,
+      "base_clock_ghz": 3.5,
+      "boost_clock_ghz": 5.3,
+      "tdp_w": 125,
+      "supported_memory_types": [
+        "DDR4",
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "Intel Core i7-14700K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 349,
+    "stock": 7,
+    "description": "8 núcleos P + 12 núcleos E desbloqueados.",
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 20,
+      "threads": 28,
+      "base_clock_ghz": 3.4,
+      "boost_clock_ghz": 5.6,
+      "tdp_w": 125,
+      "supported_memory_types": [
+        "DDR4",
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "Intel Core i9-14900K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 449,
+    "stock": 4,
+    "description": "8 núcleos P + 16 núcleos E, hasta 6.0 GHz.",
+    "specs": {
+      "socket": "LGA1700",
+      "cores": 24,
+      "threads": 32,
+      "base_clock_ghz": 3.2,
+      "boost_clock_ghz": 6.0,
+      "tdp_w": 125,
+      "supported_memory_types": [
+        "DDR4",
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 5600
+    }
+  },
+  {
+    "name": "Intel Core Ultra 5 245K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 289,
+    "stock": 8,
+    "description": "6 núcleos P + 8 núcleos E con NPU integrada; solo DDR5.",
+    "specs": {
+      "socket": "LGA1851",
+      "cores": 14,
+      "threads": 14,
+      "base_clock_ghz": 4.2,
+      "boost_clock_ghz": 5.2,
+      "tdp_w": 125,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 6400
+    }
+  },
+  {
+    "name": "Intel Core Ultra 7 265K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 379,
+    "stock": 6,
+    "description": "8 núcleos P + 12 núcleos E con NPU integrada; solo DDR5.",
+    "specs": {
+      "socket": "LGA1851",
+      "cores": 20,
+      "threads": 20,
+      "base_clock_ghz": 3.9,
+      "boost_clock_ghz": 5.5,
+      "tdp_w": 125,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 6400
+    }
+  },
+  {
+    "name": "Intel Core Ultra 9 285K",
+    "brand": "Intel",
+    "category": "cpu",
+    "price": 589,
+    "stock": 3,
+    "description": "8 núcleos P + 16 núcleos E, tope de gama Arrow Lake.",
+    "specs": {
+      "socket": "LGA1851",
+      "cores": 24,
+      "threads": 24,
+      "base_clock_ghz": 3.7,
+      "boost_clock_ghz": 5.7,
+      "tdp_w": 125,
+      "supported_memory_types": [
+        "DDR5"
+      ],
+      "max_memory_gb": 192,
+      "max_memory_speed_mhz": 6400
+    }
+  }
+]

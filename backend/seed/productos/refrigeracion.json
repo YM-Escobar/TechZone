@@ -1,0 +1,364 @@
+[
+  {
+    "name": "Noctua NH-D15 chromax.black",
+    "brand": "Noctua",
+    "category": "refrigeracion",
+    "price": 119,
+    "stock": 6,
+    "description": "Disipador de doble torre y dos ventiladores de 140 mm.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null
+    }
+  },
+  {
+    "name": "Noctua NH-U12S redux",
+    "brand": "Noctua",
+    "category": "refrigeracion",
+    "price": 49,
+    "stock": 12,
+    "description": "Disipador de torre única con ventilador de 120 mm.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null
+    }
+  },
+  {
+    "name": "Noctua NH-L9a-AM5 chromax.black",
+    "brand": "Noctua",
+    "category": "refrigeracion",
+    "price": 54,
+    "stock": 8,
+    "description": "Disipador de perfil bajo (37 mm) para AMD.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM5",
+        "AM4"
+      ],
+      "radiator_size_mm": null
+    }
+  },
+  {
+    "name": "DeepCool AK400",
+    "brand": "DeepCool",
+    "category": "refrigeracion",
+    "price": 34,
+    "stock": 18,
+    "description": "Disipador de torre única de 120 mm.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null,
+      "tdp_rating_w": 220
+    }
+  },
+  {
+    "name": "DeepCool AK620",
+    "brand": "DeepCool",
+    "category": "refrigeracion",
+    "price": 64,
+    "stock": 10,
+    "description": "Disipador de doble torre con dos ventiladores de 120 mm.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null,
+      "tdp_rating_w": 260
+    }
+  },
+  {
+    "name": "Thermalright Peerless Assassin 120 SE",
+    "brand": "Thermalright",
+    "category": "refrigeracion",
+    "price": 36,
+    "stock": 20,
+    "description": "Disipador de doble torre de gran relación precio/rendimiento.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null
+    }
+  },
+  {
+    "name": "Thermalright Phantom Spirit 120 SE",
+    "brand": "Thermalright",
+    "category": "refrigeracion",
+    "price": 39,
+    "stock": 16,
+    "description": "Disipador de doble torre con siete heatpipes.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null
+    }
+  },
+  {
+    "name": "be quiet! Dark Rock Pro 5",
+    "brand": "be quiet!",
+    "category": "refrigeracion",
+    "price": 99,
+    "stock": 6,
+    "description": "Disipador de doble torre silencioso.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null,
+      "tdp_rating_w": 270
+    }
+  },
+  {
+    "name": "be quiet! Pure Rock 2",
+    "brand": "be quiet!",
+    "category": "refrigeracion",
+    "price": 44,
+    "stock": 14,
+    "description": "Disipador de torre única de 120 mm.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null,
+      "tdp_rating_w": 150
+    }
+  },
+  {
+    "name": "Cooler Master Hyper 212 Black Edition",
+    "brand": "Cooler Master",
+    "category": "refrigeracion",
+    "price": 39,
+    "stock": 15,
+    "description": "Disipador clásico de torre única de 120 mm.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null
+    }
+  },
+  {
+    "name": "ARCTIC Freezer 36",
+    "brand": "ARCTIC",
+    "category": "refrigeracion",
+    "price": 34,
+    "stock": 17,
+    "description": "Disipador de torre única con dos ventiladores en push-pull.",
+    "specs": {
+      "cooling_type": "Aire",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": null
+    }
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 240",
+    "brand": "ARCTIC",
+    "category": "refrigeracion",
+    "price": 79,
+    "stock": 9,
+    "description": "Refrigeración líquida AIO con radiador de 240 mm.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 240
+    }
+  },
+  {
+    "name": "ARCTIC Liquid Freezer III 360",
+    "brand": "ARCTIC",
+    "category": "refrigeracion",
+    "price": 99,
+    "stock": 7,
+    "description": "Refrigeración líquida AIO con radiador de 360 mm.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 360
+    }
+  },
+  {
+    "name": "Corsair iCUE H150i ELITE CAPELLIX XT",
+    "brand": "Corsair",
+    "category": "refrigeracion",
+    "price": 179,
+    "stock": 5,
+    "description": "AIO de 360 mm con iluminación RGB.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 360
+    }
+  },
+  {
+    "name": "Corsair NAUTILUS 240 RS",
+    "brand": "Corsair",
+    "category": "refrigeracion",
+    "price": 89,
+    "stock": 9,
+    "description": "AIO de 240 mm de configuración sencilla.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 240
+    }
+  },
+  {
+    "name": "NZXT Kraken 240",
+    "brand": "NZXT",
+    "category": "refrigeracion",
+    "price": 139,
+    "stock": 6,
+    "description": "AIO de 240 mm con pantalla LCD en la bomba.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 240
+    }
+  },
+  {
+    "name": "NZXT Kraken Elite 360",
+    "brand": "NZXT",
+    "category": "refrigeracion",
+    "price": 279,
+    "stock": 3,
+    "description": "AIO de 360 mm con pantalla LCD de 2.72 pulgadas.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 360
+    }
+  },
+  {
+    "name": "Lian Li Galahad II Trinity 360",
+    "brand": "Lian Li",
+    "category": "refrigeracion",
+    "price": 159,
+    "stock": 5,
+    "description": "AIO de 360 mm con ventiladores encadenables.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 360
+    }
+  },
+  {
+    "name": "DeepCool LS720",
+    "brand": "DeepCool",
+    "category": "refrigeracion",
+    "price": 129,
+    "stock": 6,
+    "description": "AIO de 360 mm con bomba de espejo infinito.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 360
+    }
+  },
+  {
+    "name": "Cooler Master MasterLiquid 240L Core ARGB",
+    "brand": "Cooler Master",
+    "category": "refrigeracion",
+    "price": 69,
+    "stock": 10,
+    "description": "AIO de 240 mm de entrada con ARGB.",
+    "specs": {
+      "cooling_type": "Líquida AIO",
+      "supported_sockets": [
+        "AM4",
+        "AM5",
+        "LGA1700",
+        "LGA1851"
+      ],
+      "radiator_size_mm": 240
+    }
+  }
+]

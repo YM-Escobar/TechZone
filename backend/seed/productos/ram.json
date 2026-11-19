@@ -1,0 +1,437 @@
+[
+  {
+    "name": "Corsair Vengeance DDR5 32GB (2x16GB) 6000MHz CL30 (CMK32GX5M2B6000C30)",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 109,
+    "stock": 15,
+    "description": "Kit DDR5 de perfil bajo para gaming.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 30,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "Corsair Vengeance RGB DDR5 32GB (2x16GB) 6000MHz CL36 (CMH32GX5M2E6000C36)",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 119,
+    "stock": 12,
+    "description": "Kit DDR5 con iluminación RGB.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 36,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "Corsair Vengeance DDR5 64GB (2x32GB) 6000MHz CL30 (CMK64GX5M2B6000C30)",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 199,
+    "stock": 8,
+    "description": "Kit DDR5 de 64 GB para edición y virtualización.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 32,
+      "total_capacity_gb": 64,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 30,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "G.Skill Trident Z5 RGB DDR5 32GB (2x16GB) 6000MHz CL30 (F5-6000J3038F16GX2-TZ5RK)",
+    "brand": "G.Skill",
+    "category": "ram",
+    "price": 129,
+    "stock": 10,
+    "description": "Kit DDR5 de alto rendimiento con RGB.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 30,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "G.Skill Flare X5 DDR5 32GB (2x16GB) 6000MHz CL30 (F5-6000J3038F16GX2-FX5)",
+    "brand": "G.Skill",
+    "category": "ram",
+    "price": 114,
+    "stock": 13,
+    "description": "Kit DDR5 optimizado para AMD EXPO.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 30,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "EXPO"
+      ]
+    }
+  },
+  {
+    "name": "G.Skill Ripjaws S5 DDR5 32GB (2x16GB) 5600MHz CL28 (F5-5600J2834F16GX2-RS5K)",
+    "brand": "G.Skill",
+    "category": "ram",
+    "price": 104,
+    "stock": 11,
+    "description": "Kit DDR5 de perfil bajo y latencia ajustada.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 5600,
+      "cas_latency_cl": 28,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "Kingston FURY Beast DDR5 32GB (2x16GB) 6000MHz CL36 (KF560C36BBEK2-32)",
+    "brand": "Kingston",
+    "category": "ram",
+    "price": 99,
+    "stock": 18,
+    "description": "Kit DDR5 con perfil AMD EXPO.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 36,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "EXPO"
+      ]
+    }
+  },
+  {
+    "name": "Kingston FURY Beast DDR5 32GB (2x16GB) 5600MHz CL40 (KF556C40BBK2-32)",
+    "brand": "Kingston",
+    "category": "ram",
+    "price": 92,
+    "stock": 17,
+    "description": "Kit DDR5 para plataformas Intel y AMD.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 5600,
+      "cas_latency_cl": 40,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "Kingston FURY Beast DDR5 64GB (2x32GB) 5600MHz CL40 (KF556C40BBK2-64)",
+    "brand": "Kingston",
+    "category": "ram",
+    "price": 179,
+    "stock": 7,
+    "description": "Kit DDR5 de 64 GB.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 32,
+      "total_capacity_gb": 64,
+      "module_count": 2,
+      "frequency_mhz": 5600,
+      "cas_latency_cl": 40,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "Crucial Pro DDR5 32GB (2x16GB) 5600MHz CL46 (CP2K16G56C46U5)",
+    "brand": "Crucial",
+    "category": "ram",
+    "price": 89,
+    "stock": 20,
+    "description": "Kit DDR5 a velocidad JEDEC, sin necesidad de perfiles.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 5600,
+      "cas_latency_cl": 46,
+      "form_factor": "DIMM"
+    }
+  },
+  {
+    "name": "Crucial Pro DDR5 64GB (2x32GB) 6000MHz CL40 (CP2K32G60C40U5B)",
+    "brand": "Crucial",
+    "category": "ram",
+    "price": 179,
+    "stock": 8,
+    "description": "Kit DDR5 de 64 GB compatible con XMP y EXPO.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 32,
+      "total_capacity_gb": 64,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 40,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0",
+        "EXPO"
+      ]
+    }
+  },
+  {
+    "name": "TEAMGROUP T-Force Delta RGB DDR5 32GB (2x16GB) 6000MHz CL38 (FF3D532G6000HC38ADC01)",
+    "brand": "TEAMGROUP",
+    "category": "ram",
+    "price": 104,
+    "stock": 9,
+    "description": "Kit DDR5 con difusor RGB.",
+    "specs": {
+      "memory_type": "DDR5",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 6000,
+      "cas_latency_cl": 38,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 3.0"
+      ]
+    }
+  },
+  {
+    "name": "Corsair Vengeance LPX DDR4 16GB (2x8GB) 3200MHz CL16 (CMK16GX4M2B3200C16)",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 42,
+    "stock": 25,
+    "description": "Kit DDR4 de perfil bajo para equipos de entrada.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 8,
+      "total_capacity_gb": 16,
+      "module_count": 2,
+      "frequency_mhz": 3200,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "Corsair Vengeance LPX DDR4 32GB (2x16GB) 3200MHz CL16 (CMK32GX4M2E3200C16)",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 64,
+    "stock": 20,
+    "description": "Kit DDR4 de 32 GB.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 3200,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "Corsair Vengeance LPX DDR4 32GB (2x16GB) 3600MHz CL18 (CMK32GX4M2D3600C18)",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 69,
+    "stock": 14,
+    "description": "Kit DDR4 de 32 GB a 3600 MHz.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 3600,
+      "cas_latency_cl": 18,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "Corsair Vengeance LPX DDR4 64GB (4x16GB) 3200MHz CL16 (CMK64GX4M4E3200C16)",
+    "brand": "Corsair",
+    "category": "ram",
+    "price": 129,
+    "stock": 6,
+    "description": "Kit DDR4 de cuatro módulos que ocupa las cuatro ranuras.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 64,
+      "module_count": 4,
+      "frequency_mhz": 3200,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "G.Skill Ripjaws V DDR4 32GB (2x16GB) 3600MHz CL16 (F4-3600C16D-32GVKC)",
+    "brand": "G.Skill",
+    "category": "ram",
+    "price": 74,
+    "stock": 13,
+    "description": "Kit DDR4 de baja latencia.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 3600,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "G.Skill Trident Z Neo DDR4 32GB (2x16GB) 3600MHz CL16 (F4-3600C16D-32GTZN)",
+    "brand": "G.Skill",
+    "category": "ram",
+    "price": 89,
+    "stock": 9,
+    "description": "Kit DDR4 RGB pensado para Ryzen.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 3600,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "Kingston FURY Beast DDR4 16GB (2x8GB) 3200MHz CL16 (KF432C16BBK2/16)",
+    "brand": "Kingston",
+    "category": "ram",
+    "price": 39,
+    "stock": 22,
+    "description": "Kit DDR4 para equipos de entrada.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 8,
+      "total_capacity_gb": 16,
+      "module_count": 2,
+      "frequency_mhz": 3200,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "Kingston FURY Beast DDR4 32GB (2x16GB) 3200MHz CL16 (KF432C16BBK2/32)",
+    "brand": "Kingston",
+    "category": "ram",
+    "price": 62,
+    "stock": 18,
+    "description": "Kit DDR4 de 32 GB.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 3200,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  },
+  {
+    "name": "Crucial Pro DDR4 32GB (2x16GB) 3200MHz CL22 (CP2K16G4DFRA32A)",
+    "brand": "Crucial",
+    "category": "ram",
+    "price": 59,
+    "stock": 16,
+    "description": "Kit DDR4 a velocidad JEDEC.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 16,
+      "total_capacity_gb": 32,
+      "module_count": 2,
+      "frequency_mhz": 3200,
+      "cas_latency_cl": 22,
+      "form_factor": "DIMM"
+    }
+  },
+  {
+    "name": "TEAMGROUP T-Force Vulcan Z DDR4 16GB (2x8GB) 3200MHz CL16 (TLZGD416G3200HC16CDC01)",
+    "brand": "TEAMGROUP",
+    "category": "ram",
+    "price": 36,
+    "stock": 19,
+    "description": "Kit DDR4 económico con disipador de aluminio.",
+    "specs": {
+      "memory_type": "DDR4",
+      "capacity_per_module_gb": 8,
+      "total_capacity_gb": 16,
+      "module_count": 2,
+      "frequency_mhz": 3200,
+      "cas_latency_cl": 16,
+      "form_factor": "DIMM",
+      "memory_profile": [
+        "XMP 2.0"
+      ]
+    }
+  }
+]

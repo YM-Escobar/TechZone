@@ -1,0 +1,373 @@
+[
+  {
+    "name": "Samsung 990 PRO 1TB (MZ-V9P1T0BW)",
+    "brand": "Samsung",
+    "category": "almacenamiento",
+    "price": 109,
+    "stock": 14,
+    "description": "SSD NVMe PCIe 4.0 de hasta 7450 MB/s.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Samsung 990 PRO 2TB (MZ-V9P2T0BW)",
+    "brand": "Samsung",
+    "category": "almacenamiento",
+    "price": 169,
+    "stock": 10,
+    "description": "SSD NVMe PCIe 4.0 de 2 TB.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Samsung 9100 PRO 2TB (MZ-VAP2T0BW)",
+    "brand": "Samsung",
+    "category": "almacenamiento",
+    "price": 249,
+    "stock": 5,
+    "description": "SSD NVMe PCIe 5.0 de hasta 14700 MB/s.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "5.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "WD_BLACK SN850X 1TB (WDS100T2X0E)",
+    "brand": "Western Digital",
+    "category": "almacenamiento",
+    "price": 89,
+    "stock": 15,
+    "description": "SSD NVMe PCIe 4.0 orientado a gaming.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "WD_BLACK SN850X 2TB (WDS200T2X0E)",
+    "brand": "Western Digital",
+    "category": "almacenamiento",
+    "price": 149,
+    "stock": 10,
+    "description": "SSD NVMe PCIe 4.0 de 2 TB.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "WD Blue SN580 1TB (WDS100T3B0E)",
+    "brand": "Western Digital",
+    "category": "almacenamiento",
+    "price": 64,
+    "stock": 20,
+    "description": "SSD NVMe PCIe 4.0 sin DRAM para uso general.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Crucial T500 1TB (CT1000T500SSD8)",
+    "brand": "Crucial",
+    "category": "almacenamiento",
+    "price": 79,
+    "stock": 14,
+    "description": "SSD NVMe PCIe 4.0 con DRAM.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Crucial P3 Plus 1TB (CT1000P3PSSD8)",
+    "brand": "Crucial",
+    "category": "almacenamiento",
+    "price": 59,
+    "stock": 22,
+    "description": "SSD NVMe PCIe 4.0 económico.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Crucial P3 1TB (CT1000P3SSD8)",
+    "brand": "Crucial",
+    "category": "almacenamiento",
+    "price": 55,
+    "stock": 18,
+    "description": "SSD NVMe PCIe 3.0 de entrada.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "3.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Crucial T705 2TB (CT2000T705SSD3)",
+    "brand": "Crucial",
+    "category": "almacenamiento",
+    "price": 279,
+    "stock": 4,
+    "description": "SSD NVMe PCIe 5.0 de hasta 14500 MB/s.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "5.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Kingston NV3 1TB (SNV3S/1000G)",
+    "brand": "Kingston",
+    "category": "almacenamiento",
+    "price": 54,
+    "stock": 24,
+    "description": "SSD NVMe PCIe 4.0 de entrada.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Kingston FURY Renegade 2TB (SFYRD/2000G)",
+    "brand": "Kingston",
+    "category": "almacenamiento",
+    "price": 169,
+    "stock": 7,
+    "description": "SSD NVMe PCIe 4.0 de alto rendimiento.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "SK hynix Platinum P41 1TB (SHPP41-1000GM)",
+    "brand": "SK hynix",
+    "category": "almacenamiento",
+    "price": 89,
+    "stock": 9,
+    "description": "SSD NVMe PCIe 4.0 de alto rendimiento.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Corsair MP600 PRO NH 2TB (CSSD-F2000GBMP600PNH)",
+    "brand": "Corsair",
+    "category": "almacenamiento",
+    "price": 159,
+    "stock": 6,
+    "description": "SSD NVMe PCIe 4.0 sin disipador.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "NVMe",
+        "connection": "PCIe",
+        "generation": "4.0"
+      },
+      "form_factor": "2280"
+    }
+  },
+  {
+    "name": "Samsung 870 EVO 1TB (MZ-77E1T0B/AM)",
+    "brand": "Samsung",
+    "category": "almacenamiento",
+    "price": 89,
+    "stock": 15,
+    "description": "SSD SATA de 2.5 pulgadas.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "SATA",
+        "connection": "SATA"
+      },
+      "form_factor": "2.5"
+    }
+  },
+  {
+    "name": "Crucial MX500 1TB (CT1000MX500SSD1)",
+    "brand": "Crucial",
+    "category": "almacenamiento",
+    "price": 69,
+    "stock": 18,
+    "description": "SSD SATA de 2.5 pulgadas con buena resistencia.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "SATA",
+        "connection": "SATA"
+      },
+      "form_factor": "2.5"
+    }
+  },
+  {
+    "name": "WD Blue SA510 1TB 2.5\" (WDS100T3B0A)",
+    "brand": "Western Digital",
+    "category": "almacenamiento",
+    "price": 64,
+    "stock": 14,
+    "description": "SSD SATA de 2.5 pulgadas.",
+    "specs": {
+      "storage_type": "SSD",
+      "capacity_gb": 1000,
+      "interface": {
+        "protocol": "SATA",
+        "connection": "SATA"
+      },
+      "form_factor": "2.5"
+    }
+  },
+  {
+    "name": "Seagate BarraCuda 2TB (ST2000DM008)",
+    "brand": "Seagate",
+    "category": "almacenamiento",
+    "price": 59,
+    "stock": 20,
+    "description": "Disco duro de 3.5 pulgadas a 7200 RPM.",
+    "specs": {
+      "storage_type": "HDD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "SATA",
+        "connection": "SATA"
+      },
+      "form_factor": "3.5"
+    }
+  },
+  {
+    "name": "WD Blue 2TB (WD20EZBX)",
+    "brand": "Western Digital",
+    "category": "almacenamiento",
+    "price": 59,
+    "stock": 18,
+    "description": "Disco duro de 3.5 pulgadas a 7200 RPM.",
+    "specs": {
+      "storage_type": "HDD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "SATA",
+        "connection": "SATA"
+      },
+      "form_factor": "3.5"
+    }
+  },
+  {
+    "name": "Seagate IronWolf 4TB (ST4000VN006)",
+    "brand": "Seagate",
+    "category": "almacenamiento",
+    "price": 99,
+    "stock": 9,
+    "description": "Disco duro NAS de 3.5 pulgadas a 5400 RPM.",
+    "specs": {
+      "storage_type": "HDD",
+      "capacity_gb": 4000,
+      "interface": {
+        "protocol": "SATA",
+        "connection": "SATA"
+      },
+      "form_factor": "3.5"
+    }
+  },
+  {
+    "name": "Toshiba P300 2TB (HDWD220UZSVA)",
+    "brand": "Toshiba",
+    "category": "almacenamiento",
+    "price": 64,
+    "stock": 11,
+    "description": "Disco duro de 3.5 pulgadas a 7200 RPM.",
+    "specs": {
+      "storage_type": "HDD",
+      "capacity_gb": 2000,
+      "interface": {
+        "protocol": "SATA",
+        "connection": "SATA"
+      },
+      "form_factor": "3.5"
+    }
+  }
+]
