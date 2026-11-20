@@ -6,9 +6,14 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title?: string;
   description?: string;
+  showChrome?: boolean;
 }
 
-const { title, description = 'Componentes de PC, builds de la comunidad y asesoría para armar tu equipo.' } = Astro.props;
+const {
+  title,
+  description = 'Componentes de PC, builds de la comunidad y asesoría para armar tu equipo.',
+  showChrome = true,
+} = Astro.props;
 const fullTitle = title ? `${title} — TechZone` : 'TechZone — Componentes de PC';
 ---
 
@@ -23,10 +28,10 @@ const fullTitle = title ? `${title} — TechZone` : 'TechZone — Componentes de
     <title>{fullTitle}</title>
   </head>
   <body class="flex min-h-dvh flex-col">
-    <Header />
+    {showChrome && <Header />}
     <main class="flex-1">
       <slot />
     </main>
-    <Footer />
+    {showChrome && <Footer />}
   </body>
 </html>
