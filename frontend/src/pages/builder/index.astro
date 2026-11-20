@@ -1,0 +1,69 @@
+---
+import Base from '../../layouts/Base.astro';
+import BuilderHeader from '../../components/build/BuilderHeader.astro';
+import BuilderSidebar from '../../components/build/BuilderSidebar.astro';
+import BuilderViewer from '../../components/build/BuilderViewer.astro';
+import BuilderSpecifications from '../../components/build/BuilderSpecifications.astro';
+import BuilderProducts from '../../components/build/BuilderProducts.astro';
+---
+
+<Base title="PC Builder | TechZone" showChrome={false}>
+  <div class="builder-page min-h-full bg-ink-950 text-ink-100">
+    <BuilderHeader />
+    <div class="builder-layout grid min-w-0">
+      <BuilderSidebar />
+      <BuilderViewer />
+      <BuilderSpecifications />
+      <BuilderProducts />
+    </div>
+  </div>
+</Base>
+
+<script>
+  import { initializeBuilder } from '../../lib/builder/ui';
+
+  const root = document.querySelector<HTMLElement>('.builder-page');
+  if (root) initializeBuilder(root);
+</script>
+
+<style>
+  .builder-page {
+    min-height: 100%;
+    background: var(--color-ink-950);
+    color: var(--color-ink-100);
+  }
+
+  .builder-layout {
+    display: grid;
+    grid-template-areas:
+      "categories viewer specifications"
+      "catalog catalog catalog";
+    grid-template-columns: minmax(250px, 275px) minmax(0, 1fr) minmax(340px, 380px);
+    grid-template-rows: minmax(430px, 1fr) auto;
+    min-height: calc(100dvh - 78px);
+  }
+
+  @media (max-width: 1120px) {
+    .builder-layout {
+      grid-template-areas:
+        "categories categories"
+        "viewer specifications"
+        "catalog catalog";
+      grid-template-columns: minmax(0, 1fr) minmax(290px, 340px);
+      grid-template-rows: auto minmax(360px, 1fr) auto;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .builder-layout {
+      grid-template-areas:
+        "categories"
+        "viewer"
+        "specifications"
+        "catalog";
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: auto minmax(100px, 16vh) auto auto;
+      min-height: 0;
+    }
+  }
+</style>
