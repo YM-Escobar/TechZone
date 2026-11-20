@@ -1,0 +1,104 @@
+---
+import { DEFAULT_BUILD_NAME } from '../../lib/builder/constants';
+---
+
+<header class="builder-header">
+  <a class="builder-back" href="/" aria-label="Volver a TechZone"><span aria-hidden="true">‹</span></a>
+  <div class="builder-heading">
+    <label for="builder-name">NOMBRE DEL ENSAMBLE</label>
+    <input id="builder-name" maxlength="120" minlength="2" value={DEFAULT_BUILD_NAME} aria-label="Nombre del ensamble">
+    <p><span class="live-dot"></span> CONFIGURADOR DE PC <span aria-hidden="true">·</span> TECHZONE</p>
+  </div>
+</header>
+
+<style>
+  .builder-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-height: 78px;
+    padding: 12px clamp(16px, 3vw, 36px);
+    border-bottom: 1px solid var(--color-ink-800);
+    background: var(--color-ink-950);
+  }
+
+  .builder-back {
+    display: grid;
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    place-items: center;
+    border: 1px solid var(--color-ink-700);
+    border-radius: 9999px;
+    color: var(--color-ink-200);
+    font-size: 24px;
+    line-height: 1;
+    text-decoration: none;
+    transition: border-color 160ms ease, color 160ms ease;
+  }
+
+  .builder-back:hover {
+    border-color: var(--color-violet-400);
+    color: var(--color-violet-300);
+  }
+
+  .builder-heading {
+    display: grid;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .builder-heading label,
+  .builder-heading p {
+    margin: 0;
+    color: var(--color-ink-400);
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+  }
+
+  .builder-heading input {
+    width: min(440px, 72vw);
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    outline: 0;
+    background: transparent;
+    color: var(--color-ink-100);
+    font-size: clamp(20px, 2.3vw, 30px);
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .builder-heading input:focus-visible {
+    border-color: var(--color-violet-400);
+    outline: 0;
+  }
+
+  .builder-heading p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 8px;
+  }
+
+  .live-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--color-ok);
+  }
+
+  @media (max-width: 480px) {
+    .builder-header {
+      min-height: 72px;
+      padding-inline: 12px;
+    }
+
+    .builder-heading input {
+      width: calc(100vw - 80px);
+      font-size: 20px;
+    }
+  }
+</style>
