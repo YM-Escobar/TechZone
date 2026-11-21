@@ -1,0 +1,159 @@
+---
+import { BUILDER_CATEGORIES } from '../../lib/builder/constants';
+---
+<aside class="builder-sidebar" aria-label="Categorías del ensamble">
+  <div class="builder-sidebar__eyebrow">CONFIGURACIÓN</div>
+  <nav id="builder-category-list">
+    {BUILDER_CATEGORIES.map((item, index) => (
+      <button type="button" class:list={['builder-category', index === 0 && 'is-active']}
+        data-category={item.value} aria-pressed={index === 0 ? 'true' : 'false'}>
+        <span class="builder-category__icon">{['◎','▧','▦','▤','▱','❄','ϟ'][index]}</span>
+        <span class="builder-category__text">
+          <strong>{item.shortLabel}</strong>
+          <small data-category-state={item.value}>PENDIENTE</small>
+        </span>
+      </button>
+    ))}
+  </nav>
+  <p class="builder-sidebar__note">El gabinete no está incluido en las reglas actuales del configurador.</p>
+</aside>
+
+<style>
+  .builder-sidebar {
+    grid-area: categories;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 24px 16px 18px;
+    border-right: 1px solid var(--color-ink-800);
+    background: var(--color-ink-950);
+  }
+
+  .builder-sidebar__eyebrow {
+    padding: 0 10px 12px;
+    color: var(--color-ink-400);
+    font: 500 9px var(--font-mono);
+    letter-spacing: 0.12em;
+  }
+
+  .builder-sidebar nav {
+    display: grid;
+    gap: 4px;
+  }
+
+  .builder-category {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 54px;
+    padding: 10px 11px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--color-ink-200);
+    cursor: pointer;
+    text-align: left;
+    transition: background 160ms ease, border-color 160ms ease, color 160ms ease;
+  }
+
+  .builder-category:hover {
+    border-color: var(--color-ink-700);
+    background: var(--color-ink-900);
+  }
+
+  .builder-category.is-active {
+    border-color: color-mix(in srgb, var(--color-violet-500) 65%, transparent);
+    background: color-mix(in srgb, var(--color-violet-950) 72%, transparent);
+    color: var(--color-ink-100);
+  }
+
+  .builder-category__icon {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+    place-items: center;
+    border: 1px solid var(--color-ink-700);
+    border-radius: 50%;
+    color: var(--color-ink-400);
+    font-size: 16px;
+  }
+
+  .builder-category.is-active .builder-category__icon {
+    border-color: var(--color-violet-500);
+    color: var(--color-violet-300);
+  }
+
+  .builder-category__text {
+    display: grid;
+    flex: 1;
+    gap: 3px;
+  }
+
+  .builder-category__text strong {
+    font-size: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  .builder-category__text small {
+    color: var(--color-ink-400);
+    font: 9px var(--font-mono);
+    letter-spacing: 0.06em;
+  }
+
+  .builder-category.is-complete .builder-category__text small {
+    color: var(--color-rose-400);
+  }
+
+  .builder-sidebar__note {
+    margin: auto 8px 0;
+    padding-top: 16px;
+    color: var(--color-ink-400);
+    font-size: 10px;
+    line-height: 1.55;
+  }
+
+  @media (max-width: 1120px) {
+    .builder-sidebar {
+      padding: 10px 14px;
+      border-right: 0;
+      border-bottom: 1px solid var(--color-ink-800);
+    }
+
+    .builder-sidebar__eyebrow {
+      display: none;
+    }
+
+    .builder-sidebar__note {
+      margin: 8px 4px 0;
+      padding: 0;
+      border: 0;
+      font-size: 9px;
+    }
+
+    .builder-sidebar nav {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      overscroll-behavior-inline: contain;
+      scrollbar-width: thin;
+    }
+
+    .builder-category {
+      width: max-content;
+      min-width: 180px;
+      min-height: 50px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .builder-sidebar {
+      padding-inline: 10px;
+    }
+
+    .builder-category {
+      min-width: 166px;
+    }
+  }
+</style>

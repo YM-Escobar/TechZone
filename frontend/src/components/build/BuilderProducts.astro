@@ -1,0 +1,63 @@
+<section
+  class="builder-catalog [grid-area:catalog] grid min-w-0
+    grid-cols-[minmax(205px,230px)_minmax(0,1fr)] items-stretch gap-5
+    border-t border-ink-800 bg-ink-950 px-5 py-5 max-[760px]:grid-cols-1"
+  aria-labelledby="builder-products-title"
+>
+  <div class="builder-catalog__heading flex min-w-0 flex-col items-start">
+    <span class="font-mono text-[9px] uppercase tracking-[0.13em] text-violet-300">
+      ELIGE TUS COMPONENTES
+    </span>
+    <h2
+      id="builder-products-title"
+      class="mt-1 flex items-center gap-2 text-xl font-extrabold text-ink-100"
+    >
+      PROCESADOR <span class="text-violet-400" aria-hidden="true">›</span>
+    </h2>
+    <p
+      id="builder-products-description"
+      class="mt-2 max-w-56 text-xs leading-relaxed text-ink-400"
+    >
+      Elige los componentes para tu ensamble.
+    </p>
+    <label
+      class="builder-search mt-4 flex min-h-10 w-full items-center gap-2
+        rounded-sm border border-ink-700 bg-ink-900 px-3 text-ink-400
+        focus-within:border-violet-400"
+    >
+      <span aria-hidden="true">⌕</span>
+      <input
+        id="builder-products-search"
+        class="w-full min-w-0 bg-transparent text-xs text-ink-100 outline-none
+          placeholder:text-ink-500"
+        type="search"
+        placeholder="Buscar modelo o marca…"
+        autocomplete="off"
+        aria-label="Buscar productos"
+      />
+    </label>
+    <p
+      id="builder-products-count"
+      class="mt-3 font-mono text-[9px] uppercase tracking-wider text-ink-500"
+      aria-live="polite"
+    >
+      Cargando productos elegibles…
+    </p>
+  </div>
+  <div
+    id="builder-products-results"
+    class="builder-products-results grid min-w-0 grid-flow-col
+      auto-cols-[minmax(250px,1fr)] items-stretch gap-3 overflow-x-auto
+      overscroll-x-contain pb-2 pt-1
+      max-[600px]:auto-cols-[minmax(78vw,1fr)]"
+    aria-live="polite"
+    aria-busy="true"
+  >
+    <div
+      class="w-full min-w-[250px] border border-dashed border-ink-700
+        p-7 text-center font-mono text-[9px] text-ink-400"
+    >
+      CARGANDO CATÁLOGO…
+    </div>
+  </div>
+</section>

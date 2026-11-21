@@ -1,0 +1,134 @@
+<aside
+  class="builder-specs [grid-area:specifications] m-3 flex min-h-[400px]
+    max-h-[calc(100dvh-104px)] min-w-0 flex-col self-start overflow-y-auto
+    rounded-md border border-ink-800 bg-ink-900/90 p-4
+    max-[760px]:min-h-0 max-[760px]:max-h-none max-[760px]:self-stretch"
+  aria-label="Resumen del ensamble"
+>
+  <div class="flex min-h-8 items-center border-b border-ink-800 pb-2">
+    <h2 id="builder-panel-title" class="font-mono text-[10px] font-semibold
+      uppercase tracking-widest text-ink-100">
+      ESPECIFICACIONES
+    </h2>
+  </div>
+  <div class="builder-specs__content flex min-h-0 flex-1 flex-col">
+    <section
+      id="builder-specifications-view"
+      class="builder-panel-view flex flex-1 flex-col"
+      aria-labelledby="builder-panel-title"
+    >
+      <div
+        id="builder-selected-list"
+        class="grid max-h-[min(34vh,280px)] flex-1 gap-0
+          overflow-y-auto overscroll-contain"
+      >
+        <p class="my-3 text-xs leading-relaxed text-ink-400">
+          Selecciona componentes para ver aquí sus especificaciones.
+        </p>
+      </div>
+      <div class="grid grid-cols-[1fr_auto] gap-1 border-t border-ink-800 py-3">
+        <span class="font-mono text-[8px] uppercase tracking-widest text-ink-400">
+          TOTAL ESTIMADO
+        </span>
+        <strong id="builder-total" class="col-start-1 row-start-2
+          font-mono text-base font-bold text-ink-100">
+          $0.00
+        </strong>
+        <small id="builder-component-count" class="col-start-2 row-span-2
+          row-start-1 self-center font-mono text-[8px] text-ink-400">
+          0 COMPONENTES
+        </small>
+      </div>
+    </section>
+    <section
+      id="builder-diagnostics-view"
+      class="builder-panel-view hidden flex-1 flex-col"
+      aria-labelledby="builder-panel-title"
+      hidden
+    >
+      <p class="my-3 text-xs leading-relaxed text-ink-400">
+        Advertencias e incompatibilidades detectadas en los componentes seleccionados.
+      </p>
+      <div
+        id="compatibility-results"
+        class="grid max-h-[min(36vh,300px)] flex-1 gap-2
+          overflow-y-auto overscroll-contain"
+        aria-live="polite"
+      >
+        <p class="my-3 text-xs leading-relaxed text-ink-400">
+          Agrega componentes para ejecutar el diagnóstico.
+        </p>
+      </div>
+    </section>
+    <section
+      class="shrink-0 border-t border-ink-800 py-3"
+      aria-label="Compatibilidad del ensamble"
+    >
+      <div class="flex min-h-7 items-center justify-between gap-3">
+        <span class="font-mono text-[8px] font-semibold tracking-wider text-ink-400">
+          COMPATIBILIDAD DE LA CONFIGURACIÓN
+        </span>
+        <strong id="compatibility-percent" class="whitespace-nowrap font-mono
+          text-xs font-bold text-ink-400">
+          --%
+        </strong>
+      </div>
+      <div
+        id="compatibility-meter"
+        class="mt-2 h-1 overflow-hidden rounded-full bg-ink-800"
+        role="meter"
+        aria-label="Porcentaje de compatibilidad"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+        aria-valuetext="Compatibilidad pendiente"
+      >
+        <span id="compatibility-meter-fill" class="block h-full w-0 rounded-full bg-ok"></span>
+      </div>
+      <p
+        id="compatibility-summary"
+        class="mt-2 line-clamp-2 text-[10px] leading-relaxed text-ink-200"
+        aria-live="polite"
+      >
+        Agrega componentes para evaluar la compatibilidad.
+      </p>
+      <div
+        id="compatibility-counts"
+        class="mt-2 flex flex-wrap gap-x-3 gap-y-1 font-mono text-[9px]"
+        aria-live="polite"
+      ></div>
+      <p
+        id="compatibility-purchase-warning"
+        class="mt-2 rounded-sm border-l-2 border-danger bg-danger/10 p-2
+          text-[10px] leading-relaxed text-danger"
+        role="note"
+        hidden
+      >
+        No compres los componentes marcados como incompatibles: no funcionarán en esta build.
+      </p>
+    </section>
+  </div>
+  <div class="builder-specs__actions grid shrink-0 gap-2 border-t border-ink-800 pt-3">
+    <span id="builder-save-feedback" class="min-h-3 font-mono text-[9px] text-ok"
+      role="status" aria-live="polite"></span>
+    <button
+      id="builder-save"
+      class="btn min-h-9 w-full bg-rose-500 text-[9px] text-white
+        shadow-[0_0_16px_rgba(255,45,149,0.3)]
+        transition-[background-color,box-shadow] hover:bg-rose-400
+        hover:shadow-[0_0_22px_rgba(255,45,149,0.5)]"
+      type="button"
+    >
+      GUARDAR / COMPARTIR
+    </button>
+    <button
+      id="builder-panel-toggle"
+      class="btn-ghost min-h-9 w-full font-mono text-[9px] uppercase tracking-wider"
+      type="button"
+      aria-controls="builder-diagnostics-view"
+      aria-pressed="false"
+    >
+      VER DIAGNÓSTICO
+    </button>
+  </div>
+</aside>

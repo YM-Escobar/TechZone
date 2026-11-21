@@ -1,0 +1,33 @@
+<section class="builder-viewer" aria-label="Espacio reservado para la visualización del ensamble">
+  <span id="builder-viewer-count" class="sr-only">0 COMPONENTES</span>
+  <div class="builder-viewer__canvas" data-builder-viewer-slot aria-hidden="true"></div>
+</section>
+
+<style>
+  .builder-viewer {
+    grid-area: viewer;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    background: transparent;
+  }
+
+  .builder-viewer__canvas {
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    background: transparent;
+  }
+
+  @media (max-width: 1120px) {
+    .builder-viewer__canvas {
+      min-height: 300px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .builder-viewer__canvas {
+      min-height: 0;
+    }
+  }
+</style>
